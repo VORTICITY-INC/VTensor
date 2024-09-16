@@ -505,10 +505,32 @@ document.write(`
 <h1>vt::reduce<a class="headerlink" href="#vt-reduce" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc">
+<span id="_CPPv3I00_6size_t0EN2vt17reduce_along_axisERK6TensorI1U1NEKi10KernelFunc"></span><span id="_CPPv2I00_6size_t0EN2vt17reduce_along_axisERK6TensorI1U1NEKi10KernelFunc"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">U</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">KernelFunc</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a89de21247eb253821db21ea37c6a1a0a"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc" title="vt::reduce_along_axis::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc" title="vt::reduce_along_axis::N"><span class="n"><span class="pre">N</span></span></a><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">reduce_along_axis</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc" title="vt::reduce_along_axis::U"><span class="n"><span class="pre">U</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc" title="vt::reduce_along_axis::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">axis</span></span>, <a class="reference internal" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc" title="vt::reduce_along_axis::KernelFunc"><span class="n"><span class="pre">KernelFunc</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">kernel_func</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc" title="Link to this definition">#</a><br /></dt>
+<dd><p>Reduce the tensor along the given axis. The method swaps the axis to the last dimension, and performs the reduction along the last axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – The data type of the result tensor. </p></li>
+<li><p><strong>U</strong> – The data type of the input tensor. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+<li><p><strong>KernelFunc</strong> – The kernel function to reduce the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor</strong> – The tensor object. </p></li>
+<li><p><strong>axis</strong> – The axis to reduce. </p></li>
+<li><p><strong>kernel_func</strong> – The kernel function to reduce the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>&lt;T, N-1&gt;: The results tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -548,6 +570,18 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00_6size_t0EN2vt17reduce_along_axisE6TensorI1TXmi1NL1EEERK6TensorI1U1NEKi10KernelFunc"><code class="docutils literal notranslate"><span class="pre">reduce_along_axis()</span></code></a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

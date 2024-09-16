@@ -505,10 +505,51 @@ document.write(`
 <h1>Iterator<a class="headerlink" href="#iterator" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt14TensorIteratorE">
+<span id="_CPPv3I0_6size_tEN2vt14TensorIteratorE"></span><span id="_CPPv2I0_6size_tEN2vt14TensorIteratorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Iterator</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1TensorIterator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TensorIterator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">thrust</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">iterator_adaptor</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator"><span class="n"><span class="pre">TensorIterator</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator::Iterator"><span class="n"><span class="pre">Iterator</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator::Iterator"><span class="n"><span class="pre">Iterator</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="Link to this definition">#</a><br /></dt>
+<dd><p><a class="reference internal" href="#classvt_1_1TensorIterator"><span class="std std-ref">TensorIterator</span></a> class to represent an iterator of a tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Iterator</strong> – The raw iterator. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="classvt_1_1TensorIterator_1a7a780493adaf84b3e46420d92638349d"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">TensorIterator</span> <span class="pre">(const</span> <span class="pre">Iterator</span> <span class="pre">&amp;iter,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*shape,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*strides,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">bool</span> <span class="pre">sliced)</span></span></dt>
+<dd><p>Construct a new tensor Iterator object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iter</strong> – The raw iterator from thrust. </p></li>
+<li><p><strong>shape</strong> – The shape of the tensor. </p></li>
+<li><p><strong>strides</strong> – The strides of the tensor. </p></li>
+<li><p><strong>start</strong> – The start index of the tensor. </p></li>
+<li><p><strong>sliced</strong> – The sliced flag of the tensor. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="classvt_1_1TensorIterator_1a2f39f51047d0b2bbda0bdde7435f37fd"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">void</span> <span class="pre">advance</span> <span class="pre">(typename</span> <span class="pre">thrust::iterator_difference&lt;</span> <span class="pre">Iterator</span> <span class="pre">&gt;::type</span> <span class="pre">n)</span></span></dt>
+<dd><p>Advance the iterator by n steps. If the iterator is not sliced, used the default advance method, otherwise calculate the new index based on the strides and shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> – Number of steps. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
+</dd></dl>
+
 </section>
 
 
@@ -548,6 +589,18 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE"><code class="docutils literal notranslate"><span class="pre">TensorIterator</span></code></a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

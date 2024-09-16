@@ -505,14 +505,126 @@ document.write(`
 <h1>Slice<a class="headerlink" href="#slice" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt5SliceE">
+<span id="_CPPv3N2vt5SliceE"></span><span id="_CPPv2N2vt5SliceE"></span><span id="vt::Slice"></span><span class="target" id="classvt_1_1Slice"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Slice</span></span></span><a class="headerlink" href="#_CPPv4N2vt5SliceE" title="Link to this definition">#</a><br /></dt>
+<dd><p><a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> class to represent a slice of a tensor. Usage: Slice(0) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 1 with step 1 Slice(0, 10) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 10 with step 1 Slice(0, 10, 2) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 10 with step 2. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt5Slice5SliceE6size_t">
+<span id="_CPPv3N2vt5Slice5SliceE6size_t"></span><span id="_CPPv2N2vt5Slice5SliceE6size_t"></span><span id="vt::Slice::Slice__s"></span><span class="target" id="classvt_1_1Slice_1a6f429d9c84dbb7d32286e8cd72bc4073"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Slice</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt5Slice5SliceE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>start</strong> – The start index of the slice. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt5Slice5SliceE6size_t6size_t">
+<span id="_CPPv3N2vt5Slice5SliceE6size_t6size_t"></span><span id="_CPPv2N2vt5Slice5SliceE6size_t6size_t"></span><span id="vt::Slice::Slice__s.s"></span><span class="target" id="classvt_1_1Slice_1a20d0360b76d527895df6aff94ebf6da2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Slice</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">end</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt5Slice5SliceE6size_t6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> – The start index of the slice. </p></li>
+<li><p><strong>end</strong> – The end index of the slice. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt5Slice5SliceE6size_t6size_t6size_t">
+<span id="_CPPv3N2vt5Slice5SliceE6size_t6size_t6size_t"></span><span id="_CPPv2N2vt5Slice5SliceE6size_t6size_t6size_t"></span><span id="vt::Slice::Slice__s.s.s"></span><span class="target" id="classvt_1_1Slice_1a8df8e70412de7e55f19d69ba41919968"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Slice</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">end</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt5Slice5SliceE6size_t6size_t6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> – The start index of the slice. </p></li>
+<li><p><strong>end</strong> – The end index of the slice. </p></li>
+<li><p><strong>step</strong> – The step of the slice. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt16TensorSliceProxyE">
+<span id="_CPPv3I0_6size_tEN2vt16TensorSliceProxyE"></span><span id="_CPPv2I0_6size_tEN2vt16TensorSliceProxyE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1TensorSliceProxy"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TensorSliceProxy</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="Link to this definition">#</a><br /></dt>
+<dd><p><a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> to perform a copy assignment operation for a sliced tensor. </p>
+<p>It helps to distingush between the <a class="reference internal" href="tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a> copy assignment operator with <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> copy assignment operator. tensor1 = tensor2; -&gt; <a class="reference internal" href="tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a> copy assignment operator, the content in tensor1 will be overwritten by tensor2. tensor1(Slice(0, 2)) = tensor2; -&gt; <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> copy assignment operator, the content in tensor1 would not be overwritten by tensor2. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Data type of the tensor. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt16TensorSliceProxy16TensorSliceProxyERK6TensorI1T1NE">
+<span id="_CPPv3N2vt16TensorSliceProxy16TensorSliceProxyERK6TensorI1T1NE"></span><span id="_CPPv2N2vt16TensorSliceProxy16TensorSliceProxyERK6TensorI1T1NE"></span><span id="vt::TensorSliceProxy::TensorSliceProxy__Tensor:T.N:CR"></span><span class="target" id="classvt_1_1TensorSliceProxy_1a904d272ecc8e43d484555b74fabeaa5a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TensorSliceProxy</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt16TensorSliceProxy16TensorSliceProxyERK6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tensor</strong> – The sliced tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt16TensorSliceProxyaSERK6TensorI1T1NE">
+<span id="_CPPv3N2vt16TensorSliceProxyaSERK6TensorI1T1NE"></span><span id="_CPPv2N2vt16TensorSliceProxyaSERK6TensorI1T1NE"></span><span id="vt::TensorSliceProxy::assign-operator__Tensor:T.N:CR"></span><span class="target" id="classvt_1_1TensorSliceProxy_1a9b5252faba2aca30f331d904742ec51d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt16TensorSliceProxyaSERK6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Copy assignment operator for <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> from other <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> to be copied. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt16TensorSliceProxyaSERK16TensorSliceProxyI1T1NE">
+<span id="_CPPv3N2vt16TensorSliceProxyaSERK16TensorSliceProxyI1T1NE"></span><span id="_CPPv2N2vt16TensorSliceProxyaSERK16TensorSliceProxyI1T1NE"></span><span id="vt::TensorSliceProxy::assign-operator__TensorSliceProxy:T.N:CR"></span><span class="target" id="classvt_1_1TensorSliceProxy_1a1ef77b5a4a747654f4b9ed7026bf84b6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt16TensorSliceProxyaSERK16TensorSliceProxyI1T1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Copy assignment operator for <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> from other <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> to be copied. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt16TensorSliceProxyaSEK1T">
+<span id="_CPPv3N2vt16TensorSliceProxyaSEK1T"></span><span id="_CPPv2N2vt16TensorSliceProxyaSEK1T"></span><span id="vt::TensorSliceProxy::assign-operator__TC"></span><span class="target" id="classvt_1_1TensorSliceProxy_1a2252a4d206422178078ead93b72538f3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt16TensorSliceProxyaSEK1T" title="Link to this definition">#</a><br /></dt>
+<dd><p>Copy assignment operator for <a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a> from a constant. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The value to be copied. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
+</dd></dl>
+
 </section>
 
 
@@ -552,6 +664,30 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5SliceE"><code class="docutils literal notranslate"><span class="pre">Slice</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE6size_t"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE6size_t6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE"><code class="docutils literal notranslate"><span class="pre">TensorSliceProxy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt16TensorSliceProxy16TensorSliceProxyERK6TensorI1T1NE"><code class="docutils literal notranslate"><span class="pre">TensorSliceProxy::TensorSliceProxy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt16TensorSliceProxyaSERK6TensorI1T1NE"><code class="docutils literal notranslate"><span class="pre">TensorSliceProxy::operator=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt16TensorSliceProxyaSERK16TensorSliceProxyI1T1NE"><code class="docutils literal notranslate"><span class="pre">TensorSliceProxy::operator=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt16TensorSliceProxyaSEK1T"><code class="docutils literal notranslate"><span class="pre">TensorSliceProxy::operator=()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

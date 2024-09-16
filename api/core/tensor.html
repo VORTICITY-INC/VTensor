@@ -505,22 +505,383 @@ document.write(`
 <h1>Tensor<a class="headerlink" href="#tensor" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygentypedef: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4I_6size_tEN2vt5ShapeE">
+<span id="_CPPv3I_6size_tEN2vt5ShapeE"></span><span id="_CPPv2I_6size_tEN2vt5ShapeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a2dcc685f188a21468bb9b1c0dfa86762"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Shape</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I_6size_tEN2vt8get_sizeE6size_tRK5ShapeI1NE">
+<span id="_CPPv3I_6size_tEN2vt8get_sizeERK5ShapeI1NE"></span><span id="_CPPv2I_6size_tEN2vt8get_sizeERK5ShapeI1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a7dc07a02e4d619076e33dad1d9a247fa"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">get_size</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt8get_sizeE6size_tRK5ShapeI1NE" title="vt::get_size::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_6size_tEN2vt8get_sizeE6size_tRK5ShapeI1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Helper function to calculate the size of a tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> – Shape of the tensor. </p>
+</dd>
+<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>N</strong> – Number of dimensions of the tensor. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size: Size of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I_6size_tEN2vt11get_stridesE5ShapeI1NERK5ShapeI1NE">
+<span id="_CPPv3I_6size_tEN2vt11get_stridesERK5ShapeI1NE"></span><span id="_CPPv2I_6size_tEN2vt11get_stridesERK5ShapeI1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1ae3746bed3a8cb03f286a1add5b4fbc39"></span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt11get_stridesE5ShapeI1NERK5ShapeI1NE" title="vt::get_strides::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">get_strides</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt11get_stridesE5ShapeI1NERK5ShapeI1NE" title="vt::get_strides::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_6size_tEN2vt11get_stridesE5ShapeI1NERK5ShapeI1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Helper function to calculate the strides of a tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> – Shape of the tensor. </p>
+</dd>
+<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>N</strong> – Number of dimensions of the tensor. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>strides: Strides of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt6TensorE">
+<span id="_CPPv3I0_6size_tEN2vt6TensorE"></span><span id="_CPPv2I0_6size_tEN2vt6TensorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1Tensor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Forward declaration of the <a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a> class. </p>
+<p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a> class. It is used to represent a tensor from thrust device vector. The concept of the tesnor is similar to the numpy array in Python. It stored a shared pointer to the data, and shape, strides, start index of the tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Data type of the tensor. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
+</dd>
+</dl>
+<p>Subclassed by <a class="reference internal" href="slice.html#classvt_1_1TensorSliceProxy"><span class="std std-ref">vt::TensorSliceProxy&lt; T, N &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6Tensor6TensorERK5ShapeI1NE">
+<span id="_CPPv3N2vt6Tensor6TensorERK5ShapeI1NE"></span><span id="_CPPv2N2vt6Tensor6TensorERK5ShapeI1NE"></span><span id="vt::Tensor::Tensor__Shape:N:CR"></span><span class="target" id="classvt_1_1Tensor_1ac98e9db342ca6eba11febe8682253916"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6Tensor6TensorERK5ShapeI1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new tensor object from a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shape</strong> – Shape of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NE">
+<span id="_CPPv3N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NE"></span><span id="_CPPv2N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NE"></span><span id="vt::Tensor::Tensor__std::shared_ptr:vector_type:CR.Shape:N:CR"></span><span class="target" id="classvt_1_1Tensor_1a3f019fa8dcde820d206d6fcd1228e14d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">vector_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new tensor object from a shared vector and a shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – A shared vector </p></li>
+<li><p><strong>shape</strong> – Shape of the tensor. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NERK5ShapeI1NE6size_tb">
+<span id="_CPPv3N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NERK5ShapeI1NE6size_tb"></span><span id="_CPPv2N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NERK5ShapeI1NE6size_tb"></span><span id="vt::Tensor::Tensor__std::shared_ptr:vector_type:CR.Shape:N:CR.Shape:N:CR.s.b"></span><span class="target" id="classvt_1_1Tensor_1a034d597a8e8961781004f6a55b0eea5a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">vector_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">strides</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sliced</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NERK5ShapeI1NE6size_tb" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new tensor object from a shared vector and a shape, strides, start index. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – A shared vector </p></li>
+<li><p><strong>shape</strong> – Shape of the tensor. </p></li>
+<li><p><strong>strides</strong> – Strides of the tensor. </p></li>
+<li><p><strong>start</strong> – Start index of the tensor. </p></li>
+<li><p><strong>sliced</strong> – Sliced flag of the tensor. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IDpENK2vt6Tensor7reshapeE6TensorI1TXsZ4ArgsEEDp4Args">
+<span id="_CPPv3IDpENK2vt6Tensor7reshapeEDp4Args"></span><span id="_CPPv2IDpENK2vt6Tensor7reshapeEDp4Args"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Args</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1Tensor_1aa245eef5de9063c22e81b1f734e741b6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">sizeof</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4IDpENK2vt6Tensor7reshapeE6TensorI1TXsZ4ArgsEEDp4Args" title="vt::Tensor::reshape::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reshape</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4IDpENK2vt6Tensor7reshapeE6TensorI1TXsZ4ArgsEEDp4Args" title="vt::Tensor::reshape::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4IDpENK2vt6Tensor7reshapeE6TensorI1TXsZ4ArgsEEDp4Args" title="Link to this definition">#</a><br /></dt>
+<dd><p>Reshape the array to a new shape. If the tensor has been sliced, the method will copy the tensor and reshape the new tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Args</strong> – Variadic template for mulitple arguments. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>args</strong> – New shape for the tensor. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The reshaped tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6TensorixE6size_t">
+<span id="_CPPv3NK2vt6TensorixE6size_t"></span><span id="_CPPv2NK2vt6TensorixE6size_t"></span><span id="vt::Tensor::subscript-operator__sC"></span><span class="target" id="classvt_1_1Tensor_1ad72d408da2b4b7d442654e6cfc1090b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6TensorixE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for indexing the tensor along the last axis (row-major order). Notice that the method doesn’t gauranttee the contiguity of the tensor. If the tensor has been transposed, the return slice would not be contiguous. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – The index of the tensor. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The sliced tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IDpEN2vt6TensorclE16TensorSliceProxyI1T1NEDp4Args">
+<span id="_CPPv3IDpEN2vt6TensorclEDp4Args"></span><span id="_CPPv2IDpEN2vt6TensorclEDp4Args"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Args</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1Tensor_1aeef5ce186e7129e8067b29ab13a4a461"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="slice.html#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4IDpEN2vt6TensorclE16TensorSliceProxyI1T1NEDp4Args" title="vt::Tensor::operator()::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDpEN2vt6TensorclE16TensorSliceProxyI1T1NEDp4Args" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for slicing the tensor. It could receive multiple slices through explicit <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>args</strong> – Slices to be applied to the tensor. </p>
+</dd>
+<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Args</strong> – Variadic template for mulitple arguments. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="slice.html#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6TensorclE5Slice">
+<span id="_CPPv3N2vt6TensorclE5Slice"></span><span id="_CPPv2N2vt6TensorclE5Slice"></span><span id="vt::Tensor::call-operator__Slice"></span><span class="target" id="classvt_1_1Tensor_1a777c7aec7d1c1beaaf7eb746db04d6ee"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="slice.html#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6TensorclE5Slice" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for slicing the tensor. It supports one <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> implicit conversion for tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slice</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="slice.html#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6TensorclE5Slice5Slice">
+<span id="_CPPv3N2vt6TensorclE5Slice5Slice"></span><span id="_CPPv2N2vt6TensorclE5Slice5Slice"></span><span id="vt::Tensor::call-operator__Slice.Slice"></span><span class="target" id="classvt_1_1Tensor_1a9e164a91085bc68253841f5f345668ee"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="slice.html#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s1</span></span>, <a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6TensorclE5Slice5Slice" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for slicing the tensor. It supports two <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> implicit conversion for tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slice1</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
+<li><p><strong>slice2</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="slice.html#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6TensorclE5Slice5Slice5Slice">
+<span id="_CPPv3N2vt6TensorclE5Slice5Slice5Slice"></span><span id="_CPPv2N2vt6TensorclE5Slice5Slice5Slice"></span><span id="vt::Tensor::call-operator__Slice.Slice.Slice"></span><span class="target" id="classvt_1_1Tensor_1a8282c77bafbc39ef65c1e15f373c2cb3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="slice.html#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s1</span></span>, <a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s2</span></span>, <a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s3</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6TensorclE5Slice5Slice5Slice" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for slicing the tensor. It supports three <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> implicit conversion for tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slice1</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
+<li><p><strong>slice2</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
+<li><p><strong>slice3</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="slice.html#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6TensorpLEK1T">
+<span id="_CPPv3NK2vt6TensorpLEK1T"></span><span id="_CPPv2NK2vt6TensorpLEK1T"></span><span id="vt::Tensor::add-assign-operator__TCC"></span><span class="target" id="classvt_1_1Tensor_1a33e7eb81369fd4e79cbe933b51141f4e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6TensorpLEK1T" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for in-place addition of a vector and a scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – The scalar value to be added. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The left-hand side tensor object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6TensormIEK1T">
+<span id="_CPPv3NK2vt6TensormIEK1T"></span><span id="_CPPv2NK2vt6TensormIEK1T"></span><span id="vt::Tensor::sub-assign-operator__TCC"></span><span class="target" id="classvt_1_1Tensor_1ac0ce96746037225dc86f0d79fa478dc5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6TensormIEK1T" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for in-place minus of a vector and a scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – The scalar value to be minus. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The left-hand side tensor object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6TensorpLERK6Tensor">
+<span id="_CPPv3NK2vt6TensorpLERK6Tensor"></span><span id="_CPPv2NK2vt6TensorpLERK6Tensor"></span><span id="vt::Tensor::add-assign-operator__TensorCRC"></span><span class="target" id="classvt_1_1Tensor_1a46d7b08cae0876ae4472b20366504958"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6TensorpLERK6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for in-place addition of two vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other tensor to be added. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The left-hand side tensor object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6TensormIERK6Tensor">
+<span id="_CPPv3NK2vt6TensormIERK6Tensor"></span><span id="_CPPv2NK2vt6TensormIERK6Tensor"></span><span id="vt::Tensor::sub-assign-operator__TensorCRC"></span><span class="target" id="classvt_1_1Tensor_1a62896973a047aaff340631ff2465f76e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6TensormIERK6Tensor" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for in-place minus of two vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other tensor to be minus. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The left-hand side tensor object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor5beginEv">
+<span id="_CPPv3NK2vt6Tensor5beginEv"></span><span id="_CPPv2NK2vt6Tensor5beginEv"></span><span id="vt::Tensor::beginC"></span><span class="target" id="classvt_1_1Tensor_1a90444af2b725095bec2750e7ec2fe7ed"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="iterator.html#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator"><span class="n"><span class="pre">TensorIterator</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">vector_type</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">iterator</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">begin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor5beginEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the begin iterator for the <a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="iterator.html#classvt_1_1TensorIterator"><span class="std std-ref">TensorIterator</span></a>: The iterator points to the 1st index of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor3endEv">
+<span id="_CPPv3NK2vt6Tensor3endEv"></span><span id="_CPPv2NK2vt6Tensor3endEv"></span><span id="vt::Tensor::endC"></span><span class="target" id="classvt_1_1Tensor_1aa4e3a0918b3d68be3c66ce039a4bab06"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="iterator.html#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator"><span class="n"><span class="pre">TensorIterator</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">vector_type</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">iterator</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">end</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor3endEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the end iterator for the <a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="iterator.html#classvt_1_1TensorIterator"><span class="std std-ref">TensorIterator</span></a>: The iterator points to the last index of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE">
+<span id="_CPPv3N2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE"></span><span id="_CPPv2N2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE"></span><span id="vt::Tensor::apply_slices__std::array:Slice.N:CR"></span><span class="target" id="classvt_1_1Tensor_1aaff54ecb0a29caa0b57006dfb681ab65"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">apply_slices</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">slices</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Apply slices the tensor and return the new tensor object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slices</strong> – The slices to be applied to the tensor. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The new tensor object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6Tensor7raw_ptrEv">
+<span id="_CPPv3N2vt6Tensor7raw_ptrEv"></span><span id="_CPPv2N2vt6Tensor7raw_ptrEv"></span><span id="vt::Tensor::raw_ptr"></span><span class="target" id="classvt_1_1Tensor_1a3783e5147aa93b1e440c21210e4c4bce"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">raw_ptr</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6Tensor7raw_ptrEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the raw pointer of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T*: The raw pointer of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor6slicedEv">
+<span id="_CPPv3NK2vt6Tensor6slicedEv"></span><span id="_CPPv2NK2vt6Tensor6slicedEv"></span><span id="vt::Tensor::slicedC"></span><span class="target" id="classvt_1_1Tensor_1ad13e1a643fa912b14089952a4901cbd5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sliced</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor6slicedEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the sliced flag of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool: The sliced flag of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor4sizeEv">
+<span id="_CPPv3NK2vt6Tensor4sizeEv"></span><span id="_CPPv2NK2vt6Tensor4sizeEv"></span><span id="vt::Tensor::sizeC"></span><span class="target" id="classvt_1_1Tensor_1adc68dc33e224da889f75847a44c5f358"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor4sizeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the size of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size_t: The size of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor5startEv">
+<span id="_CPPv3NK2vt6Tensor5startEv"></span><span id="_CPPv2NK2vt6Tensor5startEv"></span><span id="vt::Tensor::startC"></span><span class="target" id="classvt_1_1Tensor_1aca7bfed79312067fd3f4d4593922edf9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor5startEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the start index of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size_t: The start index of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor5shapeEv">
+<span id="_CPPv3NK2vt6Tensor5shapeEv"></span><span id="_CPPv2NK2vt6Tensor5shapeEv"></span><span id="vt::Tensor::shapeC"></span><span class="target" id="classvt_1_1Tensor_1a0c734529668693c8648d8867badb4646"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">shape</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor5shapeEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the shape of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Shape: The shape of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor7stridesEv">
+<span id="_CPPv3NK2vt6Tensor7stridesEv"></span><span id="_CPPv2NK2vt6Tensor7stridesEv"></span><span id="vt::Tensor::stridesC"></span><span class="target" id="classvt_1_1Tensor_1aac262b0e39a1cde12b6a86ec1ff1f511"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">strides</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor7stridesEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the strides of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Shape: The strides of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt6Tensor4dataEv">
+<span id="_CPPv3NK2vt6Tensor4dataEv"></span><span id="_CPPv2NK2vt6Tensor4dataEv"></span><span id="vt::Tensor::dataC"></span><span class="target" id="classvt_1_1Tensor_1abeddd53fff106fedbd56677ffc7e83eb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">vector_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt6Tensor4dataEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the shared pointer of the data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>std::shared_ptr&lt;vector_type&gt;: The shared pointer of the data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6Tensor11set_stridesE5ShapeI1NE">
+<span id="_CPPv3N2vt6Tensor11set_stridesE5ShapeI1NE"></span><span id="_CPPv2N2vt6Tensor11set_stridesE5ShapeI1NE"></span><span id="vt::Tensor::set_strides__Shape:N:"></span><span class="target" id="classvt_1_1Tensor_1ab2d1a55985f08da76fae0b49ab6c3915"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_strides</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">strides</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6Tensor11set_stridesE5ShapeI1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Set the strides of the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>strides</strong> – The strides of the tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
+</dd></dl>
+
 </section>
 
 
@@ -560,6 +921,47 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tEN2vt5ShapeE"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tEN2vt8get_sizeE6size_tRK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">get_size()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tEN2vt11get_stridesE5ShapeI1NERK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">get_strides()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt6TensorE"><code class="docutils literal notranslate"><span class="pre">Tensor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor6TensorERK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">Tensor::Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">Tensor::Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NERK5ShapeI1NE6size_tb"><code class="docutils literal notranslate"><span class="pre">Tensor::Tensor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4IDpENK2vt6Tensor7reshapeE6TensorI1TXsZ4ArgsEEDp4Args"><code class="docutils literal notranslate"><span class="pre">Tensor::reshape()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensorixE6size_t"><code class="docutils literal notranslate"><span class="pre">Tensor::operator[]()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4IDpEN2vt6TensorclE16TensorSliceProxyI1T1NEDp4Args"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclE5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclE5Slice5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclE5Slice5Slice5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensorpLEK1T"><code class="docutils literal notranslate"><span class="pre">Tensor::operator+=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensormIEK1T"><code class="docutils literal notranslate"><span class="pre">Tensor::operator-=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensorpLERK6Tensor"><code class="docutils literal notranslate"><span class="pre">Tensor::operator+=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensormIERK6Tensor"><code class="docutils literal notranslate"><span class="pre">Tensor::operator-=()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor5beginEv"><code class="docutils literal notranslate"><span class="pre">Tensor::begin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor3endEv"><code class="docutils literal notranslate"><span class="pre">Tensor::end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE"><code class="docutils literal notranslate"><span class="pre">Tensor::apply_slices()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor7raw_ptrEv"><code class="docutils literal notranslate"><span class="pre">Tensor::raw_ptr()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor6slicedEv"><code class="docutils literal notranslate"><span class="pre">Tensor::sliced()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor4sizeEv"><code class="docutils literal notranslate"><span class="pre">Tensor::size()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor5startEv"><code class="docutils literal notranslate"><span class="pre">Tensor::start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor5shapeEv"><code class="docutils literal notranslate"><span class="pre">Tensor::shape()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor7stridesEv"><code class="docutils literal notranslate"><span class="pre">Tensor::strides()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6Tensor4dataEv"><code class="docutils literal notranslate"><span class="pre">Tensor::data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor11set_stridesE5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">Tensor::set_strides()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

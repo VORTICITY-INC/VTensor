@@ -505,18 +505,70 @@ document.write(`
 <h1>vt::rand<a class="headerlink" href="#vt-rand" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt6random4randE6TensorI1T1NE5ShapeI1NE17curandGenerator_t">
+<span id="_CPPv3I0_6size_tEN2vt6random4randE5ShapeI1NE17curandGenerator_t"></span><span id="_CPPv2I0_6size_tEN2vt6random4randE5ShapeI1NE17curandGenerator_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1_1random_1ad50cab6f01810b3c4d749a5db63dcd22"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6random4randE6TensorI1T1NE5ShapeI1NE17curandGenerator_t" title="vt::random::rand::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6random4randE6TensorI1T1NE5ShapeI1NE17curandGenerator_t" title="vt::random::rand::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">rand</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6random4randE6TensorI1T1NE5ShapeI1NE17curandGenerator_t" title="vt::random::rand::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">shape</span></span>, <span class="n"><span class="pre">curandGenerator_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gen</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="curand.html#_CPPv4N2vt4cuda6curandE" title="vt::cuda::curand"><span class="n"><span class="pre">curand</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt6random4randE6TensorI1T1NE5ShapeI1NE17curandGenerator_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generate a tensor of random numbers from a uniform distribution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Data type of the tensor. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>shape</strong> – Shape of the tensor. </p></li>
+<li><p><strong>gen</strong> – The CuRand generator. The default is the global CuRand generator. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tensor&lt;T, N&gt;: The tensor of random numbers. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt6random4randE6TensorI1TXL1EEE6size_t17curandGenerator_t">
+<span id="_CPPv3I0EN2vt6random4randE6size_t17curandGenerator_t"></span><span id="_CPPv2I0EN2vt6random4randE6size_t17curandGenerator_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1_1random_1a33e0e7b7c5dfaeaaa02fd0842f5f1eb1"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6random4randE6TensorI1TXL1EEE6size_t17curandGenerator_t" title="vt::random::rand::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">rand</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m</span></span>, <span class="n"><span class="pre">curandGenerator_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gen</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="curand.html#_CPPv4N2vt4cuda6curandE" title="vt::cuda::curand"><span class="n"><span class="pre">curand</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt6random4randE6TensorI1TXL1EEE6size_t17curandGenerator_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generate a 1D tensor of random numbers from a uniform distribution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensor. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>m</strong> – Size of the tensor. </p></li>
+<li><p><strong>gen</strong> – The CuRand generator. The default is the global CuRand generator. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tensor&lt;T, 1&gt;: The tensor of random numbers. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt6random4randE6TensorI1TXL2EEE6size_t6size_t17curandGenerator_t">
+<span id="_CPPv3I0EN2vt6random4randE6size_t6size_t17curandGenerator_t"></span><span id="_CPPv2I0EN2vt6random4randE6size_t6size_t17curandGenerator_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1_1random_1a56a897f07e5e28c347ff61e76c7bf823"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6random4randE6TensorI1TXL2EEE6size_t6size_t17curandGenerator_t" title="vt::random::rand::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">rand</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="n"><span class="pre">curandGenerator_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gen</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="curand.html#_CPPv4N2vt4cuda6curandE" title="vt::cuda::curand"><span class="n"><span class="pre">curand</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt6random4randE6TensorI1TXL2EEE6size_t6size_t17curandGenerator_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Generate a 2D tensor of random numbers from a uniform distribution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensor. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>m</strong> – Number of rows of the tensor. </p></li>
+<li><p><strong>n</strong> – Number of columns of the tensor. </p></li>
+<li><p><strong>gen</strong> – The CuRand generator. The default is the global CuRand generator. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tensor&lt;T, 2&gt;: The tensor of random numbers. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -556,6 +608,20 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt6random4randE6TensorI1T1NE5ShapeI1NE17curandGenerator_t"><code class="docutils literal notranslate"><span class="pre">rand()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt6random4randE6TensorI1TXL1EEE6size_t17curandGenerator_t"><code class="docutils literal notranslate"><span class="pre">rand()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt6random4randE6TensorI1TXL2EEE6size_t6size_t17curandGenerator_t"><code class="docutils literal notranslate"><span class="pre">rand()</span></code></a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

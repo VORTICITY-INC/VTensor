@@ -505,34 +505,100 @@ document.write(`
 <h1>CuBLAS<a class="headerlink" href="#cublas" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt4cuda19check_cublas_statusE14cublasStatus_tRKNSt6stringE">
+<span id="_CPPv3N2vt4cuda19check_cublas_statusE14cublasStatus_tRKNSt6stringE"></span><span id="_CPPv2N2vt4cuda19check_cublas_statusE14cublasStatus_tRKNSt6stringE"></span><span id="vt::cuda::check_cublas_status__cublasStatus_t.ssCR"></span><span class="target" id="namespacevt_1_1cuda_1a304c73c1f0052560f03c94a882866c61"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">check_cublas_status</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cublasStatus_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">status</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt4cuda19check_cublas_statusE14cublasStatus_tRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dd><p>check the status of the CUBLAS library. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – The status of the CUBLAS library. </p></li>
+<li><p><strong>message</strong> – The message to be displayed if the status is not CUBLAS_STATUS_SUCCESS. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – If the status is not CUBLAS_STATUS_SUCCESS. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt4cuda19CuBLASHandleDeleterE">
+<span id="_CPPv3N2vt4cuda19CuBLASHandleDeleterE"></span><span id="_CPPv2N2vt4cuda19CuBLASHandleDeleterE"></span><span id="vt::cuda::CuBLASHandleDeleter"></span><span class="target" id="structvt_1_1cuda_1_1CuBLASHandleDeleter"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CuBLASHandleDeleter</span></span></span><a class="headerlink" href="#_CPPv4N2vt4cuda19CuBLASHandleDeleterE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Deleter for the <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> handle. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt4cuda20create_cublas_handleEv">
+<span id="_CPPv3N2vt4cuda20create_cublas_handleEv"></span><span id="_CPPv2N2vt4cuda20create_cublas_handleEv"></span><span id="vt::cuda::create_cublas_handle"></span><span class="target" id="namespacevt_1_1cuda_1a716d8a147eb40a3cf7cd755cd765a085"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">CuBLASHandleT</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">create_cublas_handle</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt4cuda20create_cublas_handleEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Create a <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> unique pointer handle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CuBLASHandleT: The <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> unique pointer handle. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt4cuda6CuBLASE">
+<span id="_CPPv3N2vt4cuda6CuBLASE"></span><span id="_CPPv2N2vt4cuda6CuBLASE"></span><span id="vt::cuda::CuBLAS"></span><span class="target" id="classvt_1_1cuda_1_1CuBLAS"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CuBLAS</span></span></span><a class="headerlink" href="#_CPPv4N2vt4cuda6CuBLASE" title="Link to this definition">#</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2vt4cuda6CuBLAS10get_handleEv">
+<span id="_CPPv3NK2vt4cuda6CuBLAS10get_handleEv"></span><span id="_CPPv2NK2vt4cuda6CuBLAS10get_handleEv"></span><span id="vt::cuda::CuBLAS::get_handleC"></span><span class="target" id="classvt_1_1cuda_1_1CuBLAS_1a73dedb3ccf6fbbae74049f00b3636ad9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">cublasHandle_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_handle</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2vt4cuda6CuBLAS10get_handleEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> handle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cublasHandle_t: The <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> handle. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenstruct: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt4cuda6CuBLAS12get_instanceEv">
+<span id="_CPPv3N2vt4cuda6CuBLAS12get_instanceEv"></span><span id="_CPPv2N2vt4cuda6CuBLAS12get_instanceEv"></span><span id="vt::cuda::CuBLAS::get_instance"></span><span class="target" id="classvt_1_1cuda_1_1CuBLAS_1a1d6842eadb479f288d1c62557d028458"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2vt4cuda6CuBLASE" title="vt::cuda::CuBLAS"><span class="n"><span class="pre">CuBLAS</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_instance</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt4cuda6CuBLAS12get_instanceEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Get the Instance object. It returns the singleton instance of the <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> handle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a>&amp; </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenvariable: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenstruct: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenstruct: Cannot find file: /home/runner/work/VTensor/VTensor/docs/build/xml/index.xml</p>
-</div>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt4cuda6cublasE">
+<span id="_CPPv3N2vt4cuda6cublasE"></span><span id="_CPPv2N2vt4cuda6cublasE"></span><span id="vt::cuda::cublas__CuBLASR"></span><span class="target" id="namespacevt_1_1cuda_1a989e0b5994dd06d85f8401102dbeecb6"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2vt4cuda6CuBLASE" title="vt::cuda::CuBLAS"><span class="n"><span class="pre">CuBLAS</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">cublas</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2vt4cuda6CuBLASE" title="vt::cuda::CuBLAS"><span class="n"><span class="pre">CuBLAS</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N2vt4cuda6CuBLAS12get_instanceEv" title="vt::cuda::CuBLAS::get_instance"><span class="n"><span class="pre">get_instance</span></span></a><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N2vt4cuda6cublasE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt4cuda14CuBLASFuncTypeE">
+<span id="_CPPv3I0EN2vt4cuda14CuBLASFuncTypeE"></span><span id="_CPPv2I0EN2vt4cuda14CuBLASFuncTypeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structvt_1_1cuda_1_1CuBLASFuncType"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CuBLASFuncType</span></span></span><a class="headerlink" href="#_CPPv4I0EN2vt4cuda14CuBLASFuncTypeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The type of the <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> functions. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The data type of the <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> functions. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt4cuda10CuBLASFuncE">
+<span id="_CPPv3I0EN2vt4cuda10CuBLASFuncE"></span><span id="_CPPv2I0EN2vt4cuda10CuBLASFuncE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structvt_1_1cuda_1_1CuBLASFunc"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CuBLASFunc</span></span></span><a class="headerlink" href="#_CPPv4I0EN2vt4cuda10CuBLASFuncE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> functions for different data types. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The data type of the <a class="reference internal" href="#classvt_1_1cuda_1_1CuBLAS"><span class="std std-ref">CuBLAS</span></a> functions. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -572,6 +638,28 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt4cuda19check_cublas_statusE14cublasStatus_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">check_cublas_status()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt4cuda19CuBLASHandleDeleterE"><code class="docutils literal notranslate"><span class="pre">CuBLASHandleDeleter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt4cuda20create_cublas_handleEv"><code class="docutils literal notranslate"><span class="pre">create_cublas_handle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt4cuda6CuBLASE"><code class="docutils literal notranslate"><span class="pre">CuBLAS</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt4cuda6CuBLAS10get_handleEv"><code class="docutils literal notranslate"><span class="pre">CuBLAS::get_handle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt4cuda6CuBLAS12get_instanceEv"><code class="docutils literal notranslate"><span class="pre">CuBLAS::get_instance()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt4cuda6cublasE"><code class="docutils literal notranslate"><span class="pre">cublas</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt4cuda14CuBLASFuncTypeE"><code class="docutils literal notranslate"><span class="pre">CuBLASFuncType</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt4cuda10CuBLASFuncE"><code class="docutils literal notranslate"><span class="pre">CuBLASFunc</span></code></a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 
