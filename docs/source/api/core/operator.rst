@@ -1,0 +1,36 @@
+Operator
+=======================
+
+.. toctree::
+   :maxdepth: 1
+
+.. doxygenfunction:: vt::operator+(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator+(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator+(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator-(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator-(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator-(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator*(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator*(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator*(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator/(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator/(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator/(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator>(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator>(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator>(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator<(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator<(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator<(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator>=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator>=(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator>=(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator<=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator<=(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator<=(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator==(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator==(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator==(const T value, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator!=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs)
+.. doxygenfunction:: vt::operator!=(const Tensor<T, N>& lhs, const T value)
+.. doxygenfunction:: vt::operator!=(const T value, const Tensor<T, N>& rhs)

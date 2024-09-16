@@ -13,7 +13,7 @@ CuTensor, a device class, integrates seamlessly with VTensor for GPU kernel. It 
 .. code-block:: cpp
 
     #include <iostream>
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
 
     __global__ void kernel1(vt::CuTensor<float, 2> tensor) {
         int col = threadIdx.x;
@@ -45,7 +45,7 @@ Users could still use the raw pointer to access the tensor's data within a kerne
 .. code-block:: cpp
 
     #include <iostream>
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
 
   
     __global__ void kernel(float* tensor) { 

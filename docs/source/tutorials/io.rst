@@ -8,7 +8,7 @@ From host to device
 
 .. code-block:: cpp
 
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
 
     int main() {
         std::vector<float> vector{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
@@ -22,7 +22,7 @@ From device to host
 
 .. code-block:: cpp
 
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
 
     int main() {
         auto tensor = vt::arange(12);
@@ -37,7 +37,7 @@ VTensor employs `cnpy <https://github.com/rogersce/cnpy>`_ for disk-based save a
 
 .. code-block:: cpp
 
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
 
     int main() {
         auto tensor = vt::arange(12);

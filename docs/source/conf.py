@@ -8,10 +8,12 @@
 import pathlib
 import sys
 import warnings
+from sphinx.deprecation import RemovedInSphinx90Warning
 
 sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
+warnings.filterwarnings("ignore", category=RemovedInSphinx90Warning)
 project = 'VTensor'
-copyright = '2024, Sheng-Yang Tsui'
+copyright = '2024, Vorticity Inc'
 author = 'Sheng-Yang Tsui'
 release = 'v1.0.0'
 
@@ -19,7 +21,9 @@ release = 'v1.0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc',
+extensions = [
+            'breathe',
+            'sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
               'sphinx.ext.doctest',
               'sphinx.ext.extlinks',
@@ -27,6 +31,14 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.mathjax',
               'sphinx.ext.napoleon',
               'sphinx_copybutton']
+
+breathe_projects = {
+    "vtensor": "../build/xml"
+}
+
+breathe_default_project = "vtensor"
+
+
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -38,4 +50,4 @@ pygments_style = 'sphinx'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'pydata_sphinx_theme'
-html_static_path = ['_static']
+html_logo = '../image/logo_black.png'

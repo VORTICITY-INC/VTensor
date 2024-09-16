@@ -1,0 +1,10 @@
+cc_library(
+    name = "rmm",
+    hdrs = glob(["**/*.hpp"]),
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@nvtx",
+        "@spdlog",
+    ],
+)
