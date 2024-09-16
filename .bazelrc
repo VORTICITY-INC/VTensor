@@ -1,0 +1,25 @@
+common --enable_bzlmod
+
+build --cxxopt='-std=c++20'
+build --host_cxxopt='-std=c++17'
+build --experimental_convenience_symlinks=ignore
+build --spawn_strategy local
+build --cxxopt="-fno-sanitize-recover=all"
+build --@rules_cuda//cuda:archs=compute_80:compute_80,sm_80
+
+build:mpicpp --crosstool_top=//third_party/mpicpp:mpicpp_suite
+
+build:threadsan --cxxopt="-02"
+build:threadsan --cxxopt="-fsanitize=thread"
+build:threadsan --linkopt="-fsanitize=thread"
+
+build:ubsan --cxxopt="-fsanitize=undefined"
+build:ubsan --linkopt="-fsanitize=undefined"
+
+test --test_output=errors
+
+# C++ compiler warnings
+build --cxxopt='-Wall'
+build --cxxopt='-Wextra'
+build --cxxopt='-Wpedantic'
+build --cxxopt='-Wno-error=unused-parameter'

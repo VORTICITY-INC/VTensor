@@ -8,7 +8,7 @@ Explore one of our examples for a quick overview!
 
 .. code-block:: cpp
 
-   #include <vtensor/lib/vtensor.hpp>
+   #include <lib/vtensor.hpp>
 
    int main() {
       auto num_points = 100000;
@@ -19,12 +19,8 @@ Explore one of our examples for a quick overview!
    }
 
 
-
 .. toctree::
-   :maxdepth: 2
-
-
-.. toctree::
+   :maxdepth: 1
 
    installation
    tutorials/index

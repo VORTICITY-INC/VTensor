@@ -18,8 +18,8 @@ VTensor leverages the `RMM device memory pool <https://github.com/rapidsai/rmm>`
 
 .. code-block:: cpp
 
-   #include <vtensor/lib/vtensor.hpp>
+   #include <lib/vtensor.hpp>
 
    int main(){
-       auto pool = vt::MemPool(50, "/tmp/vtensor/memory.log");
+       auto pool = vt::Mempool(50, "/tmp/vtensor/memory.log");
    }

@@ -7,7 +7,7 @@ VTensor offers several generators to create tensors on a GPU device. If the user
 
 .. code-block:: cpp
 
-   #include <vtensor/lib/vtensor.hpp>
+   #include <lib/vtensor.hpp>
 
    int main() {
       auto a = vt::arange(10); // Create a tensor with values from 0 to 9
@@ -25,7 +25,7 @@ Users could also do a variety of operations on tensors, such as addition, subtra
 
 .. code-block:: cpp
 
-   #include <vtensor/lib/vtensor.hpp>
+   #include <lib/vtensor.hpp>
 
    int main() {
       auto a = vt::arange(10); // Create a tensor with values from 0 to 9
@@ -42,11 +42,11 @@ Some of the functions (e.g. CuBLAS, CuSolver) might require a contiguous memory 
 
 .. code-block:: cpp
 
-   #include <vtensor/lib/vtensor.hpp>
+   #include <lib/vtensor.hpp>
 
    int main() {
       auto a = vt::arange(12).reshape(2, 2, 3); // Create a 3D tensor.
-      auto b = a[0]; // Slice along the first axis, resulting in a 2x3 tensor.
+      auto b = b[0]; // Slice along the first axis, resulting in a 2x3 tensor.
       b = a({0, 2, 1}, {0, 2, 2}); // Slice along the first and second axes, resulting in a 2x1 tensor.
       vt::print(b); // Print the tensor
     }
@@ -58,7 +58,7 @@ VTensor supports a wide range of mathematical and linear algebra operations, suc
 
 .. code-block:: cpp
 
-   #include <vtensor/lib/vtensor.hpp>
+   #include <lib/vtensor.hpp>
 
    int main() {
       auto a = vt::arange(25).reshape(5, 5); // Create a 5x5 tensor
@@ -74,11 +74,11 @@ VTensor utilizes CuRand to generate random numbers on the GPU. A global CuRand h
 
 .. code-block:: cpp
 
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
     
     int main() {
         auto a = vt::random::rand(10); // Create a tensor with random values
-        auto b = vt::random::randn(10); // Create a tensor with random values from a normal distribution
+        auto b = vt::random::normal(10); // Create a tensor with random values from a normal distribution
         vt::print(b); // Print the tensor
      }
 
@@ -86,12 +86,12 @@ Users could create a new CuRand handler, For example, to create a new CuRand han
 
 .. code-block:: cpp
 
-    #include <vtensor/lib/vtensor.hpp>
+    #include <lib/vtensor.hpp>
     
     int main() {
         auto dim = 10;
         auto gen = vt::cuda::create_curand_handle<vt::cuda::SCRAMBLED_SOBOL32>(dim); // Create a new CuRand handler
         auto a = vt::random::rand(10, *gen.get()); // Create a tensor with qausi-random values
-        auto b = vt::random::randn(10, *gen.get()); // Create a tensor with qausi-random values from a normal distribution
+        auto b = vt::random::normal(10, 0.0f, 1.0f, *gen.get()); // Create a tensor with qausi-random values from a normal distribution
         vt::print(b); // Print the tensor
      }
