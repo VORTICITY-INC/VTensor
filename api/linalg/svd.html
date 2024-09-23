@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Iterator &#8212; VTensor v1.0.0 documentation</title>
+    <title>vt::linalg::svd &#8212; VTensor v1.0.0 documentation</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/iterator';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/linalg/svd';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Mempool" href="mempool.html" />
-    <link rel="prev" title="CuTensor" href="cutensor.html" />
+    <link rel="next" title="Logical" href="../logical/index.html" />
+    <link rel="prev" title="vt::linalg::dot" href="product.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -353,26 +353,26 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Core</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="cutensor.html">CuTensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../core/index.html">Core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/cutensor.html">CuTensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Iterator</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/iterator.html">Iterator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="mempool.html">Mempool</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/mempool.html">Mempool</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="operator.html">Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/operator.html">Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="print.html">Print Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/print.html">Print Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="slice.html">Slice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/slice.html">Slice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tensor.html">Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/tensor.html">Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
@@ -392,23 +392,23 @@ document.write(`
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/cublas.html">CuBLAS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Linear Algebra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="cublas.html">CuBLAS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/cusolver.html">CuSolver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="cusolver.html">CuSolver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/inv.html">vt::linalg::inv</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="inv.html">vt::linalg::inv</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/matmul.html">vt::linalg::matmul</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="matmul.html">vt::linalg::matmul</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/product.html">vt::linalg::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="product.html">vt::linalg::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/svd.html">vt::linalg::svd</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::linalg::svd</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
@@ -541,9 +541,9 @@ document.write(`
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API</a></li>
     
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Core</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Linear Algebra</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Iterator</li>
+    <li class="breadcrumb-item active" aria-current="page">vt::linalg::svd</li>
   </ul>
 </nav>
 </div>
@@ -560,53 +560,55 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="iterator">
-<h1>Iterator<a class="headerlink" href="#iterator" title="Link to this heading">#</a></h1>
+  <section id="vt-linalg-svd">
+<h1>vt::linalg::svd<a class="headerlink" href="#vt-linalg-svd" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt14TensorIteratorE">
-<span id="_CPPv3I0_6size_tEN2vt14TensorIteratorE"></span><span id="_CPPv2I0_6size_tEN2vt14TensorIteratorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Iterator</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1TensorIterator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TensorIterator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">thrust</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">iterator_adaptor</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator"><span class="n"><span class="pre">TensorIterator</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator::Iterator"><span class="n"><span class="pre">Iterator</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="vt::TensorIterator::Iterator"><span class="n"><span class="pre">Iterator</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE" title="Link to this definition">#</a><br /></dt>
-<dd><p><a class="reference internal" href="#classvt_1_1TensorIterator"><span class="std std-ref">TensorIterator</span></a> class to represent an iterator of a tensor. </p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t">
+<span id="_CPPv3I0EN2vt6linalg3svdER6TensorI1TXL2EEEbb18cusolverDnHandle_t"></span><span id="_CPPv2I0EN2vt6linalg3svdER6TensorI1TX2EEbb18cusolverDnHandle_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1_1linalg_1a03988c1a191c9f997db0d0732022f13f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">tuple</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">linalg</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">svd</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">full_matrices</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compute_uv</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span>, <span class="n"><span class="pre">cusolverDnHandle_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cusolver.html#_CPPv4N2vt4cuda8cusolverE" title="vt::cuda::cusolver"><span class="n"><span class="pre">cusolver</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Singular Value Decomposition. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensor. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor</strong> – The tensor object to be decomposed. </p></li>
+<li><p><strong>full_matrices</strong> – If True, it returns u and v with full dimensions. </p></li>
+<li><p><strong>compute_uv</strong> – If False, it only returns singular values. </p></li>
+<li><p><strong>handle</strong> – The CuSolver handle. The default is the global CuSolver handle. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple of U, S, V, where tensor = U * diag(S) * V. (diag neeeded to be implemented) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t">
+<span id="_CPPv3I0_6size_tEN2vt6linalg3svdER6TensorI1T1NEbb18cusolverDnHandle_t"></span><span id="_CPPv2I0_6size_tEN2vt6linalg3svdER6TensorI1T1NEbb18cusolverDnHandle_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1_1linalg_1aeef173a373b4927e9dbef4a86b1df655"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">tuple</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::N"><span class="n"><span class="pre">N</span></span></a><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">linalg</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">svd</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="vt::linalg::svd::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">full_matrices</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compute_uv</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span>, <span class="n"><span class="pre">cusolverDnHandle_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cusolver.html#_CPPv4N2vt4cuda8cusolverE" title="vt::cuda::cusolver"><span class="n"><span class="pre">cusolver</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Batched Singular Value Decomposition. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Iterator</strong> – The raw iterator. </p></li>
+<li><p><strong>T</strong> – Data type of the tensor. </p></li>
 <li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
 </ul>
 </dd>
-</dl>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1TensorIterator_1a06ebebcbb809d6887e29690c631741f6"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">TensorIterator</span> <span class="pre">(const</span> <span class="pre">Iterator</span> <span class="pre">&amp;iter,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*shape,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*strides,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">bool</span> <span class="pre">contiguous)</span></span></dt>
-<dd><p>Construct a new tensor Iterator object. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>iter</strong> – The raw iterator from thrust. </p></li>
-<li><p><strong>shape</strong> – The shape of the tensor. </p></li>
-<li><p><strong>strides</strong> – The strides of the tensor. </p></li>
-<li><p><strong>start</strong> – The start index of the tensor. </p></li>
-<li><p><strong>contiguous</strong> – The contiguous flag of the tensor. </p></li>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor</strong> – The tensor object to be decomposed. </p></li>
+<li><p><strong>full_matrices</strong> – If True, it returns u and v with full dimensions. </p></li>
+<li><p><strong>compute_uv</strong> – If False, it only returns singular values. </p></li>
+<li><p><strong>handle</strong> – The CuSolver handle. The default is the global CuSolver handle. </p></li>
 </ul>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1TensorIterator_1a2f39f51047d0b2bbda0bdde7435f37fd"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">void</span> <span class="pre">advance</span> <span class="pre">(typename</span> <span class="pre">thrust::iterator_difference&lt;</span> <span class="pre">Iterator</span> <span class="pre">&gt;::type</span> <span class="pre">n)</span></span></dt>
-<dd><p>Advance the iterator by n steps. If the iterator is contiguous, used the default advance method, otherwise calculate the new index based on the strides and shape. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>n</strong> – Number of steps. </p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple of U, S, V, where tensor = U * diag(S) * V. (diag neeeded to be implemented) </p>
 </dd>
 </dl>
-</dd></dl>
-
-</div>
 </dd></dl>
 
 </section>
@@ -622,20 +624,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cutensor.html"
+       href="product.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">CuTensor</p>
+        <p class="prev-next-title">vt::linalg::dot</p>
       </div>
     </a>
     <a class="right-next"
-       href="mempool.html"
+       href="../logical/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mempool</p>
+        <p class="prev-next-title">Logical</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -657,14 +659,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt14TensorIteratorE"><code class="docutils literal notranslate"><span class="pre">TensorIterator</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t"><code class="docutils literal notranslate"><span class="pre">svd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t"><code class="docutils literal notranslate"><span class="pre">svd()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../_sources/api/core/iterator.rst.txt">
+    <a href="../../_sources/api/linalg/svd.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

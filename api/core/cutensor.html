@@ -408,6 +408,9 @@ document.write(`
 <li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/product.html">vt::linalg::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/svd.html">vt::linalg::svd</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../logical/index.html">Logical</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -588,8 +591,8 @@ document.write(`
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1a2ec928f40b727c8ea5a06e8bf0b35b80"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">CuTensor</span> <span class="pre">(T</span> <span class="pre">*data,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*shape,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*strides,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">size,</span> <span class="pre">const</span> <span class="pre">bool</span> <span class="pre">sliced)</span></span></dt>
-<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1CuTensor"><span class="std std-ref">CuTensor</span></a> object from a raw pointer, shape, strides, start index, and sliced flag. </p>
+<span class="target" id="classvt_1_1CuTensor_1a85e98376919b8137f1816483f5ebfbc8"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">CuTensor</span> <span class="pre">(T</span> <span class="pre">*data,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*shape,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*strides,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">size,</span> <span class="pre">const</span> <span class="pre">bool</span> <span class="pre">contiguous)</span></span></dt>
+<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1CuTensor"><span class="std std-ref">CuTensor</span></a> object from a raw pointer, shape, strides, start index, and contiguous flag. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -597,7 +600,7 @@ document.write(`
 <li><p><strong>shape</strong> – The shape of the tensor. </p></li>
 <li><p><strong>strides</strong> – The strides of the tensor. </p></li>
 <li><p><strong>start</strong> – The start index of the tensor. </p></li>
-<li><p><strong>sliced</strong> – The sliced flag of the tensor. </p></li>
+<li><p><strong>contiguous</strong> – The contiguous flag of the tensor. </p></li>
 </ul>
 </dd>
 </dl>
