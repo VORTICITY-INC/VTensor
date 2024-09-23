@@ -9,6 +9,7 @@ cuda_library(
         "inv.hpp",
         "matmul.hpp",
         "product.hpp",
+        "svd.hpp",
     ],
     deps = [
         "//lib/core:core",

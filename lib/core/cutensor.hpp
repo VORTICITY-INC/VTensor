@@ -21,19 +21,19 @@ class CuTensor {
      * @param tensor: The tensor to be adapted.
      */
     __host__ CuTensor(Tensor<T, N> tensor)
-        : CuTensor(tensor.raw_ptr(), tensor.shape().data(), tensor.strides().data(), tensor.start(), tensor.size(), tensor.sliced()) {}
+        : CuTensor(tensor.raw_ptr(), tensor.shape().data(), tensor.strides().data(), tensor.start(), tensor.size(), tensor.contiguous()) {}
 
     /**
-     * @brief Construct a new CuTensor object from a raw pointer, shape, strides, start index, and sliced flag.
+     * @brief Construct a new CuTensor object from a raw pointer, shape, strides, start index, and contiguous flag.
      *
      * @param data: The raw pointer to the data.
      * @param shape: The shape of the tensor.
      * @param strides: The strides of the tensor.
      * @param start: The start index of the tensor.
-     * @param sliced: The sliced flag of the tensor.
+     * @param contiguous: The contiguous flag of the tensor.
      */
-    __host__ __device__ CuTensor(T* data, const size_t* shape, const size_t* strides, const size_t start, const size_t size, const bool sliced)
-        : data(data), start(start), size(size), sliced(sliced) {
+    __host__ __device__ CuTensor(T* data, const size_t* shape, const size_t* strides, const size_t start, const size_t size, const bool contiguous)
+        : data(data), start(start), size(size), contiguous(contiguous) {
         for (size_t i = 0; i < N; ++i) {
             this->shape[i] = shape[i];
             this->strides[i] = strides[i];
@@ -86,7 +86,7 @@ class CuTensor {
      * @param n: The 1D index of the tensor.
      * @return T: The data of the tensor.
      */
-    __host__ __device__ T& operator[](size_t n) { return !sliced ? data[n] : data[get_iterator_index<N>(n, shape, strides, start)]; }
+    __host__ __device__ T& operator[](size_t n) { return contiguous ? data[n] : data[get_iterator_index<N>(n, shape, strides, start)]; }
 
     /**
      * @brief Return the data given the iterative index
@@ -94,13 +94,13 @@ class CuTensor {
      * @param n: The 1D index of the tensor.
      * @return T: The data of the tensor.
      */
-    __host__ __device__ const T& operator[](size_t n) const { return !sliced ? data[n] : data[get_iterator_index<N>(n, shape, strides, start)]; }
+    __host__ __device__ const T& operator[](size_t n) const { return contiguous ? data[n] : data[get_iterator_index<N>(n, shape, strides, start)]; }
 
     size_t shape[N];
     size_t strides[N];
     size_t start;
     size_t size = 0;
-    bool sliced;
+    bool contiguous;
     T* data;
 };
 

@@ -91,6 +91,12 @@ struct CuSolverFuncType {
     using GetRFT = cusolverStatus_t (*)(cusolverDnHandle_t, int, int, T*, int, T*, int*, int*);
     using GetRST = cusolverStatus_t (*)(cusolverDnHandle_t, cublasOperation_t, int, int, const T*, int, const int*, T*, int, int*);
     using GetRFBufferSizeT = cusolverStatus_t (*)(cusolverDnHandle_t, int, int, T*, int, int*);
+    using GeSVDT = cusolverStatus_t (*)(cusolverDnHandle_t, signed char, signed char, int, int, T*, int, T*, T*, int, T*, int, T*, int, T*, int*);
+    using GeSVDBufferSizeT = cusolverStatus_t (*)(cusolverDnHandle_t, int, int, int*);
+    using GeSVDJBatchedT = cusolverStatus_t (*)(cusolverDnHandle_t, cusolverEigMode_t, int, int, T*, int, T*, T*, int, T*, int, T*, int, int*, gesvdjInfo_t,
+                                                int);
+    using GeSVDJBatchedBufferSizeT = cusolverStatus_t (*)(cusolverDnHandle_t, cusolverEigMode_t, int, int, const T*, int, const T*, const T*, int, const T*,
+                                                          int, int*, gesvdjInfo_t, int);
 };
 
 /**
@@ -109,6 +115,10 @@ struct CuSolverFunc<float> {
     static constexpr CuSolverFuncType<float>::GetRFT getrf() { return cusolverDnSgetrf; }
     static constexpr CuSolverFuncType<float>::GetRST getrs() { return cusolverDnSgetrs; }
     static constexpr CuSolverFuncType<float>::GetRFBufferSizeT getrf_buffer_size() { return cusolverDnSgetrf_bufferSize; }
+    static constexpr CuSolverFuncType<float>::GeSVDT gesvd() { return cusolverDnSgesvd; }
+    static constexpr CuSolverFuncType<float>::GeSVDBufferSizeT gesvd_buffer_size() { return cusolverDnSgesvd_bufferSize; }
+    static constexpr CuSolverFuncType<float>::GeSVDJBatchedT gesvdj_batched() { return cusolverDnSgesvdjBatched; }
+    static constexpr CuSolverFuncType<float>::GeSVDJBatchedBufferSizeT gesvdj_batched_buffer_size() { return cusolverDnSgesvdjBatched_bufferSize; }
 };
 
 /**
@@ -119,6 +129,10 @@ struct CuSolverFunc<double> {
     static constexpr CuSolverFuncType<double>::GetRFT getrf() { return cusolverDnDgetrf; }
     static constexpr CuSolverFuncType<double>::GetRST getrs() { return cusolverDnDgetrs; }
     static constexpr CuSolverFuncType<double>::GetRFBufferSizeT getrf_buffer_size() { return cusolverDnDgetrf_bufferSize; }
+    static constexpr CuSolverFuncType<double>::GeSVDT gesvd() { return cusolverDnDgesvd; }
+    static constexpr CuSolverFuncType<double>::GeSVDBufferSizeT gesvd_buffer_size() { return cusolverDnDgesvd_bufferSize; }
+    static constexpr CuSolverFuncType<double>::GeSVDJBatchedT gesvdj_batched() { return cusolverDnDgesvdjBatched; }
+    static constexpr CuSolverFuncType<double>::GeSVDJBatchedBufferSizeT gesvdj_batched_buffer_size() { return cusolverDnDgesvdjBatched_bufferSize; }
 };
 
 }  // namespace cuda

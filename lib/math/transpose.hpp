@@ -6,6 +6,7 @@ namespace vt {
 
 /**
  * @brief Transpose the tensor.
+ * After transpose, it is not quaranteed that the tensor is contiguous.
  *
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
@@ -22,11 +23,12 @@ Tensor<T, N> transpose(const Tensor<T, N>& tensor) {
         new_shape[i] = shape[N - i - 1];
         new_strides[i] = strides[N - i - 1];
     }
-    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), tensor.sliced());
+    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), false);
 }
 
 /**
  * @brief Transpose the tensor with given axes.
+ * After transpose, it is not quaranteed that the tensor is contiguous.
  *
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
@@ -44,7 +46,7 @@ Tensor<T, N> transpose(const Tensor<T, N>& tensor, const Shape<N>& axes) {
         new_shape[i] = shape[axes[i]];
         new_strides[i] = strides[axes[i]];
     }
-    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), tensor.sliced());
+    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), false);
 }
 
 /**

@@ -1,0 +1,11 @@
+
+---
+BasedOnStyle:  Google
+IndentWidth: 4
+---
+Language:        Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
+AlignTrailingComments: true
+ColumnLimit:     160
+...

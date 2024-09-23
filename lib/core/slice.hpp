@@ -17,6 +17,9 @@ class Slice {
     size_t end;
     size_t step;
 
+    // Default constructor
+    Slice() = default;
+
     /**
      * @brief Construct a new Slice object
      *
