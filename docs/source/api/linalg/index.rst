@@ -9,3 +9,4 @@ Linear Algebra
    inv
    matmul
    product
+   svd

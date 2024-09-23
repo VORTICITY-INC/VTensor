@@ -12,6 +12,7 @@
 #include <lib/linalg/inv.hpp>
 #include <lib/linalg/matmul.hpp>
 #include <lib/linalg/product.hpp>
+#include <lib/linalg/svd.hpp>
 #include <lib/logical/all.hpp>
 #include <lib/logical/any.hpp>
 #include <lib/math/max.hpp>

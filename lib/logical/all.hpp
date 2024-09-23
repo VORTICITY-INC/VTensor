@@ -22,7 +22,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 bool all(const Tensor<T, N>& tensor) {
-    if (!tensor.sliced())
+    if (tensor.contiguous())
         return thrust::all_of(tensor.begin(), tensor.end(), thrust::identity<bool>());
     else
         return thrust::count_if(tensor.begin(), tensor.end(), thrust::identity<bool>()) == tensor.size();

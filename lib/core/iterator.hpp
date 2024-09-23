@@ -42,10 +42,10 @@ class TensorIterator : public thrust::iterator_adaptor<TensorIterator<Iterator, 
      * @param shape: The shape of the tensor.
      * @param strides: The strides of the tensor.
      * @param start: The start index of the tensor.
-     * @param sliced: The sliced flag of the tensor.
+     * @param contiguous: The contiguous flag of the tensor.
      */
-    __host__ __device__ TensorIterator(const Iterator& iter, const size_t* shape, const size_t* strides, const size_t start, const bool sliced)
-        : thrust::iterator_adaptor<TensorIterator<Iterator, N>, Iterator>(iter), start(start), sliced(sliced) {
+    __host__ __device__ TensorIterator(const Iterator& iter, const size_t* shape, const size_t* strides, const size_t start, const bool contiguous)
+        : thrust::iterator_adaptor<TensorIterator<Iterator, N>, Iterator>(iter), start(start), contiguous(contiguous) {
         for (size_t i = 0; i < N; ++i) {
             this->shape[i] = shape[i];
             this->strides[i] = strides[i];
@@ -54,11 +54,11 @@ class TensorIterator : public thrust::iterator_adaptor<TensorIterator<Iterator, 
 
     /**
      * @brief Advance the iterator by n steps.
-     * If the iterator is not sliced, used the default advance method, otherwise calculate the new index based on the strides and shape.
+     * If the iterator is contiguous, used the default advance method, otherwise calculate the new index based on the strides and shape.
      * @param n: Number of steps.
      */
     __host__ __device__ void advance(typename thrust::iterator_difference<Iterator>::type n) {
-        if (!sliced) {
+        if (contiguous) {
             this->base_reference() += n;
         } else {
             this->base_reference() += get_iterator_index<N>(n, shape, strides, start);
@@ -69,7 +69,7 @@ class TensorIterator : public thrust::iterator_adaptor<TensorIterator<Iterator, 
     size_t shape[N];
     size_t strides[N];
     size_t start;
-    bool sliced;
+    bool contiguous;
 };
 
 }  // namespace vt

@@ -21,7 +21,7 @@ TEST(TensorConstructor, BasicAssertions) {
     EXPECT_EQ(tensor.shape(), (std::array<size_t, 3>{1, 2, 3}));
     EXPECT_EQ(tensor.strides(), (std::array<size_t, 3>{6, 3, 1}));
     EXPECT_EQ(tensor.start(), 0);
-    EXPECT_EQ(tensor.sliced(), false);
+    EXPECT_EQ(tensor.contiguous(), true);
     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 0, 0, 0, 0, 0}));
 
     vector_type data(6, 1);
@@ -30,7 +30,7 @@ TEST(TensorConstructor, BasicAssertions) {
     EXPECT_EQ(tensor1.shape(), (std::array<size_t, 3>{1, 2, 3}));
     EXPECT_EQ(tensor1.strides(), (std::array<size_t, 3>{6, 3, 1}));
     EXPECT_EQ(tensor1.start(), 0);
-    EXPECT_EQ(tensor1.sliced(), false);
+    EXPECT_EQ(tensor1.contiguous(), true);
     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{1, 1, 1, 1, 1, 1}));
 
     auto shape2 = std::array<size_t, 1>{5};
@@ -40,7 +40,7 @@ TEST(TensorConstructor, BasicAssertions) {
     EXPECT_EQ(tensor2.shape(), (std::array<size_t, 1>{5}));
     EXPECT_EQ(tensor2.strides(), (std::array<size_t, 1>{1}));
     EXPECT_EQ(tensor2.start(), 1);
-    EXPECT_EQ(tensor2.sliced(), true);
+    EXPECT_EQ(tensor2.contiguous(), true);
     EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{1, 1, 1, 1, 1}));
 }
 
@@ -50,7 +50,7 @@ TEST(TensorReshape, BasicAssertions) {
     EXPECT_EQ(tensor.shape(), (std::array<size_t, 3>{1, 2, 3}));
     EXPECT_EQ(tensor.strides(), (std::array<size_t, 3>{6, 3, 1}));
     EXPECT_EQ(tensor.start(), 0);
-    EXPECT_EQ(tensor.sliced(), false);
+    EXPECT_EQ(tensor.contiguous(), true);
     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 1, 2, 3, 4, 5}));
 }
 
@@ -61,7 +61,7 @@ TEST(SlicedTensorReshape, BasicAssertions) {
     EXPECT_EQ(tensor1.shape(), (std::array<size_t, 3>{1, 2, 3}));
     EXPECT_EQ(tensor1.strides(), (std::array<size_t, 3>{6, 3, 1}));
     EXPECT_EQ(tensor1.start(), 0);
-    EXPECT_EQ(tensor1.sliced(), false);
+    EXPECT_EQ(tensor1.contiguous(), true);
     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 2, 4, 6, 8, 10}));
 }
 
@@ -115,6 +115,10 @@ TEST(TensorSliceOperation, BasicAssertions) {
     auto tensor3 = vt::zeros(vt::Shape<3>{2, 2, 2});
     tensor3(vt::Slice(0, 2, 1), vt::Slice(0, 2, 1), vt::Slice(0, 2, 1));
     tensor3({0, 2, 1}, {0, 2, 1}, {0, 2, 1});
+
+    auto tensor4 = vt::zeros(vt::Shape<3>{2, 2, 2});
+    std::array<vt::Slice, 3> slices = {vt::Slice(0, 2, 1), vt::Slice(0, 2, 1), vt::Slice(0, 2, 1)};
+    tensor4(slices);
 }
 
 TEST(TensorSliceAlongTheAxisOperation, BasicAssertions) {
@@ -132,5 +136,5 @@ TEST(TensorApplySlices, BasicAssertions) {
     EXPECT_EQ(tensor2.shape(), (std::array<size_t, 1>{6}));
     EXPECT_EQ(tensor2.strides(), (std::array<size_t, 1>{2}));
     EXPECT_EQ(tensor2.start(), 0);
-    EXPECT_EQ(tensor2.sliced(), true);
+    EXPECT_EQ(tensor2.contiguous(), false);
 }

@@ -7,7 +7,7 @@ namespace vt {
 
 /**
  * @brief Convert the tensor to a contiguous tensor.
- * If the tensor has been sliced, it will copy and return a new tensor. Otherwise, it will return the same tensor.
+ * If the tensor is not contiguous, it will copy and return a new tensor. Otherwise, it will return the same tensor.
  *
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
@@ -16,7 +16,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, N> ascontiguoustensor(const Tensor<T, N>& tensor) {
-    if (tensor.sliced()) {
+    if (!tensor.contiguous()) {
         return copy(tensor);
     } else {
         return tensor;

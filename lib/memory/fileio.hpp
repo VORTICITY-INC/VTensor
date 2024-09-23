@@ -1,9 +1,9 @@
 #pragma once
 
-#include <vector>
 #include <lib/core/tensor.hpp>
 #include <lib/memory/astensor.hpp>
 #include <lib/memory/asvector.hpp>
+#include <vector>
 
 #include "cnpy.h"
 

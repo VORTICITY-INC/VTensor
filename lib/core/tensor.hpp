@@ -2,11 +2,11 @@
 
 #include <thrust/iterator/constant_iterator.h>
 
+#include <lib/core/iterator.hpp>
+#include <lib/core/slice.hpp>
 #include <memory>
 #include <numeric>
 #include <rmm/device_vector.hpp>
-#include <lib/core/iterator.hpp>
-#include <lib/core/slice.hpp>
 
 namespace vt {
 
@@ -60,12 +60,15 @@ class Tensor {
    public:
     using vector_type = rmm::device_vector<T>;
 
+    // Default constructor
+    Tensor() = default;
+
     /**
      * @brief Construct a new tensor object from a shape.
      *
      * @param shape Shape of the tensor.
      */
-    Tensor(const Shape<N>& shape) : _shape(shape), _size(get_size(shape)), _strides(get_strides(shape)), _start(0), _sliced(false) {
+    Tensor(const Shape<N>& shape) : _shape(shape), _size(get_size(shape)), _strides(get_strides(shape)), _start(0), _contiguous(true) {
         _data = std::make_shared<vector_type>(_size);
     }
 
@@ -76,7 +79,7 @@ class Tensor {
      * @param shape Shape of the tensor.
      */
     Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape)
-        : _data(data), _shape(shape), _size(get_size(shape)), _strides(get_strides(shape)), _start(0), _sliced(false) {}
+        : _data(data), _shape(shape), _size(get_size(shape)), _strides(get_strides(shape)), _start(0), _contiguous(true) {}
 
     /**
      * @brief Construct a new tensor object from a shared vector and a shape, strides, start index.
@@ -85,14 +88,14 @@ class Tensor {
      * @param shape Shape of the tensor.
      * @param strides Strides of the tensor.
      * @param start Start index of the tensor.
-     * @param sliced Sliced flag of the tensor.
+     * @param contiguous contiguous flag of the tensor.
      */
-    Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape, const Shape<N>& strides, size_t start, bool sliced = false)
-        : _data(data), _shape(shape), _size(get_size(shape)), _strides(strides), _start(start), _sliced(sliced) {}
+    Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape, const Shape<N>& strides, size_t start, bool contiguous = true)
+        : _data(data), _shape(shape), _size(get_size(shape)), _strides(strides), _start(start), _contiguous(contiguous) {}
 
     /**
      * @brief Reshape the array to a new shape.
-     * If the tensor has been sliced, the method will copy the tensor and reshape the new tensor.
+     * If the tensor has been contiguous, the method will copy the tensor and reshape the new tensor.
      *
      * @tparam Args: Variadic template for mulitple arguments.
      * @param args: New shape for the tensor.
@@ -121,7 +124,7 @@ class Tensor {
         std::copy(_shape.begin() + 1, _shape.end(), new_shape.begin());
         std::copy(_strides.begin() + 1, _strides.end(), new_strides.begin());
         auto new_start = _start + index * _strides[0];
-        return Tensor<T, N - 1>(_data, new_shape, new_strides, new_start, true);
+        return Tensor<T, N - 1>(_data, new_shape, new_strides, new_start, false);
     }
 
     /**
@@ -138,9 +141,17 @@ class Tensor {
     }
 
     /**
+     * @brief Operator for slicing the tensor.
+     *
+     * @param slices: An array of slices to be applied to the tensor.
+     * @return TensorSliceProxy: The tensor slice proxy object.
+     */
+    TensorSliceProxy<T, N> operator()(std::array<Slice, N>& slices) { return TensorSliceProxy<T, N>(apply_slices(slices)); }
+
+    /**
      * @brief Operator for slicing the tensor. It supports one Slice implicit conversion for tensor.
      *
-     * @param slice: Slice to be applied to the tensor.
+     * @param s: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
     TensorSliceProxy<T, 1> operator()(Slice s) {
@@ -151,8 +162,8 @@ class Tensor {
     /**
      * @brief Operator for slicing the tensor. It supports two Slice implicit conversion for tensor.
      *
-     * @param slice1: Slice to be applied to the tensor.
-     * @param slice2: Slice to be applied to the tensor.
+     * @param s1: Slice to be applied to the tensor.
+     * @param s2: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
     TensorSliceProxy<T, 2> operator()(Slice s1, Slice s2) {
@@ -163,9 +174,9 @@ class Tensor {
     /**
      * @brief Operator for slicing the tensor. It supports three Slice implicit conversion for tensor.
      *
-     * @param slice1: Slice to be applied to the tensor.
-     * @param slice2: Slice to be applied to the tensor.
-     * @param slice3: Slice to be applied to the tensor.
+     * @param s1: Slice to be applied to the tensor.
+     * @param s2: Slice to be applied to the tensor.
+     * @param s3: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
     TensorSliceProxy<T, 3> operator()(Slice s1, Slice s2, Slice s3) {
@@ -225,7 +236,7 @@ class Tensor {
      * @return TensorIterator: The iterator points to the 1st index of the tensor.
      */
     TensorIterator<typename vector_type::iterator, N> begin() const {
-        return TensorIterator<typename vector_type::iterator, N>(_data->begin(), _shape.data(), _strides.data(), _start, _sliced);
+        return TensorIterator<typename vector_type::iterator, N>(_data->begin(), _shape.data(), _strides.data(), _start, _contiguous);
     }
 
     /**
@@ -234,7 +245,7 @@ class Tensor {
      * @return TensorIterator: The iterator points to the last index of the tensor.
      */
     TensorIterator<typename vector_type::iterator, N> end() const {
-        return TensorIterator<typename vector_type::iterator, N>(_data->begin() + _size, _shape.data(), _strides.data(), _start, _sliced);
+        return TensorIterator<typename vector_type::iterator, N>(_data->begin() + _size, _shape.data(), _strides.data(), _start, _contiguous);
     }
 
     /**
@@ -255,7 +266,7 @@ class Tensor {
             offset += slices[i].start * _strides[i];
         }
         size_t new_start = _start + offset;
-        return Tensor<T, N>(_data, new_shape, new_strides, new_start, true);
+        return Tensor<T, N>(_data, new_shape, new_strides, new_start, false);
     }
 
     /**
@@ -266,11 +277,11 @@ class Tensor {
     T* raw_ptr() { return thrust::raw_pointer_cast(_data->data()); }
 
     /**
-     * @brief Return the sliced flag of the tensor.
+     * @brief Return the contiguous flag of the tensor.
      *
-     * @return bool: The sliced flag of the tensor.
+     * @return bool: The contiguous flag of the tensor.
      */
-    bool sliced() const { return _sliced; }
+    bool contiguous() const { return _contiguous; }
 
     /**
      * @brief Return the size of the tensor.
@@ -319,7 +330,7 @@ class Tensor {
     size_t _size = 0;
     Shape<N> _shape;
     Shape<N> _strides;
-    bool _sliced = false;
+    bool _contiguous = true;
     std::shared_ptr<vector_type> _data = nullptr;
 };
 

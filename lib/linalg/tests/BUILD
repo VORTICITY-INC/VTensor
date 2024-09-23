@@ -9,6 +9,7 @@ cuda_test(
         "test_inv.cc",
         "test_matmul.cc",
         "test_product.cc",
+        "test_svd.cc",
     ],
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],
     deps = [
