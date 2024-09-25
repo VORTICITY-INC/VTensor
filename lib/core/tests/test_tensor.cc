@@ -6,10 +6,14 @@ TEST(HelperFunctions, BasicAssertions) {
     auto shape = std::array<size_t, 3>{1, 2, 3};
     auto stides = vt::get_strides(shape);
     auto size = vt::get_size(shape);
+    auto expanded_shape = vt::expand_shape(shape, 4, 5, 6);
     EXPECT_EQ(size, 6);
     EXPECT_EQ(stides[0], 6);
     EXPECT_EQ(stides[1], 3);
     EXPECT_EQ(stides[2], 1);
+    for (size_t i = 0; i < 6; i++) {
+        EXPECT_EQ(expanded_shape[i], i + 1);
+    }
 }
 
 TEST(TensorConstructor, BasicAssertions) {
@@ -119,6 +123,12 @@ TEST(TensorSliceOperation, BasicAssertions) {
     auto tensor4 = vt::zeros(vt::Shape<3>{2, 2, 2});
     std::array<vt::Slice, 3> slices = {vt::Slice(0, 2, 1), vt::Slice(0, 2, 1), vt::Slice(0, 2, 1)};
     tensor4(slices);
+}
+
+TEST(TensorEllipsisSlices, BasicAssertions){
+    auto tensor = vt::arange(12).reshape(2, 2, 3);
+    tensor = tensor(vt::ellipsis, {0, 2});
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 1, 3, 4, 6, 7, 9, 10}));
 }
 
 TEST(TensorSliceAlongTheAxisOperation, BasicAssertions) {
