@@ -6,8 +6,9 @@ Tensor
 
 .. doxygentypedef:: vt::Shape
 
-.. doxygenfunction:: vt::get_size(const Shape<N>& shape)
-.. doxygenfunction:: vt::get_strides(const Shape<N>& shape)
+.. doxygenfunction:: vt::get_size
+.. doxygenfunction:: vt::get_strides
+.. doxygenfunction:: vt::expand_shape
 
 .. doxygenclass:: vt::Tensor
    :members:

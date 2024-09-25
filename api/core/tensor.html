@@ -603,6 +603,29 @@ document.write(`
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args">
+<span id="_CPPv3I_6size_tDpEN2vt12expand_shapeERK5ShapeI1NEDp4Args"></span><span id="_CPPv2I_6size_tDpEN2vt12expand_shapeERK5ShapeI1NEDp4Args"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Args</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a0d9b5bb9f34937d04671c2b94001aa4f"></span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">sizeof</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args" title="vt::expand_shape::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="o"><span class="pre">+</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args" title="vt::expand_shape::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">expand_shape</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args" title="vt::expand_shape::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape</span></span>, <a class="reference internal" href="#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args" title="vt::expand_shape::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args" title="Link to this definition">#</a><br /></dt>
+<dd><p>Helper function to expand the shape. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> – Shape </p></li>
+<li><p><strong>args</strong> – New dimensions to be expanded. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>N</strong> – Shape dimensions. </p></li>
+<li><p><strong>Args</strong> – Variadic template for mulitple arguments. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Shape: Expanded shape. </p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt6TensorE">
 <span id="_CPPv3I0_6size_tEN2vt6TensorE"></span><span id="_CPPv2I0_6size_tEN2vt6TensorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1Tensor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="Link to this definition">#</a><br /></dt>
@@ -764,6 +787,23 @@ document.write(`
 <li><p><strong>s1</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
 <li><p><strong>s2</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
 <li><p><strong>s3</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="slice.html#classvt_1_1TensorSliceProxy"><span class="std std-ref">TensorSliceProxy</span></a>: The tensor slice proxy object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt6TensorclERK9EllipsisT5Slice">
+<span id="_CPPv3N2vt6TensorclERK9EllipsisT5Slice"></span><span id="_CPPv2N2vt6TensorclERK9EllipsisT5Slice"></span><span id="vt::Tensor::call-operator__EllipsisTCR.Slice"></span><span class="target" id="classvt_1_1Tensor_1a37b7bd68aa6dd164b8e2bd8d0ef2ab2e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="slice.html#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE" title="vt::TensorSliceProxy"><span class="n"><span class="pre">TensorSliceProxy</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="slice.html#_CPPv4N2vt9EllipsisTE" title="vt::EllipsisT"><span class="n"><span class="pre">EllipsisT</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">e</span></span>, <a class="reference internal" href="slice.html#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt6TensorclERK9EllipsisT5Slice" title="Link to this definition">#</a><br /></dt>
+<dd><p>Operator for slicing the tensor. It supports Ellipsis and <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> implicit conversion for tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>e</strong> – Ellipsis to be applied to the tensor. </p></li>
+<li><p><strong>s</strong> – <a class="reference internal" href="slice.html#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to be applied to the tensor. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1006,6 +1046,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tEN2vt5ShapeE"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tEN2vt8get_sizeE6size_tRK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">get_size()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tEN2vt11get_stridesE5ShapeI1NERK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">get_strides()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args"><code class="docutils literal notranslate"><span class="pre">expand_shape()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt6TensorE"><code class="docutils literal notranslate"><span class="pre">Tensor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor6TensorERK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">Tensor::Tensor()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6Tensor6TensorERKNSt10shared_ptrI11vector_typeEERK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">Tensor::Tensor()</span></code></a></li>
@@ -1017,6 +1058,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclE5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclE5Slice5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclE5Slice5Slice5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt6TensorclERK9EllipsisT5Slice"><code class="docutils literal notranslate"><span class="pre">Tensor::operator()()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensorpLEK1T"><code class="docutils literal notranslate"><span class="pre">Tensor::operator+=()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensormIEK1T"><code class="docutils literal notranslate"><span class="pre">Tensor::operator-=()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK2vt6TensorpLERK6Tensor"><code class="docutils literal notranslate"><span class="pre">Tensor::operator+=()</span></code></a></li>
