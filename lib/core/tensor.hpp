@@ -48,6 +48,28 @@ Shape<N> get_strides(const Shape<N>& shape) {
 }
 
 /**
+ * @brief Helper function to expand the shape.
+ *
+ * @param shape: Shape
+ * @param args: New dimensions to be expanded.
+ * @tparam N: Shape dimensions.
+ * @tparam Args: Variadic template for mulitple arguments.
+ * @return Shape: Expanded shape.
+ */
+template <size_t N, typename... Args>
+Shape<sizeof...(Args) + N> expand_shape(const Shape<N>& shape, Args... args) {
+    auto constexpr size = sizeof...(args) + N;
+    Shape<size> new_shape;
+    std::copy(shape.begin(), shape.end(), new_shape.begin());
+    size_t index = 0;
+    for (const auto& arg : {args...}) {
+        new_shape[N + index] = static_cast<size_t>(arg);
+        ++index;
+    }
+    return new_shape;
+}
+
+/**
  * @brief Tensor class. It is used to represent a tensor from thrust device vector.
  * The concept of the tesnor is similar to the numpy array in Python.
  * It stored a shared pointer to the data, and shape, strides, start index of the tensor.
@@ -182,6 +204,20 @@ class Tensor {
     TensorSliceProxy<T, 3> operator()(Slice s1, Slice s2, Slice s3) {
         auto slices = std::array<Slice, 3>{s1, s2, s3};
         return TensorSliceProxy<T, 3>(apply_slices(slices));
+    }
+
+    /**
+     * @brief Operator for slicing the tensor. It supports Ellipsis and Slice implicit conversion for tensor.
+     *
+     * @param e: Ellipsis to be applied to the tensor.
+     * @param s: Slice to be applied to the tensor.
+     * @return TensorSliceProxy: The tensor slice proxy object.
+     */
+    TensorSliceProxy<T, N> operator()(const EllipsisT& e, Slice s) {
+        std::array<Slice, N> slices;
+        std::transform(_shape.begin(), _shape.begin() + (N - 1), slices.begin(), [](auto dim) { return Slice{0, dim}; });
+        slices[N - 1] = s;
+        return operator()(slices);
     }
 
     /**

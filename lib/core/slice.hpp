@@ -45,6 +45,17 @@ class Slice {
     Slice(size_t start, size_t end, size_t step) : start(start), end(end), step(step) {}
 };
 
+/**
+ * @brief Represents an ellipsis in tensor operations.
+ *
+ * The EllipsisT struct is used to signify an ellipsis in tensor slicing operations.
+ * A global static object of this type, named `ellipsis`, is defined for convenience.
+ */
+struct EllipsisT {};
+
+/// Ellipsis object
+static constexpr EllipsisT ellipsis = {};
+
 /// Forward declaration of the Tensor class.
 template <typename T, size_t N>
 class Tensor;

@@ -108,7 +108,9 @@ template <typename T, size_t N>
 std::tuple<Tensor<T, N>, Tensor<T, N - 1>, Tensor<T, N>> svd(Tensor<T, N>& tensor, bool full_matrices = true, bool compute_uv = true,
                                                              cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
     auto shape = tensor.shape();
-    size_t batch_size = std::accumulate(shape.begin(), shape.begin() + (N - 2), 1, std::multiplies<size_t>());
+    Shape<N - 2> batch_shape;
+    std::copy(shape.begin(), shape.begin() + (N - 2), batch_shape.begin());
+    size_t batch_size = get_size(batch_shape);
 
     auto m = shape[N - 2];
     auto n = shape[N - 1];
@@ -116,14 +118,14 @@ std::tuple<Tensor<T, N>, Tensor<T, N - 1>, Tensor<T, N>> svd(Tensor<T, N>& tenso
 
     auto lda = m;
     auto mn = std::min(m, n);
-    auto s = zeros<T>(batch_size, mn);
+    auto s = zeros<T>(expand_shape(batch_shape, mn));
     auto ldu = m;
     auto ldv = n;
 
     // Get buffer size and info.
     cusolverEigMode_t jobz = compute_uv ? CUSOLVER_EIG_MODE_VECTOR : CUSOLVER_EIG_MODE_NOVECTOR;
-    auto u = moveaxis(zeros<T>(Shape<3>{batch_size, m, ldu}), N - 2, N - 1);
-    auto v = moveaxis(zeros<T>(Shape<3>{batch_size, n, ldv}), N - 2, N - 1);
+    auto u = moveaxis(zeros<T>(expand_shape(batch_shape, m, ldu)), N - 2, N - 1);
+    auto v = moveaxis(zeros<T>(expand_shape(batch_shape, n, ldv)), N - 2, N - 1);
     auto helper = cuda::CuSolverFunc<T>::gesvdj_batched_buffer_size();
     gesvdjInfo_t params;
     int lwork;
@@ -142,17 +144,10 @@ std::tuple<Tensor<T, N>, Tensor<T, N - 1>, Tensor<T, N>> svd(Tensor<T, N>& tenso
 
     cuda::check_cusolver_status(cusolverDnDestroyGesvdjInfo(params), "Failed to destroy gesvdj info");
 
-    // Need a better way to handle slicing
     if (!full_matrices) {
-        std::array<Slice, N> slices;
-        std::transform(shape.begin(), shape.begin() + (N - 2), slices.begin(), [](auto dim) { return Slice{0, dim}; });
-        slices[N - 2] = Slice{0, m};
-        slices[N - 1] = Slice{0, mn};
-        u = u(slices);
-        slices[N - 2] = Slice{0, n};
-        v = v(slices);
+        u = u(ellipsis, {0, mn});
+        v = v(ellipsis, {0, mn});
     }
-
     v = moveaxis(v, N - 2, N - 1);
     return std::make_tuple(u, s, v);
 }
