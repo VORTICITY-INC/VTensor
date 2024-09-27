@@ -6,6 +6,7 @@ cuda_test(
     srcs = [
         "test_all.cc",
         "test_any.cc",
+        "test_where.cc",
     ],
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],
     deps = [

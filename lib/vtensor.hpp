@@ -6,8 +6,10 @@
 #include <lib/core/stream.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/arange.hpp>
+#include <lib/generator/diag.hpp>
 #include <lib/generator/eye.hpp>
 #include <lib/generator/ones.hpp>
+#include <lib/generator/tri.hpp>
 #include <lib/generator/zeros.hpp>
 #include <lib/linalg/inv.hpp>
 #include <lib/linalg/matmul.hpp>
@@ -15,6 +17,7 @@
 #include <lib/linalg/svd.hpp>
 #include <lib/logical/all.hpp>
 #include <lib/logical/any.hpp>
+#include <lib/logical/where.hpp>
 #include <lib/math/max.hpp>
 #include <lib/math/maximum.hpp>
 #include <lib/math/mean.hpp>

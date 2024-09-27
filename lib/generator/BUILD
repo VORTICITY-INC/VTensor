@@ -5,8 +5,10 @@ cuda_library(
     visibility = ["//visibility:public"],
     hdrs = [
         "arange.hpp",
+        "diag.hpp",
         "eye.hpp",
         "ones.hpp",
+        "tri.hpp",
         "zeros.hpp", 
     ],
     deps = [
