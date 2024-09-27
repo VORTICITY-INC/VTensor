@@ -6,7 +6,8 @@ Linear Algebra
 
    cublas
    cusolver
+   cholesky
+   dot
    inv
    matmul
-   product
    svd

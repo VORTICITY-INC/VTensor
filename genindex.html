@@ -475,6 +475,8 @@ document.write(`
 </li>
       <li><a href="api/generator/diag.html#_CPPv4I0EN2vt4diagE6TensorI1TXL1EEE6TensorI1TXL2EEEi">vt::diag (C++ function)</a>, <a href="api/generator/diag.html#_CPPv4I0EN2vt4diagE6TensorI1TXL2EEE6TensorI1TXL1EEEi">[1]</a>
 </li>
+      <li><a href="api/linalg/dot.html#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE">vt::dot (C++ function)</a>
+</li>
       <li><a href="api/core/slice.html#_CPPv4N2vt9EllipsisTE">vt::EllipsisT (C++ struct)</a>
 </li>
       <li><a href="api/core/tensor.html#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args">vt::expand_shape (C++ function)</a>
@@ -493,16 +495,20 @@ document.write(`
 </li>
       <li><a href="api/core/mempool.html#_CPPv4N2vt8instanceE">vt::instance (C++ member)</a>
 </li>
+      <li><a href="api/linalg/cholesky.html#_CPPv4I0EN2vt6linalg8choleskyE6TensorI1TXL2EEER6TensorI1TXL2EEE18cusolverDnHandle_t">vt::linalg::cholesky (C++ function)</a>, <a href="api/linalg/cholesky.html#_CPPv4I0_6size_tEN2vt6linalg8choleskyE6TensorI1T1NER6TensorI1T1NE18cusolverDnHandle_t">[1]</a>
+</li>
       <li><a href="api/linalg/inv.html#_CPPv4I0EN2vt6linalg3invE6TensorI1TXL2EEER6TensorI1TXL2EEE18cusolverDnHandle_t">vt::linalg::inv (C++ function)</a>, <a href="api/linalg/inv.html#_CPPv4I0_6size_tEN2vt6linalg3invE6TensorI1T1NER6TensorI1T1NE14cublasHandle_t">[1]</a>
 </li>
       <li><a href="api/linalg/svd.html#_CPPv4I0EN2vt6linalg3svdENSt5tupleI6TensorI1TXL2EEE6TensorI1TXL1EEE6TensorI1TXL2EEEEER6TensorI1TXL2EEEbb18cusolverDnHandle_t">vt::linalg::svd (C++ function)</a>, <a href="api/linalg/svd.html#_CPPv4I0_6size_tEN2vt6linalg3svdENSt5tupleI6TensorI1T1NE6TensorI1TXmi1NL1EEE6TensorI1T1NEEER6TensorI1T1NEbb18cusolverDnHandle_t">[1]</a>
 </li>
       <li><a href="api/memory/load.html#_CPPv4I0EN2vt4loadE6TensorI1TXL1EEERKNSt6stringE">vt::load (C++ function)</a>
 </li>
-      <li><a href="api/math/max.html#_CPPv4I0_6size_tEN2vt3maxE1TRK6TensorI1T1NE">vt::max (C++ function)</a>, <a href="api/math/max.html#_CPPv4I0_6size_tEN2vt3maxE6TensorI1TXmi1NL1EEERK6TensorI1T1NEKi">[1]</a>
+      <li><a href="api/linalg/matmul.html#_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t">vt::matmul (C++ function)</a>, <a href="api/linalg/matmul.html#_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t">[1]</a>, <a href="api/linalg/matmul.html#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t">[2]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/math/max.html#_CPPv4I0_6size_tEN2vt3maxE1TRK6TensorI1T1NE">vt::max (C++ function)</a>, <a href="api/math/max.html#_CPPv4I0_6size_tEN2vt3maxE6TensorI1TXmi1NL1EEERK6TensorI1T1NEKi">[1]</a>
+</li>
       <li><a href="api/math/maximum.html#_CPPv4I0_6size_tEN2vt7maximumE6TensorI1T1NEK1TRK6TensorI1T1NE">vt::maximum (C++ function)</a>, <a href="api/math/maximum.html#_CPPv4I0_6size_tEN2vt7maximumE6TensorI1T1NERK6TensorI1T1NEK1T">[1]</a>, <a href="api/math/maximum.html#_CPPv4I0_6size_tEN2vt7maximumE6TensorI1T1NERK6TensorI1T1NERK6TensorI1T1NE">[2]</a>
 </li>
       <li><a href="api/math/mean.html#_CPPv4I0_6size_tEN2vt4meanE6TensorI1TXmi1NL1EEERK6TensorI1T1NEKi">vt::mean (C++ function)</a>, <a href="api/math/mean.html#_CPPv4I0_6size_tEN2vt4meanE6TensorI1TXmi1NL1EEERK6TensorIb1NEKi">[1]</a>, <a href="api/math/mean.html#_CPPv4I0_6size_tEN2vt4meanEdRK6TensorI1T1NE">[2]</a>, <a href="api/math/mean.html#_CPPv4I_6size_tEN2vt4meanEdRK6TensorIb1NE">[3]</a>
@@ -623,9 +629,9 @@ document.write(`
 </li>
       <li><a href="api/generator/tri.html#_CPPv4I0EN2vt3triE6TensorI1TXL2EEE6size_t6size_ti">vt::tri (C++ function)</a>
 </li>
-      <li><a href="api/generator/tril.html#_CPPv4I0_6size_tEN2vt4trilE6TensorI1T1NERK6TensorI1T1NEi">vt::tril (C++ function)</a>
+      <li><a href="api/generator/tril.html#_CPPv4I0EN2vt4trilE6TensorI1TXL2EEERK6TensorI1TXL2EEEib">vt::tril (C++ function)</a>, <a href="api/generator/tril.html#_CPPv4I0_6size_tEN2vt4trilE6TensorI1T1NERK6TensorI1T1NEi">[1]</a>
 </li>
-      <li><a href="api/generator/triu.html#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi">vt::triu (C++ function)</a>
+      <li><a href="api/generator/triu.html#_CPPv4I0EN2vt4triuE6TensorI1TXL2EEERK6TensorI1TXL2EEEib">vt::triu (C++ function)</a>, <a href="api/generator/triu.html#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi">[1]</a>
 </li>
       <li><a href="api/logical/where.html#_CPPv4I0_6size_t_6size_tEN2vt5whereE6TensorI1T1NERK6TensorIb1MEK1TRK6TensorI1T1NE">vt::where (C++ function)</a>, <a href="api/logical/where.html#_CPPv4I0_6size_t_6size_tEN2vt5whereE6TensorI1T1NERK6TensorIb1MERK6TensorI1T1NEK1T">[1]</a>, <a href="api/logical/where.html#_CPPv4I0_6size_t_6size_tEN2vt5whereE6TensorI1T1NERK6TensorIb1MERK6TensorI1T1NERK6TensorI1T1NE">[2]</a>
 </li>

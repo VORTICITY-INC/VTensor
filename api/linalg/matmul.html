@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>vt::linalg::matmul &#8212; VTensor v1.0.0 documentation</title>
+    <title>vt::matmul &#8212; VTensor v1.0.0 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/linalg/matmul';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="vt::linalg::dot" href="product.html" />
+    <link rel="next" title="vt::linalg::svd" href="svd.html" />
     <link rel="prev" title="vt::linalg::inv" href="inv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -411,13 +411,16 @@ document.write(`
 <li class="toctree-l2 has-children"><a class="reference internal" href="cusolver.html">CuSolver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="cholesky.html">vt::linalg::cholesky</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dot.html">vt::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="inv.html">vt::linalg::inv</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::linalg::matmul</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="product.html">vt::linalg::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::matmul</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="svd.html">vt::linalg::svd</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -558,7 +561,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Linear Algebra</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">vt::linalg::matmul</li>
+    <li class="breadcrumb-item active" aria-current="page">vt::matmul</li>
   </ul>
 </nav>
 </div>
@@ -575,22 +578,73 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="vt-linalg-matmul">
-<h1>vt::linalg::matmul<a class="headerlink" href="#vt-linalg-matmul" title="Link to this heading">#</a></h1>
+  <section id="vt-matmul">
+<h1>vt::matmul<a class="headerlink" href="#vt-matmul" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “vt::linalg::matmul” in doxygen xml output for project “vtensor” from directory: ../build/xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “vt::linalg::matmul” in doxygen xml output for project “vtensor” from directory: ../build/xml</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “vt::linalg::matmul” in doxygen xml output for project “vtensor” from directory: ../build/xml</p>
-</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t">
+<span id="_CPPv3I0EN2vt6matmulER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t"></span><span id="_CPPv2I0EN2vt6matmulER6TensorI1TX1EER6TensorI1TX1EE14cublasHandle_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1ad4e2d835dd48349151899280d52c71f8"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">matmul</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor1</span></span>, <a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor2</span></span>, <span class="n"><span class="pre">cublasHandle_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cublas.html#_CPPv4N2vt4cuda6cublasE" title="vt::cuda::cublas"><span class="n"><span class="pre">cublas</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Performs a dot product between two 1D tensors using CuBLAS functions. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensors. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor1</strong> – The first tensor. </p></li>
+<li><p><strong>tensor2</strong> – The second tensor. </p></li>
+<li><p><strong>handle</strong> – The CuBLAS handle. The default is the global CuBLAS handle. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The result tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t">
+<span id="_CPPv3I0EN2vt6matmulER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t"></span><span id="_CPPv2I0EN2vt6matmulER6TensorI1TX2EER6TensorI1TX2EE14cublasHandle_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a8e9e406f8852bc6f535080bf42fc1582"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">matmul</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor1</span></span>, <a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor2</span></span>, <span class="n"><span class="pre">cublasHandle_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cublas.html#_CPPv4N2vt4cuda6cublasE" title="vt::cuda::cublas"><span class="n"><span class="pre">cublas</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Performs matrix multiplication between two 2D tensors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensors. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor1</strong> – The first tensor. </p></li>
+<li><p><strong>tensor2</strong> – The second tensor. </p></li>
+<li><p><strong>handle</strong> – The CuBLAS handle. The default is the global CuBLAS handle. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The result tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t">
+<span id="_CPPv3I0_6size_tEN2vt6matmulER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t"></span><span id="_CPPv2I0_6size_tEN2vt6matmulER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1aece5b392553708fb39b1e94603191f6d"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="vt::matmul::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">matmul</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="vt::matmul::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor1</span></span>, <a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="vt::matmul::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="vt::matmul::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor2</span></span>, <span class="n"><span class="pre">cublasHandle_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handle</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">cuda</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cublas.html#_CPPv4N2vt4cuda6cublasE" title="vt::cuda::cublas"><span class="n"><span class="pre">cublas</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">get_handle</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Performs matrix multiplication between two N&gt;2 tensors using batched matrix multiplication. This is a specialized version of the matmul function for N&gt;2 tensors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensors. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor1</strong> – The first tensor. </p></li>
+<li><p><strong>tensor2</strong> – The second tensor. </p></li>
+<li><p><strong>handle</strong> – The CuBLAS handle. The default is the global CuBLAS handle. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The result tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -613,11 +667,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="product.html"
+       href="svd.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">vt::linalg::dot</p>
+        <p class="prev-next-title">vt::linalg::svd</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -630,6 +684,20 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL1EEER6TensorI1TXL1EEER6TensorI1TXL1EEE14cublasHandle_t"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt6matmulE6TensorI1TXL2EEER6TensorI1TXL2EEER6TensorI1TXL2EEE14cublasHandle_t"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt6matmulE6TensorI1T1NER6TensorI1T1NER6TensorI1T1NE14cublasHandle_t"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

@@ -411,13 +411,16 @@ document.write(`
 <li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/cusolver.html">CuSolver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/cholesky.html">vt::linalg::cholesky</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/dot.html">vt::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/inv.html">vt::linalg::inv</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/matmul.html">vt::linalg::matmul</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/product.html">vt::linalg::dot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/matmul.html">vt::matmul</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../linalg/svd.html">vt::linalg::svd</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -580,6 +583,27 @@ document.write(`
 <div class="toctree-wrapper compound">
 </div>
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt4triuE6TensorI1TXL2EEERK6TensorI1TXL2EEEib">
+<span id="_CPPv3I0EN2vt4triuERK6TensorI1TXL2EEEib"></span><span id="_CPPv2I0EN2vt4triuERK6TensorI1TX2EEib"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a8f063f87eb715d360c9d99d1857e0ff6"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt4triuE6TensorI1TXL2EEERK6TensorI1TXL2EEEib" title="vt::triu::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">triu</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt4triuE6TensorI1TXL2EEERK6TensorI1TXL2EEEib" title="vt::triu::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">copy</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt4triuE6TensorI1TXL2EEERK6TensorI1TXL2EEEib" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return an upper triangle of the 2D tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensor. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor</strong> – The input tensor </p></li>
+<li><p><strong>k</strong> – An offset for the diagonal below which to zero elements. </p></li>
+<li><p><strong>copy</strong> – If false, the operation is performed in-place. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The result tensor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi">
 <span id="_CPPv3I0_6size_tEN2vt4triuERK6TensorI1T1NEi"></span><span id="_CPPv2I0_6size_tEN2vt4triuERK6TensorI1T1NEi"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a2eb013e06f424d0a0405deedff3c4554"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi" title="vt::triu::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi" title="vt::triu::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">triu</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi" title="vt::triu::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi" title="vt::triu::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi" title="Link to this definition">#</a><br /></dt>
 <dd><p>Return an upper triangle of the tensor. </p>
@@ -650,6 +674,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt4triuE6TensorI1TXL2EEERK6TensorI1TXL2EEEib"><code class="docutils literal notranslate"><span class="pre">triu()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt4triuE6TensorI1T1NERK6TensorI1T1NEi"><code class="docutils literal notranslate"><span class="pre">triu()</span></code></a></li>
 </ul>
   </nav></div>

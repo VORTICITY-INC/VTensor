@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>vt::linalg::dot &#8212; VTensor v1.0.0 documentation</title>
+    <title>vt::dot &#8212; VTensor v1.0.0 documentation</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/linalg/product';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/linalg/dot';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="vt::linalg::svd" href="svd.html" />
-    <link rel="prev" title="vt::linalg::matmul" href="matmul.html" />
+    <link rel="next" title="vt::linalg::inv" href="inv.html" />
+    <link rel="prev" title="vt::linalg::cholesky" href="cholesky.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -411,13 +411,16 @@ document.write(`
 <li class="toctree-l2 has-children"><a class="reference internal" href="cusolver.html">CuSolver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="cholesky.html">vt::linalg::cholesky</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::dot</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="inv.html">vt::linalg::inv</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="matmul.html">vt::linalg::matmul</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::linalg::dot</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="matmul.html">vt::matmul</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="svd.html">vt::linalg::svd</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -558,7 +561,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Linear Algebra</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">vt::linalg::dot</li>
+    <li class="breadcrumb-item active" aria-current="page">vt::dot</li>
   </ul>
 </nav>
 </div>
@@ -575,14 +578,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="vt-linalg-dot">
-<h1>vt::linalg::dot<a class="headerlink" href="#vt-linalg-dot" title="Link to this heading">#</a></h1>
+  <section id="vt-dot">
+<h1>vt::dot<a class="headerlink" href="#vt-dot" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “vt::linalg::dot” in doxygen xml output for project “vtensor” from directory: ../build/xml</p>
-</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE">
+<span id="_CPPv3I0_6size_tEN2vt3dotE6TensorI1T1NE6TensorI1T1NE"></span><span id="_CPPv2I0_6size_tEN2vt3dotE6TensorI1T1NE6TensorI1T1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1aad8c5a81c3814adf7daa3ca5aeedb70e"></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE" title="vt::dot::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">dot</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE" title="vt::dot::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE" title="vt::dot::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tensor1</span></span>, <a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE" title="vt::dot::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE" title="vt::dot::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tensor2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Returns the dot product of two tensors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Data type of the tensors. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tensor1</strong> – The first tensor. </p></li>
+<li><p><strong>tensor2</strong> – The second tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T: The dot product of the two tensors. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -596,20 +618,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="matmul.html"
+       href="cholesky.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">vt::linalg::matmul</p>
+        <p class="prev-next-title">vt::linalg::cholesky</p>
       </div>
     </a>
     <a class="right-next"
-       href="svd.html"
+       href="inv.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">vt::linalg::svd</p>
+        <p class="prev-next-title">vt::linalg::inv</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -624,9 +646,21 @@ document.write(`
 
 
   <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt3dotE1T6TensorI1T1NE6TensorI1T1NE"><code class="docutils literal notranslate"><span class="pre">dot()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../_sources/api/linalg/product.rst.txt">
+    <a href="../../_sources/api/linalg/dot.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
