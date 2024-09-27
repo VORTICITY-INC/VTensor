@@ -31,7 +31,7 @@ T max(const Tensor<T, N>& tensor) {
  * @param result: The tensor object to store the result.
  */
 template <typename T, size_t N>
-__global__ void max_along_axis_kernel(vt::CuTensor<T, N> tensor, vt::CuTensor<T, N - 1> result) {
+__global__ void max_along_axis_kernel(CuTensor<T, N> tensor, CuTensor<T, N - 1> result) {
     size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= result.size) return;
     auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start);

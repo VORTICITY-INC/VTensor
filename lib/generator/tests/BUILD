@@ -5,8 +5,10 @@ cuda_test(
     visibility = ["//visibility:public"],
     srcs = [
         "test_arange.cc",
+        "test_diag.cc",
         "test_eye.cc",
         "test_ones.cc",
+        "test_tri.cc",
         "test_zeros.cc",
     ],
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],

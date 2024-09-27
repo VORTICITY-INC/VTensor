@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/cutensor.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/zeros.hpp>
 
@@ -14,7 +15,7 @@ namespace vt {
  * @return __global__
  */
 template <typename T>
-__global__ void eye_kernel(vt::CuTensor<T, 2> tensor, size_t ndiag) {
+__global__ void eye_kernel(CuTensor<T, 2> tensor, size_t ndiag) {
     size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= ndiag) return;
     tensor(idx, idx) = 1;
