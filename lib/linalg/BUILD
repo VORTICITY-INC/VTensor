@@ -4,6 +4,7 @@ cuda_library(
     name = "linalg",
     visibility = ["//visibility:public"],
     hdrs = [
+        "cholesky.hpp",
         "cublas.hpp",
         "cusolver.hpp",
         "inv.hpp",

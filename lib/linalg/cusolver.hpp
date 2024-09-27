@@ -97,6 +97,9 @@ struct CuSolverFuncType {
                                                 int);
     using GeSVDJBatchedBufferSizeT = cusolverStatus_t (*)(cusolverDnHandle_t, cusolverEigMode_t, int, int, const T*, int, const T*, const T*, int, const T*,
                                                           int, int*, gesvdjInfo_t, int);
+    using PotRFT = cusolverStatus_t (*)(cusolverDnHandle_t, cublasFillMode_t, int, T*, int, T*, int, int*);
+    using PotRFBufferSizeT = cusolverStatus_t (*)(cusolverDnHandle_t, cublasFillMode_t, int, T*, int, int*);
+    using PotRFBatchedT = cusolverStatus_t (*)(cusolverDnHandle_t, cublasFillMode_t, int, T*[], int, int*, int);              
 };
 
 /**
@@ -119,6 +122,9 @@ struct CuSolverFunc<float> {
     static constexpr CuSolverFuncType<float>::GeSVDBufferSizeT gesvd_buffer_size() { return cusolverDnSgesvd_bufferSize; }
     static constexpr CuSolverFuncType<float>::GeSVDJBatchedT gesvdj_batched() { return cusolverDnSgesvdjBatched; }
     static constexpr CuSolverFuncType<float>::GeSVDJBatchedBufferSizeT gesvdj_batched_buffer_size() { return cusolverDnSgesvdjBatched_bufferSize; }
+    static constexpr CuSolverFuncType<float>::PotRFT potrf() { return cusolverDnSpotrf; }
+    static constexpr CuSolverFuncType<float>::PotRFBufferSizeT potrf_buffer_size() { return cusolverDnSpotrf_bufferSize; }
+    static constexpr CuSolverFuncType<float>::PotRFBatchedT potrf_batched() { return cusolverDnSpotrfBatched; }
 };
 
 /**
@@ -133,6 +139,9 @@ struct CuSolverFunc<double> {
     static constexpr CuSolverFuncType<double>::GeSVDBufferSizeT gesvd_buffer_size() { return cusolverDnDgesvd_bufferSize; }
     static constexpr CuSolverFuncType<double>::GeSVDJBatchedT gesvdj_batched() { return cusolverDnDgesvdjBatched; }
     static constexpr CuSolverFuncType<double>::GeSVDJBatchedBufferSizeT gesvdj_batched_buffer_size() { return cusolverDnDgesvdjBatched_bufferSize; }
+    static constexpr CuSolverFuncType<double>::PotRFT potrf() { return cusolverDnDpotrf; }
+    static constexpr CuSolverFuncType<double>::PotRFBufferSizeT potrf_buffer_size() { return cusolverDnDpotrf_bufferSize; }
+    static constexpr CuSolverFuncType<double>::PotRFBatchedT potrf_batched() { return cusolverDnDpotrfBatched; }
 };
 
 }  // namespace cuda

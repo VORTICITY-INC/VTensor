@@ -11,6 +11,7 @@
 #include <lib/generator/ones.hpp>
 #include <lib/generator/tri.hpp>
 #include <lib/generator/zeros.hpp>
+#include <lib/linalg/cholesky.hpp>
 #include <lib/linalg/inv.hpp>
 #include <lib/linalg/matmul.hpp>
 #include <lib/linalg/product.hpp>
