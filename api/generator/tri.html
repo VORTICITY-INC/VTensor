@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CuTensor &#8212; VTensor v1.0.0 documentation</title>
+    <title>vt::tri &#8212; VTensor v1.0.0 documentation</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/cutensor';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generator/tri';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Iterator" href="iterator.html" />
-    <link rel="prev" title="Core" href="index.html" />
+    <link rel="next" title="vt::tril" href="tril.html" />
+    <link rel="prev" title="vt::ones" href="ones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -353,53 +353,53 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Core</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">CuTensor</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../core/index.html">Core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/cutensor.html">CuTensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="iterator.html">Iterator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/iterator.html">Iterator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="mempool.html">Mempool</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/mempool.html">Mempool</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="operator.html">Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/operator.html">Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="print.html">Print Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/print.html">Print Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="slice.html">Slice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/slice.html">Slice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tensor.html">Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../core/tensor.html">Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../generator/index.html">Generator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/arange.html">vt::arange</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Generator</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="arange.html">vt::arange</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/diag.html">vt::diag</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="diag.html">vt::diag</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/eye.html">vt::eye</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="eye.html">vt::eye</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/ones.html">vt::ones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="ones.html">vt::ones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/tri.html">vt::tri</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::tri</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/tril.html">vt::tril</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="tril.html">vt::tril</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/triu.html">vt::triu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="triu.html">vt::triu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../generator/zeros.html">vt::zeros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="zeros.html">vt::zeros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
@@ -556,9 +556,9 @@ document.write(`
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API</a></li>
     
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Core</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Generator</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">CuTensor</li>
+    <li class="breadcrumb-item active" aria-current="page">vt::tri</li>
   </ul>
 </nav>
 </div>
@@ -575,132 +575,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="cutensor">
-<h1>CuTensor<a class="headerlink" href="#cutensor" title="Link to this heading">#</a></h1>
+  <section id="vt-tri">
+<h1>vt::tri<a class="headerlink" href="#vt-tri" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt8CuTensorE">
-<span id="_CPPv3I0_6size_tEN2vt8CuTensorE"></span><span id="_CPPv2I0_6size_tEN2vt8CuTensorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classvt_1_1CuTensor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CuTensor</span></span></span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt8CuTensorE" title="Link to this definition">#</a><br /></dt>
-<dd><p><a class="reference internal" href="#classvt_1_1CuTensor"><span class="std std-ref">CuTensor</span></a> class. It is used to adapt a <a class="reference internal" href="tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a> to be used in CUDA kernel. </p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2vt3triE6TensorI1TXL2EEE6size_t6size_ti">
+<span id="_CPPv3I0EN2vt3triE6size_t6size_ti"></span><span id="_CPPv2I0EN2vt3triE6size_t6size_ti"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a122983e3ef31534d630cb01601732624"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN2vt3triE6TensorI1TXL2EEE6size_t6size_ti" title="vt::tri::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">tri</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2vt3triE6TensorI1TXL2EEE6size_t6size_ti" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return a tensor with ones at and below the given diagonal. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>T</strong> – Data type of the tensor. </p></li>
-<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+<dd class="field-odd"><p><strong>T</strong> – Data type of the tensor. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>m</strong> – Number of rows in the tensor. </p></li>
+<li><p><strong>n</strong> – Number of columns in the tensor. </p></li>
+<li><p><strong>k</strong> – An offset for the sub-diagonal at and below which the tensor is filled. </p></li>
 </ul>
 </dd>
-</dl>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N2vt8CuTensor8CuTensorE6TensorI1T1NE">
-<span id="_CPPv3N2vt8CuTensor8CuTensorE6TensorI1T1NE"></span><span id="_CPPv2N2vt8CuTensor8CuTensorE6TensorI1T1NE"></span><span id="vt::CuTensor::CuTensor__Tensor:T.N:"></span><span class="target" id="classvt_1_1CuTensor_1a975efcbe043e2e7b9ae5ceefced5319a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">__host__</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CuTensor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8CuTensorE" title="vt::CuTensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8CuTensorE" title="vt::CuTensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tensor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt8CuTensor8CuTensorE6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1CuTensor"><span class="std std-ref">CuTensor</span></a> object from a <a class="reference internal" href="tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>tensor</strong> – The tensor to be adapted. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1a85e98376919b8137f1816483f5ebfbc8"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">CuTensor</span> <span class="pre">(T</span> <span class="pre">*data,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*shape,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">*strides,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">size_t</span> <span class="pre">size,</span> <span class="pre">const</span> <span class="pre">bool</span> <span class="pre">contiguous)</span></span></dt>
-<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1CuTensor"><span class="std std-ref">CuTensor</span></a> object from a raw pointer, shape, strides, start index, and contiguous flag. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – The raw pointer to the data. </p></li>
-<li><p><strong>shape</strong> – The shape of the tensor. </p></li>
-<li><p><strong>strides</strong> – The strides of the tensor. </p></li>
-<li><p><strong>start</strong> – The start index of the tensor. </p></li>
-<li><p><strong>contiguous</strong> – The contiguous flag of the tensor. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1a4c8f76b1902e573797418dafa7556747"></span><span class="sig-name descname"><span class="pre">template&lt;typename...</span> <span class="pre">Args&gt;</span> <span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">size_t</span> <span class="pre">get_tensor_index</span> <span class="pre">(Args...</span> <span class="pre">args)</span> <span class="pre">const</span></span></dt>
-<dd><p>Helper function to get the tensor index. (e.x. tensor(0, 1, 2)) </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>args</strong> – The indices of the tensor. </p>
-</dd>
-<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Args</strong> – Variadic template for mulitple arguments. </p>
-</dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>size_t: The index of the tensor. </p>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The result tensor. </p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1ae4b1b072ee35fce9a8c0d918ff189b54"></span><span class="sig-name descname"><span class="pre">template&lt;typename...</span> <span class="pre">Args&gt;</span> <span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">T</span> <span class="pre">&amp;</span> <span class="pre">operator()</span> <span class="pre">(Args...</span> <span class="pre">args)</span></span></dt>
-<dd><p>Return the data given the indices. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>args</strong> – The indices of the tensor. </p>
-</dd>
-<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Args</strong> – Variadic template for mulitple arguments. </p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>T: The data of the tensor. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1ac07649e2ea05e035c5445123a15cf329"></span><span class="sig-name descname"><span class="pre">template&lt;typename...</span> <span class="pre">Args&gt;</span> <span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">const</span> <span class="pre">T</span> <span class="pre">&amp;</span> <span class="pre">operator()</span> <span class="pre">(Args...</span> <span class="pre">args)</span> <span class="pre">const</span></span></dt>
-<dd><p>Return the data given the indices. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>args</strong> – The indices of the tensor. </p>
-</dd>
-<dt class="field-even">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Args</strong> – Variadic template for mulitple arguments. </p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>T: The data of the tensor. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1abb47e5c1c3e8b964b9629ad79415c595"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">T</span> <span class="pre">&amp;</span> <span class="pre">operator[]</span> <span class="pre">(size_t</span> <span class="pre">n)</span></span></dt>
-<dd><p>Return the data given the iterative index. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>n</strong> – The 1D index of the tensor. </p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>T: The data of the tensor. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classvt_1_1CuTensor_1a3e00892d7e021e4237eefa486aac8a6f"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">__host__</span> <span class="pre">__device__</span> <span class="pre">const</span> <span class="pre">T</span> <span class="pre">&amp;</span> <span class="pre">operator[]</span> <span class="pre">(size_t</span> <span class="pre">n)</span> <span class="pre">const</span></span></dt>
-<dd><p>Return the data given the iterative index. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>n</strong> – The 1D index of the tensor. </p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>T: The data of the tensor. </p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
 </dd></dl>
 
 </section>
@@ -716,20 +613,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="ones.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Core</p>
+        <p class="prev-next-title">vt::ones</p>
       </div>
     </a>
     <a class="right-next"
-       href="iterator.html"
+       href="tril.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Iterator</p>
+        <p class="prev-next-title">vt::tril</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -751,17 +648,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt8CuTensorE"><code class="docutils literal notranslate"><span class="pre">CuTensor</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt8CuTensor8CuTensorE6TensorI1T1NE"><code class="docutils literal notranslate"><span class="pre">CuTensor::CuTensor()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt3triE6TensorI1TXL2EEE6size_t6size_ti"><code class="docutils literal notranslate"><span class="pre">tri()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../_sources/api/core/cutensor.rst.txt">
+    <a href="../../_sources/api/generator/tri.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
