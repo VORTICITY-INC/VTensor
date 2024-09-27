@@ -4,6 +4,7 @@ cuda_test(
     name = "test_linalg",
     visibility = ["//visibility:public"],
     srcs = [
+        "test_cholesky.cc",
         "test_cublas.cc",
         "test_cusolver.cc",
         "test_inv.cc",
