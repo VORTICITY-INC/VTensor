@@ -61,3 +61,9 @@ TEST(MoveAxis, BasicAssertions) {
     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}));
     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 4, 8, 2, 6, 10, 1, 5, 9, 3, 7, 11}));
 }
+
+TEST(Swapaxes, BasicAssertions) {
+    auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
+    auto tensor2 = vt::swapaxes(tensor, 0, 1);
+    EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{0, 8, 16, 2, 10, 18, 4, 12, 20, 6, 14, 22}));
+}

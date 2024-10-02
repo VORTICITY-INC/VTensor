@@ -59,7 +59,7 @@ __global__ void any_along_axis_kernel(CuTensor<T, N> tensor, CuTensor<bool, N - 
  * @return Tensor<bool, N-1>: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<bool, N - 1> any(const Tensor<T, N>& tensor, const int axis) {
+Tensor<bool, N - 1> any(const Tensor<T, N>& tensor, int axis) {
     return reduce_along_axis<bool, T, N>(tensor, axis, any_along_axis_kernel<T, N>);
 }
 

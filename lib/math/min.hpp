@@ -2,6 +2,7 @@
 
 #include <thrust/extrema.h>
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/cutensor.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/math/reduce.hpp>
@@ -17,8 +18,10 @@ namespace vt {
  * @return T: The minimum value of the tensor elements.
  */
 template <typename T, size_t N>
-T min(const Tensor<T, N>& tensor) {
-    return *thrust::min_element(tensor.begin(), tensor.end());
+Tensor<T, 0> min(const Tensor<T, N>& tensor) {
+    auto result = Tensor<T, 0>(Shape<0>{});
+    (*result.data())[0] = *thrust::min_element(tensor.begin(), tensor.end());
+    return result;
 }
 
 /**
@@ -51,8 +54,13 @@ __global__ void min_along_axis_kernel(CuTensor<T, N> tensor, CuTensor<T, N - 1> 
  * @return Tensor<T, N-1>: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<T, N - 1> min(const Tensor<T, N>& tensor, const int axis) {
-    return reduce_along_axis<T, T, N>(tensor, axis, min_along_axis_kernel<T, N>);
+Tensor<T, N - 1> min(const Tensor<T, N>& tensor, int axis) {
+    assert_at_least_1d_tensor<N>();
+    if constexpr (N == 1) {
+        return min(tensor);
+    } else {
+        return reduce_along_axis<T, T, N>(tensor, axis, min_along_axis_kernel<T, N>);
+    }
 }
 
 }  // namespace vt

@@ -4,8 +4,8 @@
 
 TEST(Max, BasicAssertions) {
     auto tensor = vt::arange(12)({1, 12, 2});
-    EXPECT_EQ(vt::max(tensor), 11);
-    EXPECT_EQ(vt::max(tensor > 5.0f), true);
+    EXPECT_EQ(vt::asvector(vt::max(tensor)), std::vector<float>{11});
+    EXPECT_EQ(vt::asvector(vt::max(tensor > 5.0f)), std::vector<bool>{true});
 }
 
 TEST(MaxAlongAxis, BasicAssertions) {

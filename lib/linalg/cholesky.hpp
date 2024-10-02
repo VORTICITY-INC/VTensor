@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/zeros.hpp>
 #include <lib/linalg/cusolver.hpp>
@@ -51,6 +52,7 @@ Tensor<T, 2> cholesky(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cu
  */
 template <typename T, size_t N>
 Tensor<T, N> cholesky(Tensor<T, N>& tensor, cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+    assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();
     assert(shape[N - 1] == shape[N - 2]);
     Shape<N - 2> batch_shape;

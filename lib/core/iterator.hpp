@@ -17,11 +17,13 @@ namespace vt {
 template <size_t N>
 __host__ __device__ size_t get_iterator_index(size_t n, const size_t* shape, const size_t* strides, size_t start) {
     size_t index = start;
-    for (size_t i = 0; i < N; ++i) {
-        size_t shape_product = 1;
-        for (size_t j = i + 1; j < N; ++j) shape_product *= shape[j];
-        index += (n / shape_product) * strides[i];
-        n %= shape_product;
+    if constexpr (N > 0) {
+        for (size_t i = 0; i < N; ++i) {
+            size_t shape_product = 1;
+            for (size_t j = i + 1; j < N; ++j) shape_product *= shape[j];
+            index += (n / shape_product) * strides[i];
+            n %= shape_product;
+        }
     }
     return index;
 }
@@ -46,9 +48,11 @@ class TensorIterator : public thrust::iterator_adaptor<TensorIterator<Iterator, 
      */
     __host__ __device__ TensorIterator(const Iterator& iter, const size_t* shape, const size_t* strides, const size_t start, const bool contiguous)
         : thrust::iterator_adaptor<TensorIterator<Iterator, N>, Iterator>(iter), start(start), contiguous(contiguous) {
-        for (size_t i = 0; i < N; ++i) {
-            this->shape[i] = shape[i];
-            this->strides[i] = strides[i];
+        if constexpr (N > 0) {
+            for (size_t i = 0; i < N; ++i) {
+                this->shape[i] = shape[i];
+                this->strides[i] = strides[i];
+            }
         }
     }
 

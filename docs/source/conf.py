@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore", category=RemovedInSphinx90Warning)
 project = 'VTensor'
 copyright = '2024, Vorticity Inc'
 author = 'Sheng-Yang Tsui'
-release = 'v1.0.0'
+release = 'v1.1.0'
 
 
 # -- General configuration ---------------------------------------------------

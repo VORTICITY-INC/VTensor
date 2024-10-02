@@ -7,6 +7,9 @@ TEST(MaximumBetweenTwoTensors, BasicAssertions) {
     auto tensor2 = vt::arange(12)({1, 12, 2});
     auto re = vt::maximum(tensor1, tensor2);
     EXPECT_EQ(vt::asvector(re), (std::vector<float>{5, 5, 5, 7, 9, 11}));
+
+    auto re1 = vt::maximum(tensor1[0], tensor2[0]);
+    EXPECT_EQ(vt::asvector(re1), (std::vector<float>{5}));
 }
 
 TEST(MaximumBetweenTensorAndValue, BasicAssertions) {

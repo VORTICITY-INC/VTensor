@@ -2,6 +2,7 @@
 
 #include <thrust/extrema.h>
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/cutensor.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/math/reduce.hpp>
@@ -14,11 +15,13 @@ namespace vt {
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
  * @param tensor: The tensor object.
- * @return T: The maximum value of the tensor elements.
+ * @return Tensor<T, 0>: The result tensor.
  */
 template <typename T, size_t N>
-T max(const Tensor<T, N>& tensor) {
-    return *thrust::max_element(tensor.begin(), tensor.end());
+Tensor<T, 0> max(const Tensor<T, N>& tensor) {
+    auto result = Tensor<T, 0>(Shape<0>{});
+    (*result.data())[0] = *thrust::max_element(tensor.begin(), tensor.end());
+    return result;
 }
 
 /**
@@ -51,8 +54,13 @@ __global__ void max_along_axis_kernel(CuTensor<T, N> tensor, CuTensor<T, N - 1> 
  * @return Tensor<T, N-1>: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<T, N - 1> max(const Tensor<T, N>& tensor, const int axis) {
-    return reduce_along_axis<T, T, N>(tensor, axis, max_along_axis_kernel<T, N>);
+Tensor<T, N - 1> max(const Tensor<T, N>& tensor, int axis) {
+    assert_at_least_1d_tensor<N>();
+    if constexpr (N == 1) {
+        return max(tensor);
+    } else {
+        return reduce_along_axis<T, T, N>(tensor, axis, max_along_axis_kernel<T, N>);
+    }
 }
 
 }  // namespace vt

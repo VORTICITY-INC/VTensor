@@ -1,4 +1,4 @@
-Mempool
+vt::Mempool
 =======================
 
 .. toctree::

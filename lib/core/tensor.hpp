@@ -2,6 +2,7 @@
 
 #include <thrust/iterator/constant_iterator.h>
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/iterator.hpp>
 #include <lib/core/slice.hpp>
 #include <memory>
@@ -9,9 +10,6 @@
 #include <rmm/device_vector.hpp>
 
 namespace vt {
-
-// Number of threads per block. It is used for the customized CUDA kernel.
-const size_t NUM_THREADS_X = 256;
 
 // Alias for shape of the tensor.
 template <size_t N>
@@ -39,12 +37,16 @@ size_t get_size(const Shape<N>& shape) {
 template <size_t N>
 Shape<N> get_strides(const Shape<N>& shape) {
     Shape<N> strides{};
-    size_t stride = 1;
-    for (int i = N - 1; i >= 0; --i) {
-        strides[i] = stride;
-        stride *= shape[i];
+    if constexpr (N == 0) {
+        return strides;
+    } else {
+        size_t stride = 1;
+        for (int i = N - 1; i >= 0; --i) {
+            strides[i] = stride;
+            stride *= shape[i];
+        }
+        return strides;
     }
-    return strides;
 }
 
 /**
@@ -140,13 +142,24 @@ class Tensor {
      * @return Tensor: The sliced tensor.
      */
     Tensor<T, N - 1> operator[](size_t index) const {
-        static_assert(N > 1, "The tensor must be at least 2D.");
+        assert_at_least_1d_tensor<N>();
         Shape<N - 1> new_shape;
         Shape<N - 1> new_strides;
         std::copy(_shape.begin() + 1, _shape.end(), new_shape.begin());
         std::copy(_strides.begin() + 1, _strides.end(), new_strides.begin());
         auto new_start = _start + index * _strides[0];
         return Tensor<T, N - 1>(_data, new_shape, new_strides, new_start, false);
+    }
+
+    /**
+     * @brief Operator for indexing the tensor based on the condition.
+     *
+     * @param cond: A boolean tensor with the same shape as the tensor.
+     * @return TensorCondProxy: The tensor conditional proxy object.
+     */
+    TensorCondProxy<T, N> operator[](const Tensor<bool, N>& cond) {
+        assert_at_least_1d_tensor<N>();
+        return TensorCondProxy<T, N>(*this, cond);
     }
 
     /**
@@ -158,6 +171,7 @@ class Tensor {
      */
     template <typename... Args>
     TensorSliceProxy<T, N> operator()(Args... args) {
+        assert_at_least_1d_tensor<N>();
         std::array<Slice, N> slices = {static_cast<Slice>(args)...};
         return TensorSliceProxy<T, N>(apply_slices(slices));
     }
@@ -168,7 +182,10 @@ class Tensor {
      * @param slices: An array of slices to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
-    TensorSliceProxy<T, N> operator()(std::array<Slice, N>& slices) { return TensorSliceProxy<T, N>(apply_slices(slices)); }
+    TensorSliceProxy<T, N> operator()(std::array<Slice, N>& slices) {
+        assert_at_least_1d_tensor<N>();
+        return TensorSliceProxy<T, N>(apply_slices(slices));
+    }
 
     /**
      * @brief Operator for slicing the tensor. It supports one Slice implicit conversion for tensor.
@@ -214,10 +231,45 @@ class Tensor {
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
     TensorSliceProxy<T, N> operator()(const EllipsisT& e, Slice s) {
+        assert_at_least_1d_tensor<N>();
         std::array<Slice, N> slices;
         std::transform(_shape.begin(), _shape.begin() + (N - 1), slices.begin(), [](auto dim) { return Slice{0, dim}; });
         slices[N - 1] = s;
         return operator()(slices);
+    }
+
+    /**
+     * @brief Operator to add a new axis at the last axis to the tensor.
+     *
+     * @param e: Ellipsis to be applied to the tensor.
+     * @param n: NewAxis to be applied to the tensor.
+     * @return Tensor: The new tensor object.
+     */
+    Tensor<T, N + 1> operator()(const EllipsisT& e, const NewAxisT& n) {
+        Shape<N + 1> shape;
+        Shape<N + 1> strides;
+        std::copy(_shape.begin(), _shape.end(), shape.begin());
+        std::copy(_strides.begin(), _strides.end(), strides.begin());
+        shape[N] = 1;
+        strides[N] = 0;
+        return Tensor<T, N + 1>(_data, shape, strides, _start, false);
+    }
+
+    /**
+     * @brief Operator to add a new axis at the first axis to the tensor.
+     *
+     * @param n: NewAxis to be applied to the tensor.
+     * @param e: Ellipsis to be applied to the tensor.
+     * @return Tensor: The new tensor object.
+     */
+    Tensor<T, N + 1> operator()(const NewAxisT& n, const EllipsisT& e) {
+        Shape<N + 1> shape;
+        Shape<N + 1> strides;
+        std::copy(_shape.begin(), _shape.end(), shape.begin() + 1);
+        std::copy(_strides.begin(), _strides.end(), strides.begin() + 1);
+        shape[0] = 1;
+        strides[0] = 0;
+        return Tensor<T, N + 1>(_data, shape, strides, _start, false);
     }
 
     /**
@@ -303,6 +355,23 @@ class Tensor {
         }
         size_t new_start = _start + offset;
         return Tensor<T, N>(_data, new_shape, new_strides, new_start, false);
+    }
+
+    /**
+     * @brief Casts the array to given data type.
+     *
+     * @tparam U: The data type to cast.
+     * @return Tensor<U, N>: The new tensor object.
+     */
+    template <typename U>
+    Tensor<U, N> astype() {
+        if constexpr (std::is_same_v<T, U>) {
+            return *this;
+        } else {
+            auto result = Tensor<U, N>(_shape);
+            thrust::transform(this->begin(), this->end(), result.begin(), [] __device__(const T& x) { return static_cast<U>(x); });
+            return result;
+        }
     }
 
     /**

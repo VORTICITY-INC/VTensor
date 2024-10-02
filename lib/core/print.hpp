@@ -48,8 +48,12 @@ void print_tensor(const Tensor<T, N>& tensor, size_t dim, Shape<N> indices) {
 template <typename T, size_t N>
 void print(const Tensor<T, N>& tensor) {
     std::cout << "Tensor = ";
-    Shape<N> indices{};
-    print_tensor(tensor, 0, indices);
+    if constexpr (N == 0) {
+        std::cout << "[" << (*tensor.data())[tensor.start()] << "]" << std::endl;
+    } else {
+        Shape<N> indices{};
+        print_tensor(tensor, 0, indices);
+    }
 }
 
 }  // namespace vt

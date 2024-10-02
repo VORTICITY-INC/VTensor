@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/eye.hpp>
 #include <lib/generator/zeros.hpp>
@@ -64,7 +65,7 @@ Tensor<T, 2> inv(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cusolve
  */
 template <typename T, size_t N>
 Tensor<T, N> inv(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::cublas.get_handle()) {
-    static_assert(N > 1, "The tensor must be at least 2D.");
+    assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();
     assert(shape[N - 1] == shape[N - 2]);
 

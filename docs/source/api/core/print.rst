@@ -1,4 +1,4 @@
-Print Tensor
+vt::print
 =======================
 
 .. toctree::

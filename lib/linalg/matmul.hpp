@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/zeros.hpp>
 #include <lib/linalg/cublas.hpp>
@@ -71,6 +72,7 @@ Tensor<T, 2> matmul(Tensor<T, 2>& tensor1, Tensor<T, 2>& tensor2, cublasHandle_t
  */
 template <typename T, size_t N>
 Tensor<T, N> matmul(Tensor<T, N>& tensor1, Tensor<T, N>& tensor2, cublasHandle_t handle = cuda::cublas.get_handle()) {
+    assert_at_least_3d_tensor<N>();
     auto shape1 = tensor1.shape();
     auto shape2 = tensor2.shape();
     assert(shape1[N - 1] == shape2[N - 2]);

@@ -4,6 +4,7 @@ cuda_test(
     name = "test_core",
     visibility = ["//visibility:public"],
     srcs = [
+        "test_broadcast.cc",
         "test_cutensor.cc",
         "test_iterator.cc",
         "test_mempool.cc",

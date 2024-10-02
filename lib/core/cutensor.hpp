@@ -34,9 +34,11 @@ class CuTensor {
      */
     __host__ __device__ CuTensor(T* data, const size_t* shape, const size_t* strides, const size_t start, const size_t size, const bool contiguous)
         : data(data), start(start), size(size), contiguous(contiguous) {
-        for (size_t i = 0; i < N; ++i) {
-            this->shape[i] = shape[i];
-            this->strides[i] = strides[i];
+        if constexpr (N > 0) {
+            for (size_t i = 0; i < N; ++i) {
+                this->shape[i] = shape[i];
+                this->strides[i] = strides[i];
+            }
         }
     }
 
@@ -50,9 +52,11 @@ class CuTensor {
     template <typename... Args>
     __host__ __device__ size_t get_tensor_index(Args... args) const {
         static_assert(sizeof...(args) == N, "Number of indices must match tensor dimensions");
-        size_t indices[] = {static_cast<size_t>(args)...};
         size_t index = start;
-        for (size_t i = 0; i < N; ++i) index += indices[i] * strides[i];
+        if constexpr (N > 0) {
+            size_t indices[] = {static_cast<size_t>(args)...};
+            for (size_t i = 0; i < N; ++i) index += indices[i] * strides[i];
+        }
         return index;
     }
 

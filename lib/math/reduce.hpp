@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/zeros.hpp>
 #include <lib/math/transpose.hpp>
@@ -20,8 +21,8 @@ namespace vt {
  * @return Tensor<T, N-1>: The results tensor.
  */
 template <typename T, typename U, size_t N, typename KernelFunc>
-Tensor<T, N - 1> reduce_along_axis(const Tensor<U, N>& tensor, const int axis, KernelFunc kernel_func) {
-    static_assert(N > 1, "The tensor must have at least two dimensions");
+Tensor<T, N - 1> reduce_along_axis(const Tensor<U, N>& tensor, int axis, KernelFunc kernel_func) {
+    assert_at_least_2d_tensor<N>();
     auto _tensor = moveaxis(tensor, axis, N - 1);
     Shape<N - 1> new_shape;
     auto shape = _tensor.shape();

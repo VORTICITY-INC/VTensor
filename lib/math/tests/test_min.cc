@@ -4,8 +4,8 @@
 
 TEST(Min, BasicAssertions) {
     auto tensor = vt::arange(12)({1, 12, 2});
-    EXPECT_EQ(vt::min(tensor), 1);
-    EXPECT_EQ(vt::min(tensor > 5.0f), false);
+    EXPECT_EQ(vt::asvector(vt::min(tensor)), std::vector<float>{1});
+    EXPECT_EQ(vt::asvector(vt::min(tensor > 5.0f)), std::vector<bool>{false});
 }
 
 TEST(MinAlongAxis, BasicAssertions) {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/eye.hpp>
 #include <lib/generator/zeros.hpp>
@@ -107,6 +108,7 @@ std::tuple<Tensor<T, 2>, Tensor<T, 1>, Tensor<T, 2>> svd(Tensor<T, 2>& tensor, b
 template <typename T, size_t N>
 std::tuple<Tensor<T, N>, Tensor<T, N - 1>, Tensor<T, N>> svd(Tensor<T, N>& tensor, bool full_matrices = true, bool compute_uv = true,
                                                              cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+    assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();
     Shape<N - 2> batch_shape;
     std::copy(shape.begin(), shape.begin() + (N - 2), batch_shape.begin());

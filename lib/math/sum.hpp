@@ -2,6 +2,7 @@
 
 #include <thrust/reduce.h>
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/cutensor.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/math/reduce.hpp>
@@ -14,11 +15,13 @@ namespace vt {
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
  * @param tensor: The tensor object.
- * @return T: The sum of the tensor elements.
+ * @return Tensor<T, 0>: The result tensor.
  */
 template <typename T, size_t N>
-T sum(const Tensor<T, N>& tensor) {
-    return thrust::reduce(tensor.begin(), tensor.end(), (T)0, thrust::plus<T>());
+Tensor<T, 0> sum(const Tensor<T, N>& tensor) {
+    auto result = Tensor<T, 0>(Shape<0>{});
+    (*result.data())[0] = thrust::reduce(tensor.begin(), tensor.end(), (T)0, thrust::plus<T>());
+    return result;
 }
 
 /**
@@ -26,11 +29,13 @@ T sum(const Tensor<T, N>& tensor) {
  *
  * @tparam N: Number of dimensions of the tensor.
  * @param tensor: The tensor object.
- * @return int: The sum of the true elements.
+ * @return Tensor<T, 0>: The result tensor.
  */
 template <size_t N>
-int sum(const Tensor<bool, N>& tensor) {
-    return thrust::reduce(tensor.begin(), tensor.end(), 0, thrust::plus<int>());
+Tensor<int, 0> sum(const Tensor<bool, N>& tensor) {
+    auto result = Tensor<int, 0>(Shape<0>{});
+    (*result.data())[0] = thrust::reduce(tensor.begin(), tensor.end(), 0, thrust::plus<int>());
+    return result;
 }
 
 /**
@@ -64,8 +69,13 @@ __global__ void sum_along_axis_kernel(CuTensor<U, N> tensor, CuTensor<T, N - 1> 
  * @return Tensor<T, N-1>: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<T, N - 1> sum(const Tensor<T, N>& tensor, const int axis) {
-    return reduce_along_axis<T, T, N>(tensor, axis, sum_along_axis_kernel<T, T, N>);
+Tensor<T, N - 1> sum(const Tensor<T, N>& tensor, int axis) {
+    assert_at_least_1d_tensor<N>();
+    if constexpr (N == 1) {
+        return sum(tensor);
+    } else {
+        return reduce_along_axis<T, T, N>(tensor, axis, sum_along_axis_kernel<T, T, N>);
+    }
 }
 
 /**
@@ -78,8 +88,13 @@ Tensor<T, N - 1> sum(const Tensor<T, N>& tensor, const int axis) {
  * @return Tensor<int, N-1>: The result tensor.
  */
 template <size_t N>
-Tensor<int, N - 1> sum(const Tensor<bool, N>& tensor, const int axis) {
-    return reduce_along_axis<int, bool, N>(tensor, axis, sum_along_axis_kernel<int, bool, N>);
+Tensor<int, N - 1> sum(const Tensor<bool, N>& tensor, int axis) {
+    assert_at_least_1d_tensor<N>();
+    if constexpr (N == 1) {
+        return sum(tensor);
+    } else {
+        return reduce_along_axis<int, bool, N>(tensor, axis, sum_along_axis_kernel<int, bool, N>);
+    }
 }
 
 }  // namespace vt
