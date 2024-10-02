@@ -69,3 +69,9 @@ TEST(SliceAndAssigmentFromConstant, BasicAssertions) {
     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{1, 1, 1, 2, 1, 2, 2, 1, 2, 1, 1, 1}));
     EXPECT_EQ(tensor1.contiguous(), true);
 }
+
+TEST(TensorCondProxyFromConstant, BasicAssertions) {
+    auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
+    tensor[tensor > 12.0f] = 1.0f;
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 1, 1, 1, 1, 1}));
+}

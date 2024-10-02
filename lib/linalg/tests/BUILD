@@ -9,6 +9,7 @@ cuda_test(
         "test_cusolver.cc",
         "test_inv.cc",
         "test_matmul.cc",
+        "test_pinv.cc",
         "test_product.cc",
         "test_svd.cc",
     ],

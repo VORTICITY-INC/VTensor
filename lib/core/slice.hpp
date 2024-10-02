@@ -4,6 +4,9 @@
 
 namespace vt {
 
+// Number of threads per block. It is used for the customized CUDA kernel.
+const size_t NUM_THREADS_X = 256;
+
 /**
  * @brief Slice class to represent a slice of a tensor.
  * Usage:
@@ -55,6 +58,17 @@ struct EllipsisT {};
 
 /// Ellipsis object
 static constexpr EllipsisT ellipsis = {};
+
+/**
+ * @brief Represents an newaxis in tensor operations.
+ *
+ * The NewAxisT struct is used to signify a new axis in tensor operations.
+ * A global static object of this type, named `newaxis`, is defined for convenience.
+ */
+struct NewAxisT {};
+
+/// Newaxis object
+static constexpr NewAxisT newaxis = {};
 
 /// Forward declaration of the Tensor class.
 template <typename T, size_t N>
@@ -109,6 +123,63 @@ class TensorSliceProxy : public Tensor<T, N> {
         thrust::fill(this->begin(), this->end(), value);
         return *this;
     }
+};
+
+/**
+ * @brief AssignValue struct to assign a value to the tensor based on the condition tensor.
+ *
+ * @tparam T: Data type of the tensor.
+ */
+template <typename T>
+struct AssignValue {
+    /**
+     * @brief Construct a new AssignValue object
+     *
+     * @param value: The value to be assigned.
+     */
+    AssignValue(T value) : value(value) {}
+
+    /**
+     * @brief Operator to assign a value to the tensor based on the condition.
+     *
+     * @param x: The value.
+     * @return T: The value to be assigned.
+     */
+    __device__ T operator()(const T& x) const { return value; }
+
+    T value;
+};
+
+/**
+ * @brief TensorCondProxy to perform a copy assignment operator based on the condition.
+ *
+ * @tparam T: Data type of the tensor.
+ * @tparam N: Number of dimensions of the tensor.
+ */
+template <typename T, size_t N>
+class TensorCondProxy : public Tensor<T, N> {
+   public:
+    /**
+     * @brief Construct a TensorCondProxy object
+     *
+     * @param tensor: The tensor.
+     * @param cond: The condition tensor.
+     */
+    TensorCondProxy(const Tensor<T, N>& tensor, const Tensor<bool, N>& cond) : Tensor<T, N>(tensor), cond(cond) {}
+
+    /**
+     * @brief Copy assignment operator for the TensorCondProxy from a constant.
+     *
+     * @param value: The value to be assigned.
+     * @return TensorCondProxy: The tensor condition proxy object.
+     */
+    TensorCondProxy& operator=(const T value) {
+        thrust::transform_if(this->begin(), this->end(), cond.begin(), this->begin(), AssignValue<T>(value), [] __device__(const bool& x) { return x; });
+        return *this;
+    }
+
+   private:
+    Tensor<bool, N> cond;
 };
 
 }  // namespace vt

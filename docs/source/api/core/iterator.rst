@@ -1,4 +1,4 @@
-Iterator
+vt::TensorIterator
 =======================
 
 .. toctree::

@@ -1,3 +1,4 @@
+#include <lib/core/broadcast.hpp>
 #include <lib/core/cutensor.hpp>
 #include <lib/core/mempool.hpp>
 #include <lib/core/operator.hpp>
@@ -14,6 +15,7 @@
 #include <lib/linalg/cholesky.hpp>
 #include <lib/linalg/inv.hpp>
 #include <lib/linalg/matmul.hpp>
+#include <lib/linalg/pinv.hpp>
 #include <lib/linalg/product.hpp>
 #include <lib/linalg/svd.hpp>
 #include <lib/logical/all.hpp>

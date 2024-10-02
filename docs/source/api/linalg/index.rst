@@ -10,4 +10,5 @@ Linear Algebra
    dot
    inv
    matmul
+   pinv
    svd

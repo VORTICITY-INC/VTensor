@@ -1,4 +1,4 @@
-CuTensor 
+vt::CuTensor 
 =======================
 
 .. toctree::

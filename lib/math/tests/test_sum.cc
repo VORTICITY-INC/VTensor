@@ -4,8 +4,8 @@
 
 TEST(Sum, BasicAssertions) {
     auto tensor = vt::arange(12)({1, 12, 2});
-    EXPECT_EQ(vt::sum(tensor), 36);
-    EXPECT_EQ(vt::sum(tensor > 5.0f), 3);
+    EXPECT_EQ(vt::asvector(vt::sum(tensor)), std::vector<float>{36});
+    EXPECT_EQ(vt::asvector(vt::sum(tensor > 5.0f)), std::vector<int>{3});
 }
 
 TEST(SumAlongAxis, BasicAssertions) {

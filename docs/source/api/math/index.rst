@@ -9,9 +9,11 @@ Math
    mean
    min
    minimum
+   moveaxis
    power
    reduce
    sort
    sqrt
    sum
+   swapaxes
    transpose

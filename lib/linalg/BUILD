@@ -9,6 +9,7 @@ cuda_library(
         "cusolver.hpp",
         "inv.hpp",
         "matmul.hpp",
+        "pinv.hpp",
         "product.hpp",
         "svd.hpp",
     ],

@@ -50,17 +50,23 @@ Tensor<T, N> transpose(const Tensor<T, N>& tensor, const Shape<N>& axes) {
 }
 
 /**
- * @brief Swap the axis of the tensor.
+ * @brief Move the axis of the tensor.
  *
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
  * @param tensor: The tensor object.
  * @param source: The source axis.
  * @param destination: The destination axis.
- * @return Tensor<T, N>: The transposed tensor.
+ * @return Tensor<T, N>: The tensor with moved axes.
  */
 template <typename T, size_t N>
-Tensor<T, N> moveaxis(const Tensor<T, N>& tensor, const size_t source, const size_t destination) {
+Tensor<T, N> moveaxis(const Tensor<T, N>& tensor, int source, int destination) {
+    if (source < 0) {
+        source += N;
+    }
+    if (destination < 0) {
+        destination += N;
+    }
     assert(source < N && destination < N);
     Shape<N> axes;
     std::vector<size_t> _axes(N);
@@ -70,6 +76,35 @@ Tensor<T, N> moveaxis(const Tensor<T, N>& tensor, const size_t source, const siz
     auto temp = _axes[source];
     _axes.erase(_axes.begin() + source);
     _axes.insert(_axes.begin() + destination, temp);
+    std::copy(_axes.begin(), _axes.end(), axes.begin());
+    return transpose(tensor, axes);
+}
+
+/**
+ * @brief Swap the axis of the tensor.
+ *
+ * @tparam T: Data type of the tensor.
+ * @tparam N: Number of dimensions of the tensor.
+ * @param tensor: The tensor object.
+ * @param axis1: The first axis.
+ * @param axis2: The second axis.
+ * @return Tensor<T, N>: The tensor with swapped axes.
+ */
+template <typename T, size_t N>
+Tensor<T, N> swapaxes(const Tensor<T, N>& tensor, int axis1, int axis2) {
+    if (axis1 < 0) {
+        axis1 += N;
+    }
+    if (axis2 < 0) {
+        axis2 += N;
+    }
+    assert(axis1 < N && axis2 < N);
+    Shape<N> axes;
+    std::vector<size_t> _axes(N);
+    for (auto i = 0; i < N; ++i) {
+        _axes[i] = i;
+    }
+    std::swap(_axes[axis1], _axes[axis2]);
     std::copy(_axes.begin(), _axes.end(), axes.begin());
     return transpose(tensor, axes);
 }

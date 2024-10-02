@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/broadcast.hpp>
 #include <lib/core/tensor.hpp>
 
 namespace vt {
@@ -15,9 +16,9 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, N> operator+(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<T, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), thrust::plus<T>());
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<T, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), thrust::plus<T>());
     return result;
 }
 
@@ -62,9 +63,9 @@ Tensor<T, N> operator+(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<T, N> operator-(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<T, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), thrust::minus<T>());
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<T, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), thrust::minus<T>());
     return result;
 }
 
@@ -112,9 +113,9 @@ Tensor<T, N> operator-(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<T, N> operator*(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<T, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), thrust::multiplies<T>());
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<T, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), thrust::multiplies<T>());
     return result;
 }
 
@@ -159,9 +160,9 @@ Tensor<T, N> operator*(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<T, N> operator/(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<T, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), thrust::divides<T>());
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<T, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), thrust::divides<T>());
     return result;
 }
 
@@ -209,9 +210,9 @@ Tensor<T, N> operator/(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<bool, N> operator>(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), [] __device__(const int& x, const int& y) { return x > y; });
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<bool, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), [] __device__(const T& x, const T& y) { return x > y; });
     return result;
 }
 
@@ -227,8 +228,7 @@ Tensor<bool, N> operator>(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
 template <typename T, size_t N>
 Tensor<bool, N> operator>(const Tensor<T, N>& lhs, const T value) {
     auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(),
-                      [] __device__(const int& x, const int& y) { return x > y; });
+    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) { return x > y; });
     return result;
 }
 
@@ -244,8 +244,7 @@ Tensor<bool, N> operator>(const Tensor<T, N>& lhs, const T value) {
 template <typename T, size_t N>
 Tensor<bool, N> operator>(const T value, const Tensor<T, N>& rhs) {
     auto result = Tensor<bool, N>(rhs.shape());
-    thrust::transform(rhs.begin(), rhs.end(), thrust::make_constant_iterator(value), result.begin(),
-                      [] __device__(const int& x, const int& y) { return x < y; });
+    thrust::transform(rhs.begin(), rhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) { return x < y; });
     return result;
 }
 
@@ -302,9 +301,9 @@ Tensor<bool, N> operator<(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<bool, N> operator>=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), [] __device__(const int& x, const int& y) { return x >= y; });
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<bool, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), [] __device__(const T& x, const T& y) { return x >= y; });
     return result;
 }
 
@@ -320,8 +319,7 @@ Tensor<bool, N> operator>=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
 template <typename T, size_t N>
 Tensor<bool, N> operator>=(const Tensor<T, N>& lhs, const T value) {
     auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(),
-                      [] __device__(const int& x, const int& y) { return x >= y; });
+    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) { return x >= y; });
     return result;
 }
 
@@ -337,8 +335,7 @@ Tensor<bool, N> operator>=(const Tensor<T, N>& lhs, const T value) {
 template <typename T, size_t N>
 Tensor<bool, N> operator>=(const T value, const Tensor<T, N>& rhs) {
     auto result = Tensor<bool, N>(rhs.shape());
-    thrust::transform(rhs.begin(), rhs.end(), thrust::make_constant_iterator(value), result.begin(),
-                      [] __device__(const int& x, const int& y) { return x <= y; });
+    thrust::transform(rhs.begin(), rhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) { return x <= y; });
     return result;
 }
 
@@ -395,9 +392,9 @@ Tensor<bool, N> operator<=(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<bool, N> operator==(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), [] __device__(const int& x, const int& y) { return x == y; });
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<bool, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), [] __device__(const T& x, const T& y) { return x == y; });
     return result;
 }
 
@@ -413,8 +410,7 @@ Tensor<bool, N> operator==(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
 template <typename T, size_t N>
 Tensor<bool, N> operator==(const Tensor<T, N>& lhs, const T value) {
     auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(),
-                      [] __device__(const int& x, const int& y) { return x == y; });
+    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) { return x == y; });
     return result;
 }
 
@@ -443,9 +439,9 @@ Tensor<bool, N> operator==(const T value, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<bool, N> operator!=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
-    assert(lhs.shape() == rhs.shape());
-    auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), [] __device__(const int& x, const int& y) { return x != y; });
+    auto [_lhs, _rhs] = broadcast(lhs, rhs);
+    auto result = Tensor<bool, N>(_lhs.shape());
+    thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), [] __device__(const T& x, const T& y) { return x != y; });
     return result;
 }
 
@@ -461,8 +457,7 @@ Tensor<bool, N> operator!=(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
 template <typename T, size_t N>
 Tensor<bool, N> operator!=(const Tensor<T, N>& lhs, const T value) {
     auto result = Tensor<bool, N>(lhs.shape());
-    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(),
-                      [] __device__(const int& x, const int& y) { return x != y; });
+    thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) { return x != y; });
     return result;
 }
 

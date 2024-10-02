@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/cutensor.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/generator/zeros.hpp>
@@ -92,6 +93,7 @@ Tensor<T, 2> tril(const Tensor<T, 2>& tensor, int k = 0, bool copy = true) {
  */
 template <typename T, size_t N>
 Tensor<T, N> tril(const Tensor<T, N>& tensor, int k = 0) {
+    assert_at_least_2d_tensor<N>();
     auto shape = tensor.shape();
     auto mask = tri<bool>(shape[N - 2], shape[N - 1], k);
     return where(mask, tensor, static_cast<T>(0));
@@ -145,6 +147,7 @@ Tensor<T, 2> triu(const Tensor<T, 2>& tensor, int k = 0, bool copy = true) {
  */
 template <typename T, size_t N>
 Tensor<T, N> triu(const Tensor<T, N>& tensor, int k = 0) {
+    assert_at_least_2d_tensor<N>();
     auto shape = tensor.shape();
     auto mask = tri<bool>(shape[N - 2], shape[N - 1], k - 1);
     return where(mask, static_cast<T>(0), tensor);

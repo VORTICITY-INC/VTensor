@@ -15,7 +15,7 @@ int main() {
     timer.start();
     auto dis = sqrt(power(x, 2.0f) + power(y, 2.0f));
     auto inside = sum(dis < 1.0f);
-    auto pi_estimate = double(inside) / num_points * 4;
+    auto pi_estimate = double(asvector(inside)[0]) / num_points * 4;
     auto elapse = timer.stop();
 
     std::cout << "Pi estimate: " << pi_estimate << std::endl;
@@ -25,7 +25,7 @@ int main() {
     timer.start();
     dis = sqrt(sum(power(points, 2.0f), 0));
     inside = sum(dis < 1.0f);
-    pi_estimate = double(inside) / num_points * 4;
+    pi_estimate = double(asvector(inside)[0]) / num_points * 4;
     elapse = timer.stop();
 
     std::cout << "Pi estimate: " << pi_estimate << std::endl;

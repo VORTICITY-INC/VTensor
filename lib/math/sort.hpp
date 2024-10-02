@@ -2,6 +2,7 @@
 
 #include <thrust/sort.h>
 
+#include <lib/core/assertions.hpp>
 #include <lib/core/cutensor.hpp>
 #include <lib/core/tensor.hpp>
 #include <lib/math/transpose.hpp>
@@ -54,7 +55,8 @@ void sort_along_the_last_axis(const Tensor<T, N>& tensor) {
  * @return Tensor<T, N>: The sorted tensor object.
  */
 template <typename T, size_t N>
-Tensor<T, N> sort(const Tensor<T, N>& tensor, const int axis) {
+Tensor<T, N> sort(const Tensor<T, N>& tensor, int axis) {
+    assert_at_least_1d_tensor<N>();
     auto result = moveaxis(copy(tensor), axis, N - 1);
     sort_along_the_last_axis(result);
     return moveaxis(result, N - 1, axis);

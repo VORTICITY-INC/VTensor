@@ -51,6 +51,21 @@ Some of the functions (e.g. CuBLAS, CuSolver) might require a contiguous memory 
       vt::print(b); // Print the tensor
     }
 
+
+Just like numpy, VTensor offers support for broadcasting operations as well. Broadcasting occurs when two tensors have mismatched dimensions; the smaller tensor is expanded to match the shape of the larger tensor. Below is a code example illustrating how to execute broadcasting operations
+
+.. code-block:: cpp
+
+   #include <lib/vtensor.hpp>
+
+   int main() {
+    auto tensor1 = vt::arange(12).reshape(1, 2, 3);
+    auto tensor2 = vt::arange(2).reshape(2, 1, 1);
+    auto tensor3 = tensor1 + tensor2; // Broadcasting operation
+    }
+
+
+
 Linear algebra
 ------------
 
