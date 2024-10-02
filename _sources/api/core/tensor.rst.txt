@@ -1,4 +1,4 @@
-Tensor
+vt::Tensor
 =======================
 
 .. toctree::

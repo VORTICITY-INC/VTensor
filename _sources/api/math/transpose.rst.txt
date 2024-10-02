@@ -6,4 +6,3 @@ vt::transpose
 
 .. doxygenfunction:: vt::transpose(const Tensor<T, N> &tensor)
 .. doxygenfunction:: vt::transpose(const Tensor<T, N> &tensor, const Shape<N> &axes)
-.. doxygenfunction:: vt::moveaxis(const Tensor<T, N>& tensor, const size_t source, const size_t destination)

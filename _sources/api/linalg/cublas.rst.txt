@@ -1,4 +1,4 @@
-CuBLAS
+vt::cuda::CuBLAS
 =======================
 
 .. toctree::

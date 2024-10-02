@@ -1,4 +1,4 @@
-CuSolver
+vt::cuda::CuSolver
 =======================
 
 .. toctree::
