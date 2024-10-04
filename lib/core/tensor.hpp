@@ -1,5 +1,9 @@
 #pragma once
 
+#ifndef NUM_THREADS_X
+#define NUM_THREADS_X 32
+#endif
+
 #include <thrust/iterator/constant_iterator.h>
 
 #include <lib/core/assertions.hpp>
