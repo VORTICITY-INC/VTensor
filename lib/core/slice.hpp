@@ -4,9 +4,6 @@
 
 namespace vt {
 
-// Number of threads per block. It is used for the customized CUDA kernel.
-const size_t NUM_THREADS_X = 256;
-
 /**
  * @brief Slice class to represent a slice of a tensor.
  * Usage:

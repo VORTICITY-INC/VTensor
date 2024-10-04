@@ -13,19 +13,31 @@ namespace vt {
 /**
  * @brief Returns the mean value of the tensor elements.
  *
+ * @tparam T: Data type of the result tensor. Default is float.
+ * @tparam N: Number of dimensions of the tensor.
+ * @param tensor: The tensor object.
+ * @return Tensor<T, 0>: The result tensor.
+ */
+template <typename T = float, size_t N>
+Tensor<T, 0> mean(const Tensor<bool, N>& tensor) {
+    auto result = Tensor<T, 0>(Shape<0>{});
+    T s = thrust::reduce(tensor.begin(), tensor.end(), 0, thrust::plus<int>());
+    (*result.data())[0] = s / tensor.size();
+    return result;
+}
+
+/**
+ * @brief Returns the mean value of the tensor elements.
+ *
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
  * @param tensor: The tensor object.
- * @return Tensor<double, 0>: The result tensor.
+ * @return Tensor<T, 0>: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<double, 0> mean(const Tensor<T, N>& tensor) {
-    auto result = Tensor<double, 0>(Shape<0>{});
-    double s = 0.0;
-    if constexpr (std::is_same<T, bool>::value)
-        s = thrust::reduce(tensor.begin(), tensor.end(), 0, thrust::plus<int>());
-    else
-        s = thrust::reduce(tensor.begin(), tensor.end(), (T)0, thrust::plus<T>());
+Tensor<T, 0> mean(const Tensor<T, N>& tensor) {
+    auto result = Tensor<T, 0>(Shape<0>{});
+    T s = thrust::reduce(tensor.begin(), tensor.end(), (T)0, thrust::plus<T>());
     (*result.data())[0] = s / tensor.size();
     return result;
 }
@@ -54,6 +66,26 @@ __global__ void mean_along_axis_kernel(CuTensor<U, N> tensor, CuTensor<T, N - 1>
  * @brief Find the mean value of the tensor elements along the given axis.
  * The current implementation is not optimized. The performance could improve if a reduce algorithm is applied along the axis.
  *
+ * @tparam T: Data type of the tensor. Default is float.
+ * @tparam N: Number of dimensions of the tensor.
+ * @param tensor: The tensor object.
+ * @param axis: The axis to find the mean value.
+ * @return Tensor<T, N-1>: The result tensor.
+ */
+template <typename T = float, size_t N>
+Tensor<T, N - 1> mean(const Tensor<bool, N>& tensor, int axis) {
+    assert_at_least_1d_tensor<N>();
+    if constexpr (N == 1) {
+        return mean<T, N>(tensor);
+    } else {
+        return reduce_along_axis<T, bool, N>(tensor, axis, mean_along_axis_kernel<T, bool, N>);
+    }
+}
+
+/**
+ * @brief Find the mean value of the tensor elements along the given axis.
+ * The current implementation is not optimized. The performance could improve if a reduce algorithm is applied along the axis.
+ *
  * @tparam T: Data type of the tensor.
  * @tparam N: Number of dimensions of the tensor.
  * @param tensor: The tensor object.
@@ -61,12 +93,12 @@ __global__ void mean_along_axis_kernel(CuTensor<U, N> tensor, CuTensor<T, N - 1>
  * @return Tensor<T, N-1>: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<double, N - 1> mean(const Tensor<T, N>& tensor, int axis) {
+Tensor<T, N - 1> mean(const Tensor<T, N>& tensor, int axis) {
     assert_at_least_1d_tensor<N>();
     if constexpr (N == 1) {
         return mean(tensor);
     } else {
-        return reduce_along_axis<double, T, N>(tensor, axis, mean_along_axis_kernel<double, T, N>);
+        return reduce_along_axis<T, T, N>(tensor, axis, mean_along_axis_kernel<T, T, N>);
     }
 }
 
