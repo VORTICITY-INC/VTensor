@@ -2,11 +2,11 @@
 
 #include <thrust/sort.h>
 
-#include <lib/core/assertions.hpp>
-#include <lib/core/cutensor.hpp>
-#include <lib/core/tensor.hpp>
-#include <lib/math/transpose.hpp>
-#include <lib/memory/copy.hpp>
+#include "lib/core/assertions.hpp"
+#include "lib/core/cutensor.hpp"
+#include "lib/core/tensor.hpp"
+#include "lib/math/transpose.hpp"
+#include "lib/memory/copy.hpp"
 
 namespace vt {
 

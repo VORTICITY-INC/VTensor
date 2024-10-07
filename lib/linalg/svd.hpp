@@ -1,13 +1,14 @@
 #pragma once
 
-#include <lib/core/assertions.hpp>
-#include <lib/core/tensor.hpp>
-#include <lib/generator/eye.hpp>
-#include <lib/generator/zeros.hpp>
-#include <lib/linalg/cublas.hpp>
-#include <lib/linalg/cusolver.hpp>
-#include <lib/memory/copy.hpp>
 #include <tuple>
+
+#include "lib/core/assertions.hpp"
+#include "lib/core/tensor.hpp"
+#include "lib/generator/eye.hpp"
+#include "lib/generator/zeros.hpp"
+#include "lib/linalg/cublas.hpp"
+#include "lib/linalg/cusolver.hpp"
+#include "lib/memory/copy.hpp"
 
 namespace vt {
 

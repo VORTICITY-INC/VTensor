@@ -1,8 +1,9 @@
 #pragma once
 
-#include <lib/core/assertions.hpp>
-#include <lib/core/tensor.hpp>
 #include <tuple>
+
+#include "lib/core/assertions.hpp"
+#include "lib/core/tensor.hpp"
 
 namespace vt {
 

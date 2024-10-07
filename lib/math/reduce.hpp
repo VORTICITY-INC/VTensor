@@ -1,9 +1,9 @@
 #pragma once
 
-#include <lib/core/assertions.hpp>
-#include <lib/core/tensor.hpp>
-#include <lib/generator/zeros.hpp>
-#include <lib/math/transpose.hpp>
+#include "lib/core/assertions.hpp"
+#include "lib/core/tensor.hpp"
+#include "lib/generator/zeros.hpp"
+#include "lib/math/transpose.hpp"
 
 namespace vt {
 

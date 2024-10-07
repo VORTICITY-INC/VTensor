@@ -2,11 +2,11 @@
 
 #include <thrust/reduce.h>
 
-#include <lib/core/assertions.hpp>
-#include <lib/core/cutensor.hpp>
-#include <lib/core/tensor.hpp>
-#include <lib/math/reduce.hpp>
-#include <lib/math/sum.hpp>
+#include "lib/core/assertions.hpp"
+#include "lib/core/cutensor.hpp"
+#include "lib/core/tensor.hpp"
+#include "lib/math/reduce.hpp"
+#include "lib/math/sum.hpp"
 
 namespace vt {
 

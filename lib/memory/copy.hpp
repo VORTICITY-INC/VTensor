@@ -1,7 +1,7 @@
 #pragma once
 
-#include <lib/core/tensor.hpp>
-#include <lib/generator/zeros.hpp>
+#include "lib/core/tensor.hpp"
+#include "lib/generator/zeros.hpp"
 
 namespace vt {
 
