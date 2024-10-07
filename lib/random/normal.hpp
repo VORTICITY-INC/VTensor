@@ -1,7 +1,7 @@
 #pragma once
 
-#include <lib/core/tensor.hpp>
-#include <lib/random/curand.hpp>
+#include "lib/core/tensor.hpp"
+#include "lib/random/curand.hpp"
 
 namespace vt {
 

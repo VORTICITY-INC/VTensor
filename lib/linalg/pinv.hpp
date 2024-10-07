@@ -1,9 +1,9 @@
 #pragma once
 
-#include <lib/core/broadcast.hpp>
-#include <lib/core/tensor.hpp>
-#include <lib/linalg/svd.hpp>
-#include <lib/math/transpose.hpp>
+#include "lib/core/broadcast.hpp"
+#include "lib/core/tensor.hpp"
+#include "lib/linalg/svd.hpp"
+#include "lib/math/transpose.hpp"
 
 namespace vt {
 

@@ -3,9 +3,9 @@
 #include <thrust/count.h>
 #include <thrust/logical.h>
 
-#include <lib/core/cutensor.hpp>
-#include <lib/core/tensor.hpp>
-#include <lib/math/reduce.hpp>
+#include "lib/core/cutensor.hpp"
+#include "lib/core/tensor.hpp"
+#include "lib/math/reduce.hpp"
 
 namespace vt {
 

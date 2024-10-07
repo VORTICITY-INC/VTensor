@@ -2,7 +2,7 @@
 
 #include <thrust/inner_product.h>
 
-#include <lib/core/tensor.hpp>
+#include "lib/core/tensor.hpp"
 
 namespace vt {
 

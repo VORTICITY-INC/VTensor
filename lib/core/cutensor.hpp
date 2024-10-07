@@ -1,8 +1,9 @@
 #pragma once
 
 #include <array>
-#include <lib/core/iterator.hpp>
-#include <lib/core/tensor.hpp>
+
+#include "lib/core/iterator.hpp"
+#include "lib/core/tensor.hpp"
 
 namespace vt {
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <lib/core/broadcast.hpp>
-#include <lib/core/tensor.hpp>
+#include "lib/core/broadcast.hpp"
+#include "lib/core/tensor.hpp"
 
 namespace vt {
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <lib/core/tensor.hpp>
-#include <lib/memory/copy.hpp>
+#include "lib/core/tensor.hpp"
+#include "lib/memory/copy.hpp"
 
 namespace vt {
 

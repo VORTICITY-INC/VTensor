@@ -6,12 +6,13 @@
 
 #include <thrust/iterator/constant_iterator.h>
 
-#include <lib/core/assertions.hpp>
-#include <lib/core/iterator.hpp>
-#include <lib/core/slice.hpp>
 #include <memory>
 #include <numeric>
 #include <rmm/device_vector.hpp>
+
+#include "lib/core/assertions.hpp"
+#include "lib/core/iterator.hpp"
+#include "lib/core/slice.hpp"
 
 namespace vt {
 

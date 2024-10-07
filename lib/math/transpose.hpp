@@ -1,6 +1,6 @@
 #pragma once
 
-#include <lib/core/tensor.hpp>
+#include "lib/core/tensor.hpp"
 
 namespace vt {
 
