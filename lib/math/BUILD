@@ -4,6 +4,7 @@ cuda_library(
     name = "math",
     visibility = ["//visibility:public"],
     hdrs = [
+        "exp.hpp",
         "max.hpp",
         "maximum.hpp",
         "mean.hpp",
