@@ -14,12 +14,29 @@ VTensor leverages the `RMM device memory pool <https://github.com/rapidsai/rmm>`
        deps = ["@vtensor"],
    )
 
-2. **Custom Memory Pool**: Alternatively, a custom memory pool can be instantiated by specifying its size and the log file's path. This pool is dedicated to the GPU device in use.
+2. **Custom Memory Pool**: Alternatively, a custom memory pool can be instantiated by specifying its size and the log file's path. This pool is dedicated to the GPU device in use. 
+
+.. code-block:: python
+
+   cc_binary(
+       name = "my_program",
+       srcs = ["my_program.cc"],
+       copts = ["-DPOOL_SIZE=90", "-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE", "-DDISABLE_GLOBAL_MEMPOOL=true"],
+       deps = ["@vtensor"],
+   )
 
 .. code-block:: cpp
 
    #include <lib/vtensor.hpp>
 
    int main(){
-       auto pool = vt::Mempool(50, "/tmp/vtensor/memory.log");
+       auto pool = vt::Mempool(50, "/tmp/vtensor/memory.log"); // Current GPU device's memory pool
+   }
+
+.. code-block:: cpp
+
+   #include <lib/vtensor.hpp>
+
+   int main(){
+       auto pool = vt::GlobalMempool::get_instance(); // Initialize global memory pool for every GPU device
    }

@@ -4,6 +4,7 @@ Math
 .. toctree::
    :maxdepth: 1
 
+   exp
    max
    maximum
    mean
