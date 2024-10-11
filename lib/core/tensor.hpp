@@ -162,7 +162,7 @@ class Tensor {
      * @param cond: A boolean tensor with the same shape as the tensor.
      * @return TensorCondProxy: The tensor conditional proxy object.
      */
-    TensorCondProxy<T, N> operator[](const Tensor<bool, N>& cond) {
+    TensorCondProxy<T, N> operator[](const Tensor<bool, N>& cond) const {
         assert_at_least_1d_tensor<N>();
         return TensorCondProxy<T, N>(*this, cond);
     }
@@ -175,7 +175,7 @@ class Tensor {
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
     template <typename... Args>
-    TensorSliceProxy<T, N> operator()(Args... args) {
+    TensorSliceProxy<T, N> operator()(Args... args) const {
         assert_at_least_1d_tensor<N>();
         std::array<Slice, N> slices = {static_cast<Slice>(args)...};
         return TensorSliceProxy<T, N>(apply_slices(slices));
@@ -187,7 +187,7 @@ class Tensor {
      * @param slices: An array of slices to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
-    TensorSliceProxy<T, N> operator()(std::array<Slice, N>& slices) {
+    TensorSliceProxy<T, N> operator()(std::array<Slice, N>& slices) const {
         assert_at_least_1d_tensor<N>();
         return TensorSliceProxy<T, N>(apply_slices(slices));
     }
@@ -198,7 +198,7 @@ class Tensor {
      * @param s: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
-    TensorSliceProxy<T, 1> operator()(Slice s) {
+    TensorSliceProxy<T, 1> operator()(Slice s) const {
         auto slices = std::array<Slice, 1>{s};
         return TensorSliceProxy<T, 1>(apply_slices(slices));
     }
@@ -210,7 +210,7 @@ class Tensor {
      * @param s2: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
-    TensorSliceProxy<T, 2> operator()(Slice s1, Slice s2) {
+    TensorSliceProxy<T, 2> operator()(Slice s1, Slice s2) const {
         auto slices = std::array<Slice, 2>{s1, s2};
         return TensorSliceProxy<T, 2>(apply_slices(slices));
     }
@@ -223,7 +223,7 @@ class Tensor {
      * @param s3: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
-    TensorSliceProxy<T, 3> operator()(Slice s1, Slice s2, Slice s3) {
+    TensorSliceProxy<T, 3> operator()(Slice s1, Slice s2, Slice s3) const {
         auto slices = std::array<Slice, 3>{s1, s2, s3};
         return TensorSliceProxy<T, 3>(apply_slices(slices));
     }
@@ -235,7 +235,7 @@ class Tensor {
      * @param s: Slice to be applied to the tensor.
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
-    TensorSliceProxy<T, N> operator()(const EllipsisT& e, Slice s) {
+    TensorSliceProxy<T, N> operator()(const EllipsisT& e, Slice s) const {
         assert_at_least_1d_tensor<N>();
         std::array<Slice, N> slices;
         std::transform(_shape.begin(), _shape.begin() + (N - 1), slices.begin(), [](auto dim) { return Slice{0, dim}; });
@@ -250,7 +250,7 @@ class Tensor {
      * @param n: NewAxis to be applied to the tensor.
      * @return Tensor: The new tensor object.
      */
-    Tensor<T, N + 1> operator()(const EllipsisT& e, const NewAxisT& n) {
+    Tensor<T, N + 1> operator()(const EllipsisT& e, const NewAxisT& n) const {
         Shape<N + 1> shape;
         Shape<N + 1> strides;
         std::copy(_shape.begin(), _shape.end(), shape.begin());
@@ -267,7 +267,7 @@ class Tensor {
      * @param e: Ellipsis to be applied to the tensor.
      * @return Tensor: The new tensor object.
      */
-    Tensor<T, N + 1> operator()(const NewAxisT& n, const EllipsisT& e) {
+    Tensor<T, N + 1> operator()(const NewAxisT& n, const EllipsisT& e) const {
         Shape<N + 1> shape;
         Shape<N + 1> strides;
         std::copy(_shape.begin(), _shape.end(), shape.begin() + 1);
@@ -347,7 +347,7 @@ class Tensor {
      * @param slices: The slices to be applied to the tensor.
      * @return Tensor: The new tensor object.
      */
-    Tensor apply_slices(const std::array<Slice, N>& slices) {
+    Tensor apply_slices(const std::array<Slice, N>& slices) const {
         Shape<N> new_strides{};
         Shape<N> new_shape{};
         size_t offset = 0;
@@ -369,7 +369,7 @@ class Tensor {
      * @return Tensor<U, N>: The new tensor object.
      */
     template <typename U>
-    Tensor<U, N> astype() {
+    Tensor<U, N> astype() const {
         if constexpr (std::is_same_v<T, U>) {
             return *this;
         } else {
@@ -384,7 +384,7 @@ class Tensor {
      *
      * @return T*: The raw pointer of the tensor.
      */
-    T* raw_ptr() { return thrust::raw_pointer_cast(_data->data()); }
+    T* raw_ptr() const { return thrust::raw_pointer_cast(_data->data()); }
 
     /**
      * @brief Return the contiguous flag of the tensor.

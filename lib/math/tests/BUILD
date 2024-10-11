@@ -4,6 +4,7 @@ cuda_test(
     name = "test_math",
     visibility = ["//visibility:public"],
     srcs = [
+        "test_exp.cc",
         "test_max.cc",
         "test_maximum.cc",
         "test_mean.cc",

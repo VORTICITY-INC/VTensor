@@ -4,6 +4,10 @@
 #define POOL_SIZE 50
 #endif
 
+#ifndef DISABLE_GLOBAL_MEMPOOL
+#define DISABLE_GLOBAL_MEMPOOL false
+#endif
+
 #include <rmm/mr/device/cuda_memory_resource.hpp>
 #include <rmm/mr/device/logging_resource_adaptor.hpp>
 #include <rmm/mr/device/pool_memory_resource.hpp>
@@ -84,6 +88,15 @@ class GlobalMempool {
     std::vector<std::unique_ptr<Mempool>> mempools;
 };
 
-static GlobalMempool& instance = GlobalMempool::get_instance();
+class GlobalMempoolInitializer {
+   public:
+    GlobalMempoolInitializer() {
+        if (!DISABLE_GLOBAL_MEMPOOL) {
+            GlobalMempool::get_instance();
+        }
+    }
+};
+
+static GlobalMempoolInitializer mempool_initializer;
 
 }  // namespace vt

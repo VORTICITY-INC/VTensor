@@ -21,6 +21,7 @@
 #include "lib/logical/all.hpp"
 #include "lib/logical/any.hpp"
 #include "lib/logical/where.hpp"
+#include "lib/math/exp.hpp"
 #include "lib/math/max.hpp"
 #include "lib/math/maximum.hpp"
 #include "lib/math/mean.hpp"
