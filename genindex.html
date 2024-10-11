@@ -36,7 +36,7 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=0737924e"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -487,6 +487,8 @@ document.write(`
 </li>
       <li><a href="api/core/proxy_slice.html#_CPPv4N2vt9EllipsisTE">vt::EllipsisT (C++ struct)</a>
 </li>
+      <li><a href="api/math/exp.html#_CPPv4I0_6size_tEN2vt3expE6TensorI1T1NERK6TensorI1T1NE">vt::exp (C++ function)</a>
+</li>
       <li><a href="api/core/tensor.html#_CPPv4I_6size_tDpEN2vt12expand_shapeE5ShapeIXplsZ4Args1NEERK5ShapeI1NEDp4Args">vt::expand_shape (C++ function)</a>
 </li>
       <li><a href="api/generator/eye.html#_CPPv4I0EN2vt3eyeE6TensorI1TXL2EEE6size_t">vt::eye (C++ function)</a>, <a href="api/generator/eye.html#_CPPv4I0EN2vt3eyeE6TensorI1TXL2EEE6size_t6size_t">[1]</a>
@@ -500,8 +502,6 @@ document.write(`
       <li><a href="api/core/mempool.html#_CPPv4N2vt13GlobalMempoolE">vt::GlobalMempool (C++ class)</a>
 </li>
       <li><a href="api/core/mempool.html#_CPPv4N2vt13GlobalMempool12get_instanceEv">vt::GlobalMempool::get_instance (C++ function)</a>
-</li>
-      <li><a href="api/core/mempool.html#_CPPv4N2vt8instanceE">vt::instance (C++ member)</a>
 </li>
       <li><a href="api/linalg/cholesky.html#_CPPv4I0EN2vt6linalg8choleskyE6TensorI1TXL2EEER6TensorI1TXL2EEE18cusolverDnHandle_t">vt::linalg::cholesky (C++ function)</a>, <a href="api/linalg/cholesky.html#_CPPv4I0_6size_tEN2vt6linalg8choleskyE6TensorI1T1NER6TensorI1T1NE18cusolverDnHandle_t">[1]</a>
 </li>
@@ -587,9 +587,9 @@ document.write(`
 </li>
       <li><a href="api/core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE">vt::Tensor (C++ class)</a>
 </li>
-      <li><a href="api/core/tensor.html#_CPPv4N2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE">vt::Tensor::apply_slices (C++ function)</a>
+      <li><a href="api/core/tensor.html#_CPPv4NK2vt6Tensor12apply_slicesERKNSt5arrayI5Slice1NEE">vt::Tensor::apply_slices (C++ function)</a>
 </li>
-      <li><a href="api/core/tensor.html#_CPPv4I0EN2vt6Tensor6astypeE6TensorI1U1NEv">vt::Tensor::astype (C++ function)</a>
+      <li><a href="api/core/tensor.html#_CPPv4I0ENK2vt6Tensor6astypeE6TensorI1U1NEv">vt::Tensor::astype (C++ function)</a>
 </li>
       <li><a href="api/core/tensor.html#_CPPv4NK2vt6Tensor5beginEv">vt::Tensor::begin (C++ function)</a>
 </li>
@@ -599,15 +599,15 @@ document.write(`
 </li>
       <li><a href="api/core/tensor.html#_CPPv4NK2vt6Tensor3endEv">vt::Tensor::end (C++ function)</a>
 </li>
-      <li><a href="api/core/tensor.html#_CPPv4IDpEN2vt6TensorclE16TensorSliceProxyI1T1NEDp4Args">vt::Tensor::operator() (C++ function)</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclE5Slice">[1]</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclE5Slice5Slice">[2]</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclE5Slice5Slice5Slice">[3]</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclERK8NewAxisTRK9EllipsisT">[4]</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclERK9EllipsisT5Slice">[5]</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclERK9EllipsisTRK8NewAxisT">[6]</a>, <a href="api/core/tensor.html#_CPPv4N2vt6TensorclERNSt5arrayI5Slice1NEE">[7]</a>
+      <li><a href="api/core/tensor.html#_CPPv4IDpENK2vt6TensorclE16TensorSliceProxyI1T1NEDp4Args">vt::Tensor::operator() (C++ function)</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclE5Slice">[1]</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclE5Slice5Slice">[2]</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclE5Slice5Slice5Slice">[3]</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclERK8NewAxisTRK9EllipsisT">[4]</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclERK9EllipsisT5Slice">[5]</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclERK9EllipsisTRK8NewAxisT">[6]</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorclERNSt5arrayI5Slice1NEE">[7]</a>
 </li>
       <li><a href="api/core/tensor.html#_CPPv4NK2vt6TensorpLEK1T">vt::Tensor::operator+= (C++ function)</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorpLERK6Tensor">[1]</a>
 </li>
       <li><a href="api/core/tensor.html#_CPPv4NK2vt6TensormIEK1T">vt::Tensor::operator-= (C++ function)</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensormIERK6Tensor">[1]</a>
 </li>
-      <li><a href="api/core/tensor.html#_CPPv4N2vt6TensorixERK6TensorIb1NE">vt::Tensor::operator[] (C++ function)</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorixE6size_t">[1]</a>
+      <li><a href="api/core/tensor.html#_CPPv4NK2vt6TensorixE6size_t">vt::Tensor::operator[] (C++ function)</a>, <a href="api/core/tensor.html#_CPPv4NK2vt6TensorixERK6TensorIb1NE">[1]</a>
 </li>
-      <li><a href="api/core/tensor.html#_CPPv4N2vt6Tensor7raw_ptrEv">vt::Tensor::raw_ptr (C++ function)</a>
+      <li><a href="api/core/tensor.html#_CPPv4NK2vt6Tensor7raw_ptrEv">vt::Tensor::raw_ptr (C++ function)</a>
 </li>
       <li><a href="api/core/tensor.html#_CPPv4IDpENK2vt6Tensor7reshapeE6TensorI1TXsZ4ArgsEEDp4Args">vt::Tensor::reshape (C++ function)</a>
 </li>
@@ -712,7 +712,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.0.
     <br/>
   </p>
 </div>

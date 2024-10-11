@@ -37,7 +37,7 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=0737924e"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -431,10 +431,25 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p><strong>Custom Memory Pool</strong>: Alternatively, a custom memory pool can be instantiated by specifying its size and the log file’s path. This pool is dedicated to the GPU device in use.</p></li>
 </ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cc_binary</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_program&quot;</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my_program.cc&quot;</span><span class="p">],</span>
+    <span class="n">copts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-DPOOL_SIZE=90&quot;</span><span class="p">,</span> <span class="s2">&quot;-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE&quot;</span><span class="p">,</span> <span class="s2">&quot;-DDISABLE_GLOBAL_MEMPOOL=true&quot;</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;@vtensor&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;lib/vtensor.hpp&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">Mempool</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/vtensor/memory.log&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">Mempool</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/vtensor/memory.log&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Current GPU device&#39;s memory pool</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;lib/vtensor.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">GlobalMempool</span><span class="o">::</span><span class="n">get_instance</span><span class="p">();</span><span class="w"> </span><span class="c1">// Initialize global memory pool for every GPU device</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -521,7 +536,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.0.
     <br/>
   </p>
 </div>
