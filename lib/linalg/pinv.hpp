@@ -3,6 +3,7 @@
 #include "lib/core/broadcast.hpp"
 #include "lib/core/tensor.hpp"
 #include "lib/linalg/svd.hpp"
+#include "lib/math/expand_dims.hpp"
 #include "lib/math/transpose.hpp"
 
 namespace vt {
@@ -31,6 +32,26 @@ Tensor<T, N> pinv(Tensor<T, N>& tensor, T rcond = 1e-15) {
     auto _s = s(ellipsis, newaxis) * swapaxes(u, -2, -1);
 
     return matmul(_vt, _s);
+}
+
+
+
+template <typename T, size_t N>
+Tensor<T, N> pinv_weak(Tensor<T, N> a, T reg = 1e-7) {
+    Shape<N> axes;
+    for (auto i = 0; i < N - 2; i++) {
+        axes[i] = i;
+    }
+    axes[N - 2] = N - 1;
+    axes[N - 1] = N - 2;
+    auto at = ascontiguoustensor(transpose(a, axes));
+    auto ata = matmul(at, a);
+    auto shape = ata.shape();
+    auto e = eye(shape[N-1]) * reg;
+    ata += expand_dims_lhs<T, 2, N-2>(e);
+    auto atainv = linalg::inv(ata);
+    auto ainv = matmul(atainv, at);
+    return ainv;
 }
 
 }  // namespace linalg

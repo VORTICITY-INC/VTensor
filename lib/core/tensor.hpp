@@ -306,8 +306,8 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator+=(const Tensor& other) const {
-        assert(_shape == other.shape());
-        thrust::transform(this->begin(), this->end(), other.begin(), this->begin(), thrust::plus<T>());
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::plus<T>());
         return *this;
     }
 
@@ -318,8 +318,8 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator-=(const Tensor& other) const {
-        assert(_shape == other.shape());
-        thrust::transform(this->begin(), this->end(), other.begin(), this->begin(), thrust::minus<T>());
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::minus<T>());
         return *this;
     }
 
