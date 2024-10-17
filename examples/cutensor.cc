@@ -11,13 +11,16 @@ __global__ void kernel1(vt::CuTensor<float, 2> tensor) {
 __global__ void kernel2(vt::CuTensor<float, 2> tensor) { tensor[threadIdx.x] += 1; }
 
 int main() {
-    auto tensor = vt::arange(12).reshape(4, 3);
-    dim3 tpb(3, 4);
-    kernel1<<<1, tpb>>>(tensor);
-    cudaDeviceSynchronize();
-    kernel2<<<1, 12>>>(tensor);
-    cudaDeviceSynchronize();
-    vt::print(tensor);
+    auto tensor = vt::arange(12).reshape(2, 6);
+
+    auto x = vt::vander(tensor, 2);
+
+
+    vt::print(x);
+
+
+
+
 
     return 0;
 }

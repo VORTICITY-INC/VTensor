@@ -5,6 +5,7 @@ cuda_library(
     visibility = ["//visibility:public"],
     hdrs = [
         "exp.hpp",
+        "expand_dims.hpp",
         "max.hpp",
         "maximum.hpp",
         "mean.hpp",
@@ -16,6 +17,7 @@ cuda_library(
         "sqrt.hpp",
         "sum.hpp",
         "transpose.hpp",
+        "vander.hpp",
     ],
     deps = [
         "//lib/core:core",
