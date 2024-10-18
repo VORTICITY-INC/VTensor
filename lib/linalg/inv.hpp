@@ -86,6 +86,8 @@ Tensor<T, N> inv(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::cublas.get_
     auto ctensor_arr = arange<T>(ctensor.raw_ptr(), ctensor.raw_ptr() + n * n * batch_size, n * n);
     auto pivot = zeros<int>(batch_size, n);
     auto info = zeros<int>(batch_size);
+
+    vt::print(info);
     cuda::check_cublas_status(rf(handle, n, ctensor_arr.raw_ptr(), n, pivot.raw_ptr(), info.raw_ptr(), batch_size), "Failed to perform LU factorization");
 
     // Solve and save the result in the same tensor
