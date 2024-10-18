@@ -48,8 +48,6 @@ Tensor<T, N> pinv_weak(Tensor<T, N> a, T reg = 1e-7) {
     auto ata = matmul(at, a);
     auto shape = ata.shape();
     auto e = eye<T>(shape[N-1]) * reg;
-
-    vt::print(e);
     ata += expand_dims_lhs<T, 2, N-2>(e);
     auto atainv = linalg::inv(ata);
     auto ainv = matmul(atainv, at);
