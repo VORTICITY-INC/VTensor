@@ -299,6 +299,24 @@ class Tensor {
         return *this;
     }
 
+
+    /**
+     * @brief Operator for in-place addition of a vector and a scalar.
+     *
+     * @param value: The scalar value to be added.
+     * @return Tensor: The left-hand side tensor object.
+     */
+    Tensor operator*=(const T value) const {
+        thrust::transform(this->begin(), this->end(), thrust::make_constant_iterator(value), this->begin(), thrust::multiplies<T>());
+        return *this;
+    }
+
+
+    Tensor operator/=(const T value) const {
+        thrust::transform(this->begin(), this->end(), thrust::make_constant_iterator(value), this->begin(), thrust::divides<T>());
+        return *this;
+    }
+
     /**
      * @brief Operator for in-place addition of two vectors.
      *
@@ -320,6 +338,19 @@ class Tensor {
     Tensor operator-=(const Tensor& other) const {
         auto _other = broadcast_to(other, _shape);
         thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::minus<T>());
+        return *this;
+    }
+
+
+    Tensor operator*=(const Tensor& other) const {
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::multiplies<T>());
+        return *this;
+    }
+
+    Tensor operator/=(const Tensor& other) const {
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::divides<T>());
         return *this;
     }
 
