@@ -119,6 +119,28 @@ TEST(TensorInPlaceMinusScalar, BasicAssertions) {
     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{-1}));
 }
 
+TEST(TensorInPlaceMultiplyScalar, BasicAssertions) {
+    auto tensor = vt::arange(6);
+    tensor *= 2.0f;
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 2, 4, 6, 8, 10}));
+
+    // Test for 0D tensor.
+    auto tensor1 = tensor[1];
+    tensor1 *= 2.0f;
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{4}));
+}
+
+TEST(TensorInPlaceDivideScalar, BasicAssertions) {
+    auto tensor = vt::arange(6) * 2.0f;
+    tensor /= 2.0f;
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 1, 2, 3, 4, 5}));
+
+    // Test for 0D tensor.
+    auto tensor1 = tensor[1];
+    tensor1 /= 2.0f;
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0.5}));
+}
+
 TEST(TensorInPlacePlusTensor, BasicAssertions) {
     auto tensor = vt::arange(6);
     auto tensor1 = vt::arange(6);
@@ -139,6 +161,27 @@ TEST(TensorInPlaceMinusTensor, BasicAssertions) {
 
     auto tensor2 = tensor[1] - tensor1[1];
     EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{-1}));
+}
+
+TEST(TensorInPlaceMultiplyTensor, BasicAssertions) {
+    auto tensor = vt::arange(6);
+    auto tensor1 = vt::arange(6);
+    tensor *= tensor1;
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 1, 4, 9, 16, 25}));
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 1, 2, 3, 4, 5}));
+
+    auto tensor2 = tensor[1] * tensor1[1];
+    EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{1}));
+}
+
+TEST(TensorInPlaceDivideTensor, BasicAssertions) {
+    auto tensor = (vt::arange(6) + 1.0f) * 2.0f;
+    auto tensor1 = vt::arange(6) + 1.0f;
+    tensor /= tensor1;
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{2, 2, 2, 2, 2, 2}));
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{1, 2, 3, 4, 5, 6}));
+    auto tensor2 = tensor[1] / tensor1[1];
+    EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{1}));
 }
 
 TEST(TensorIterator, BasicAssertions) {

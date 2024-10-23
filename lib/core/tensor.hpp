@@ -300,14 +300,36 @@ class Tensor {
     }
 
     /**
+     * @brief Operator for in-place multiplication of a vector and a scalar.
+     *
+     * @param value: The scalar value to be multiplied.
+     * @return Tensor: The left-hand side tensor object.
+     */
+    Tensor operator*=(const T value) const {
+        thrust::transform(this->begin(), this->end(), thrust::make_constant_iterator(value), this->begin(), thrust::multiplies<T>());
+        return *this;
+    }
+
+    /**
+     * @brief Operator for in-place division of a vector and a scalar.
+     *
+     * @param value: The scalar value to be divided.
+     * @return Tensor: The left-hand side tensor object.
+     */
+    Tensor operator/=(const T value) const {
+        thrust::transform(this->begin(), this->end(), thrust::make_constant_iterator(value), this->begin(), thrust::divides<T>());
+        return *this;
+    }
+
+    /**
      * @brief Operator for in-place addition of two vectors.
      *
      * @param other: The other tensor to be added.
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator+=(const Tensor& other) const {
-        assert(_shape == other.shape());
-        thrust::transform(this->begin(), this->end(), other.begin(), this->begin(), thrust::plus<T>());
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::plus<T>());
         return *this;
     }
 
@@ -318,8 +340,32 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator-=(const Tensor& other) const {
-        assert(_shape == other.shape());
-        thrust::transform(this->begin(), this->end(), other.begin(), this->begin(), thrust::minus<T>());
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::minus<T>());
+        return *this;
+    }
+
+    /**
+     * @brief Operator for in-place multiplication of two vectors.
+     *
+     * @param other: The other tensor to be multiplied.
+     * @return Tensor: The left-hand side tensor object.
+     */
+    Tensor operator*=(const Tensor& other) const {
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::multiplies<T>());
+        return *this;
+    }
+
+    /**
+     * @brief Operator for in-place division of two vectors.
+     *
+     * @param other: The other tensor to be divided.
+     * @return Tensor: The left-hand side tensor object.
+     */
+    Tensor operator/=(const Tensor& other) const {
+        auto _other = broadcast_to(other, _shape);
+        thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::divides<T>());
         return *this;
     }
 
