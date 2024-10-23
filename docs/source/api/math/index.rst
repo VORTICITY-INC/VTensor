@@ -5,6 +5,8 @@ Math
    :maxdepth: 1
 
    exp
+   expand_dims_lhs
+   expand_dims_rhs
    max
    maximum
    mean
@@ -18,3 +20,4 @@ Math
    sum
    swapaxes
    transpose
+   vander

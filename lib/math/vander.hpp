@@ -23,5 +23,4 @@ Tensor<T, N + 1> vander(const Tensor<T, N>& x, const int degree) {
     return re;
 }
 
-
-} // namespace vt
+}  // namespace vt

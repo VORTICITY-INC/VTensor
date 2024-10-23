@@ -51,6 +51,10 @@ Comparison between NumPy and VTensor
      - tensor(vt::newaxis, vt::ellipsis)
    * - arr[0]
      - tensor[0]
+   * - arr[None, None, ...]
+     - vt::expand_dims_lhs<T, N, 2>(tensor)
+   * - arr[..., None, None]
+     - vt::expand_dims_rhs<T, N, 2>(tensor)
 
 .. list-table:: Broadcasting
    :header-rows: 1
@@ -149,10 +153,14 @@ Comparison between NumPy and VTensor
 
    * - NumPy
      - VTensor
+   * - np.exp
+     - vt::exp
    * - np.power
      - vt::power
    * - np.sqrt
      - vt::sqrt
+   * - np.vander
+     - vt::vander
 
 .. list-table:: Random
    :header-rows: 1
