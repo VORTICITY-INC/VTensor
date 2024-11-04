@@ -29,7 +29,9 @@ using Shape = std::array<size_t, N>;
  */
 template <size_t N>
 size_t get_size(const Shape<N>& shape) {
-    return std::accumulate(shape.begin(), shape.end(), 1, std::multiplies<size_t>());
+    size_t size = 1;
+    for (size_t i = 0; i < N; ++i) size *= shape[i];
+    return size;
 }
 
 /**
