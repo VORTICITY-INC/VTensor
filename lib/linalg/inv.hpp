@@ -6,6 +6,7 @@
 #include "lib/generator/zeros.hpp"
 #include "lib/linalg/cublas.hpp"
 #include "lib/linalg/cusolver.hpp"
+#include "lib/memory/ascontiguoustensor.hpp"
 #include "lib/memory/copy.hpp"
 
 namespace vt {
@@ -74,7 +75,7 @@ Tensor<T, N> inv(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::cublas.get_
 
     // Calculate the batch size
     int batch_size = 1;
-    for (auto i = 0; i < N - 2; i++) {
+    for (auto i = 0; i < int(N) - 2; i++) {
         batch_size *= shape[i];
     }
 
@@ -94,6 +95,47 @@ Tensor<T, N> inv(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::cublas.get_
                               "Failed to solve");
 
     return ctensor;
+}
+
+
+/**
+ * @brief Compute the inverse of a N-D tensor via a lazy method (matinvBatched).
+ * This method is based on CuBLAS LU factorization and solve.
+ *
+ * @tparam T: Data type of the tensor.
+ * @tparam N: Number of dimensions of the tensor.
+ * @param tensor: The tensor object to be inversed.
+ * @param handle: The CuBLAS handle. The default is the global CuBLAS handle.
+ * @return Tensor<T, N>: The inverse tensor object.
+ */
+template <typename T, size_t N>
+Tensor<T, N> inv_lazy(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::cublas.get_handle()) {
+    assert_at_least_3d_tensor<N>();
+    auto shape = tensor.shape();
+    assert(shape[N - 1] == shape[N - 2]);
+
+    // Check if it is contiguous tensor
+    auto ctensor = vt::ascontiguoustensor(tensor);
+
+    // Calculate the batch size
+    int batch_size = 1;
+    for (auto i = 0; i < int(N) - 2; i++) {
+        batch_size *= shape[i];
+    }
+
+    // Get the matrix dimension
+    int n = shape[N - 1];
+
+    // Init result and info
+    auto result = zeros<T>(shape);
+    auto info = zeros<int>(batch_size);
+    auto ctensor_arr = arange<T>(ctensor.raw_ptr(), ctensor.raw_ptr() + n * n * batch_size, n * n);
+    auto result_arr = arange<T>(result.raw_ptr(), result.raw_ptr() + n * n * batch_size, n * n);
+
+    // Perform matrix inversion
+    auto matinv = cuda::CuBLASFunc<T>::matinv_batched();
+    cuda::check_cublas_status(matinv(handle, n, (const T**)ctensor_arr.raw_ptr(), n, result_arr.raw_ptr(), n, info.raw_ptr(), batch_size), "Failed to perform Matrix Inversion");
+    return result;
 }
 
 }  // namespace linalg

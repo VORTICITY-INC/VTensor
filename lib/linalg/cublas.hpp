@@ -95,6 +95,7 @@ struct CuBLASFuncType {
                                             const T*, int, long long int, const T*, T*, int, long long int, int);
     using GetRFBatchedT = cublasStatus_t (*)(cublasHandle_t, int, T* const[], int, int*, int*, int);
     using GetRIBatchedT = cublasStatus_t (*)(cublasHandle_t, int, const T* const[], int, const int*, T* const[], int, int*, int);
+    using MatInvBatchedT = cublasStatus_t (*)(cublasHandle_t, int, const T* const[], int, T* const[], int, int*, int);
 };
 
 /**
@@ -116,6 +117,7 @@ struct CuBLASFunc<float> {
     static constexpr CuBLASFuncType<float>::GemmBatchedT gemm_batched() { return cublasSgemmStridedBatched; }
     static constexpr CuBLASFuncType<float>::GetRFBatchedT getrf_batched() { return cublasSgetrfBatched; }
     static constexpr CuBLASFuncType<float>::GetRIBatchedT getri_batched() { return cublasSgetriBatched; }
+    static constexpr CuBLASFuncType<float>::MatInvBatchedT matinv_batched() { return cublasSmatinvBatched; }
 };
 
 /**
@@ -129,6 +131,7 @@ struct CuBLASFunc<double> {
     static constexpr CuBLASFuncType<double>::GemmBatchedT gemm_batched() { return cublasDgemmStridedBatched; }
     static constexpr CuBLASFuncType<double>::GetRFBatchedT getrf_batched() { return cublasDgetrfBatched; }
     static constexpr CuBLASFuncType<double>::GetRIBatchedT getri_batched() { return cublasDgetriBatched; }
+    static constexpr CuBLASFuncType<double>::MatInvBatchedT matinv_batched() { return cublasDmatinvBatched; }
 };
 
 }  // namespace cuda
