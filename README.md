@@ -22,7 +22,6 @@ sphinx-build -b html docs/source docs/build/html
 ```
 
 ### Future updates
-- Support Solvers (Cholesky, QR etc.)
 - Support GPUDirect
 - Support more matrix operations
 - Support Sparse martix with CuSparse
