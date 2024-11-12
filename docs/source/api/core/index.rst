@@ -4,6 +4,7 @@ Core
 .. toctree::
    :maxdepth: 1
 
+   astype
    broadcast
    broadcast_to
    cutensor

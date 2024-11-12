@@ -5,6 +5,7 @@ cuda_library(
     visibility = ["//visibility:public"],
     hdrs = [
         "assertions.hpp",
+        "astype.hpp",
         "broadcast.hpp",
         "cutensor.hpp",
         "iterator.hpp",

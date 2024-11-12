@@ -11,6 +11,7 @@
 #include <rmm/device_vector.hpp>
 
 #include "lib/core/assertions.hpp"
+#include "lib/core/astype.hpp"
 #include "lib/core/iterator.hpp"
 #include "lib/core/slice.hpp"
 
@@ -30,7 +31,7 @@ using Shape = std::array<size_t, N>;
 template <size_t N>
 size_t get_size(const Shape<N>& shape) {
     size_t size = 1;
-    for (size_t i = 0; i < N; ++i) size *= shape[i];
+    for (int i = 0; i < N; ++i) size *= shape[i];
     return size;
 }
 
@@ -417,14 +418,8 @@ class Tensor {
      * @return Tensor<U, N>: The new tensor object.
      */
     template <typename U>
-    Tensor<U, N> astype() const {
-        if constexpr (std::is_same_v<T, U>) {
-            return *this;
-        } else {
-            auto result = Tensor<U, N>(_shape);
-            thrust::transform(this->begin(), this->end(), result.begin(), [] __device__(const T& x) { return static_cast<U>(x); });
-            return result;
-        }
+    Tensor<U, N> astype() {
+        return vt::astype<T, U, N>(*this);
     }
 
     /**
