@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>vt::ascontiguoustensor &#8212; VTensor v1.1.0 documentation</title>
+    <title>vt::astype &#8212; VTensor v1.1.0 documentation</title>
   
   
   
@@ -44,11 +44,11 @@
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/memory/ascontiguoustensor';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/astype';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="vt::asfortrantensor" href="asfortrantensor.html" />
-    <link rel="prev" title="Memory &amp; IO" href="index.html" />
+    <link rel="next" title="vt::broadcast" href="broadcast.html" />
+    <link rel="prev" title="Core" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -330,38 +330,38 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../core/index.html">Core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/astype.html">vt::astype</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Core</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::astype</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/broadcast.html">vt::broadcast</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="broadcast.html">vt::broadcast</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/broadcast_to.html">vt::broadcast_to</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="broadcast_to.html">vt::broadcast_to</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/cutensor.html">vt::CuTensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="cutensor.html">vt::CuTensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/iterator.html">vt::TensorIterator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="iterator.html">vt::TensorIterator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/mempool.html">vt::Mempool</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="mempool.html">vt::Mempool</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/operator.html">vt::operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="operator.html">vt::operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/print.html">vt::print</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="print.html">vt::print</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/proxy_cond.html">vt::TensorCondProxy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="proxy_cond.html">vt::TensorCondProxy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/proxy_slice.html">vt::TensorSliceProxy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="proxy_slice.html">vt::TensorSliceProxy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../core/tensor.html">vt::Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="tensor.html">vt::Tensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
@@ -486,26 +486,26 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Memory &amp; IO</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::ascontiguoustensor</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../memory/index.html">Memory &amp; IO</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/ascontiguoustensor.html">vt::ascontiguoustensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="asfortrantensor.html">vt::asfortrantensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/asfortrantensor.html">vt::asfortrantensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="astensor.html">vt::astensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/astensor.html">vt::astensor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="asvector.html">vt::asvector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/asvector.html">vt::asvector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="copy.html">vt::copy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/copy.html">vt::copy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="load.html">vt::load</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/load.html">vt::load</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="save.html">vt::save</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../memory/save.html">vt::save</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
@@ -567,9 +567,9 @@
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API</a></li>
     
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Memory &amp; IO</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Core</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">vt::ascontiguoustensor</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">vt::astype</span></li>
   </ul>
 </nav>
 </div>
@@ -586,18 +586,19 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="vt-ascontiguoustensor">
-<h1>vt::ascontiguoustensor<a class="headerlink" href="#vt-ascontiguoustensor" title="Link to this heading">#</a></h1>
+  <section id="vt-astype">
+<h1>vt::astype<a class="headerlink" href="#vt-astype" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE">
-<span id="_CPPv3I0_6size_tEN2vt18ascontiguoustensorERK6TensorI1T1NE"></span><span id="_CPPv2I0_6size_tEN2vt18ascontiguoustensorERK6TensorI1T1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a7ae42ad3ca37b74d004107a6c02d3d8f"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE" title="vt::ascontiguoustensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE" title="vt::ascontiguoustensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ascontiguoustensor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE" title="vt::ascontiguoustensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE" title="vt::ascontiguoustensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Convert the tensor to a contiguous tensor. If the tensor is not contiguous, it will copy and return a new tensor. Otherwise, it will return the same tensor. </p>
+<dt class="sig sig-object cpp" id="_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE">
+<span id="_CPPv3I00_6size_tEN2vt6astypeE6TensorI1T1NE"></span><span id="_CPPv2I00_6size_tEN2vt6astypeE6TensorI1T1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">U</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1ad2d23942ee726fe6a672ace6b9850208"></span><a class="reference internal" href="tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE" title="vt::astype::U"><span class="n"><span class="pre">U</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE" title="vt::astype::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">astype</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE" title="vt::astype::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE" title="vt::astype::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tensor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Convert the tensor to a new data type. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>T</strong> – Data type of the tensor. </p></li>
+<li><p><strong>U</strong> – The data type to cast. </p></li>
 <li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
 </ul>
 </dd>
@@ -605,7 +606,7 @@
 <dd class="field-even"><p><strong>tensor</strong> – The tensor object. </p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The contiguous tensor object. </p>
+<dd class="field-odd"><p>Tensor&lt;U, N&gt;: The new tensor object. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -628,15 +629,15 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Memory &amp; IO</p>
+        <p class="prev-next-title">Core</p>
       </div>
     </a>
     <a class="right-next"
-       href="asfortrantensor.html"
+       href="broadcast.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">vt::asfortrantensor</p>
+        <p class="prev-next-title">vt::broadcast</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -659,14 +660,14 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt18ascontiguoustensorE6TensorI1T1NERK6TensorI1T1NE"><code class="docutils literal notranslate"><span class="pre">ascontiguoustensor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00_6size_tEN2vt6astypeE6TensorI1U1NE6TensorI1T1NE"><code class="docutils literal notranslate"><span class="pre">astype()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../_sources/api/memory/ascontiguoustensor.rst.txt">
+    <a href="../../_sources/api/core/astype.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
