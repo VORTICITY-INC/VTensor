@@ -8,12 +8,13 @@ cuda_library(
         "asfortrantensor.hpp",
         "astensor.hpp",
         "asvector.hpp",
+        "asxarray.hpp",
         "copy.hpp",
         "fileio.hpp",
     ],
     deps = [
         "//lib/core:core",
         "//lib/linalg:linalg",
-        "@cnpy",
+        "@xtensor",
     ],
 )

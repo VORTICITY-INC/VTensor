@@ -1,8 +1,0 @@
-cc_library(
-    name = "cnpy",
-    srcs = glob(["**/*.cpp"], exclude=["example1.cpp"]),
-    hdrs = glob(["**/*.h"]),
-    visibility = ["//visibility:public"],
-    linkopts = ["-lz"],
-    copts = ["-w"]
-)

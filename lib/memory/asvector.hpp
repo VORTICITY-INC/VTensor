@@ -5,7 +5,7 @@
 namespace vt {
 
 /**
- * @brief Copy the tensor from device to host's the std::vector.
+ * @brief Copy the tensor from device to host (std::vector).
  *
  * @param tensor: The tensor object.
  * @tparam T: Data type of the tensor.

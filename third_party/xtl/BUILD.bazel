@@ -1,0 +1,8 @@
+cc_library(
+    name = "xtl",
+    hdrs = glob(["**/*.hpp"]),
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)

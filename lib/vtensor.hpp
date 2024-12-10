@@ -38,6 +38,7 @@
 #include "lib/memory/asfortrantensor.hpp"
 #include "lib/memory/astensor.hpp"
 #include "lib/memory/asvector.hpp"
+#include "lib/memory/asxarray.hpp"
 #include "lib/memory/copy.hpp"
 #include "lib/memory/fileio.hpp"
 #include "lib/random/curand.hpp"

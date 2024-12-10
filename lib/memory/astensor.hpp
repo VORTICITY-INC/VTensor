@@ -4,20 +4,39 @@
 
 #include "lib/core/tensor.hpp"
 #include "lib/generator/zeros.hpp"
+#include "xtensor/xarray.hpp"
 
 namespace vt {
 
 /**
- * @brief Copy the std::vector to the tensor.
+ * @brief Copy std::vector to the tensor.
  *
  * @tparam T: Data type of the tensor.
- * @param vector: The std::vector object.
- * @return Tensor: The tensor from the std::vector.
+ * @param vector: std::vector object.
+ * @return Tensor: The tensor from std::vector.
  */
 template <typename T>
 Tensor<T, 1> astensor(const std::vector<T>& vector) {
     auto tensor = zeros<T>(vector.size());
     thrust::copy(vector.begin(), vector.end(), tensor.begin());
+    return tensor;
+}
+
+/**
+ * @brief Copy xarray to the tensor.
+ *
+ * @tparam T: Data type of the tensor.
+ * @param arr: The xarray object.
+ * @return Tensor: The tensor from the xarray.
+ */
+template <typename T, size_t N>
+Tensor<T, N> astensor(const xt::xarray<T>& arr) {
+    auto s = arr.shape();
+    vt::Shape<N> shape;
+    assert(s.size() == N);
+    std::copy(s.begin(), s.end(), shape.begin());
+    auto tensor = zeros<T>(shape);
+    thrust::copy(arr.begin(), arr.end(), tensor.begin());
     return tensor;
 }
 

@@ -1,0 +1,9 @@
+cc_library(
+    name = "xtensor",
+    hdrs = glob(["**/*.hpp"]),
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@xtl",
+    ],
+)
