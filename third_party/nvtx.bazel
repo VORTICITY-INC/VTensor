@@ -1,6 +1,6 @@
 cc_library(
     name = "nvtx",
-    hdrs = glob(["c/include/*.h"]),
+    hdrs = glob(["c/include/*.h"],allow_empty=True),
     includes = ["c/include"],
     visibility = ["//visibility:public"],
 )
