@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/memory/asvector';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="vt::copy" href="copy.html" />
+    <link rel="next" title="vt::asxarray" href="asxarray.html" />
     <link rel="prev" title="vt::astensor" href="astensor.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -499,6 +499,9 @@
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vt::asvector</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="asxarray.html">vt::asxarray</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="copy.html">vt::copy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
@@ -593,7 +596,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt8asvectorENSt6vectorI1TEERK6TensorI1T1NE">
 <span id="_CPPv3I0_6size_tEN2vt8asvectorERK6TensorI1T1NE"></span><span id="_CPPv2I0_6size_tEN2vt8asvectorERK6TensorI1T1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a68d9e5f4e12591385423d88e487781d7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8asvectorENSt6vectorI1TEERK6TensorI1T1NE" title="vt::asvector::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">asvector</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8asvectorENSt6vectorI1TEERK6TensorI1T1NE" title="vt::asvector::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8asvectorENSt6vectorI1TEERK6TensorI1T1NE" title="vt::asvector::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tensor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt8asvectorENSt6vectorI1TEERK6TensorI1T1NE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Copy the tensor from device to host’s the std::vector. </p>
+<dd><p>Copy the tensor from device to host (std::vector). </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>tensor</strong> – The tensor object. </p>
@@ -632,11 +635,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="copy.html"
+       href="asxarray.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">vt::copy</p>
+        <p class="prev-next-title">vt::asxarray</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

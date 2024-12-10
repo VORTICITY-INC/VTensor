@@ -391,7 +391,7 @@
                   
   <section id="io-operations">
 <h1>IO operations<a class="headerlink" href="#io-operations" title="Link to this heading">#</a></h1>
-<p>VTensor supports reading and writing tensors from/to host memory.</p>
+<p>VTensor supports reading and writing tensors from/to host memory using raw pointer, std::vector or xt::xarray.</p>
 <section id="from-host-to-device">
 <h2>From host to device<a class="headerlink" href="#from-host-to-device" title="Link to this heading">#</a></h2>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;lib/vtensor.hpp&gt;</span>
@@ -400,6 +400,9 @@
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vector</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">};</span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">astensor</span><span class="p">(</span><span class="n">vector</span><span class="p">);</span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">astensor</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">vector</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xt</span><span class="o">::</span><span class="n">xarray</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">};</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">astensor</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -412,6 +415,7 @@
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">asvector</span><span class="p">(</span><span class="n">tensor</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">asxarray</span><span class="p">(</span><span class="n">tensor</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -419,13 +423,13 @@
 </section>
 <section id="save-load-from-disk">
 <h2>Save/Load from disk<a class="headerlink" href="#save-load-from-disk" title="Link to this heading">#</a></h2>
-<p>VTensor employs <a class="reference external" href="https://github.com/rogersce/cnpy">cnpy</a> for disk-based save and load operations.</p>
+<p>VTensor employs xtensor::xnpy for disk-based save and load operations.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;lib/vtensor.hpp&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
 <span class="w">    </span><span class="n">vt</span><span class="o">::</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;test.npy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tensor</span><span class="p">);</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">load</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;test.npy&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tensor1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">load</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;test.npy&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>

@@ -203,6 +203,8 @@ Comparison between NumPy and VTensor
      - vt::asvector
    * - N/A
      - vt::astensor
+   * - N/A
+     - vt::asxarray
    * - np.copy
      - vt::copy
    * - np.save
