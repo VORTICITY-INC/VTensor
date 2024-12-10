@@ -8,6 +8,7 @@ Memory & IO
    asfortrantensor
    astensor
    asvector
+   asxarray
    copy
    load
    save

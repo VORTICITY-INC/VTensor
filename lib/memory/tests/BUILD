@@ -8,6 +8,7 @@ cuda_test(
         "test_asfortrantensor.cc",
         "test_astensor.cc",
         "test_asvector.cc",
+        "test_asxarray.cc",
         "test_copy.cc",
         "test_fileio.cc",
     ],
