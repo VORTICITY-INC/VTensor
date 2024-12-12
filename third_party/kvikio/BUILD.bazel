@@ -1,0 +1,8 @@
+
+cc_library(
+    name = "kvikio",
+    hdrs = glob(["**/*.hpp"]),
+    includes = ["cpp/include"],
+    visibility = ["//visibility:public"],
+    deps = [],
+)

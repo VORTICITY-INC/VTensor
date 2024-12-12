@@ -1,0 +1,11 @@
+
+cc_library(
+    name = "highfive",
+    hdrs = glob(["**/*.hpp"]),
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+    deps = [
+
+    ],
+    linkopts = ["-lhdf5"],
+)

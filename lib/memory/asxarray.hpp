@@ -2,6 +2,7 @@
 
 #include "lib/core/tensor.hpp"
 #include "xtensor/xarray.hpp"
+#include <cuda_runtime.h>
 
 namespace vt {
 
@@ -18,7 +19,12 @@ xt::xarray<T> asxarray(const Tensor<T, N>& tensor) {
     auto s = tensor.shape();
     std::vector<size_t> shape(s.begin(), s.end());
     xt::xarray<T> arr(shape);
-    thrust::copy(tensor.begin(), tensor.end(), arr.begin());
+    if (tensor.contiguous()){
+        auto s = tensor.size() * sizeof(T);
+        cudaMemcpy(arr.data(), tensor.raw_ptr(), s, cudaMemcpyDeviceToHost);
+    } else{
+        thrust::copy(tensor.begin(), tensor.end(), arr.begin());
+    }
     return arr;
 }
 

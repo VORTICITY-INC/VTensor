@@ -7,7 +7,6 @@ cuda_binary(
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],
     deps = [
         "//lib:vtensor",
-        "@xtensor",
     ],
 )
 
@@ -19,4 +18,42 @@ cuda_binary(
     deps = [
         "//lib:vtensor",
     ],
+)
+
+cuda_binary(
+    name = "checkpoint",
+    visibility = ["//visibility:public"],
+    srcs = ["checkpoint.cc"],
+    copts = [
+        "-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE",
+        "-I/usr/include/hdf5/serial",
+    ],
+    deps = [
+        "//lib:vtensor",
+        "@cnpy",
+        "@xtensor",
+        "@thread_pool",
+        "@highfive",
+        "@kvikio", 
+    ],
+    linkopts = ["-L/usr/lib/x86_64-linux-gnu/hdf5/serial"],
+)
+
+cuda_binary(
+    name = "io",
+    visibility = ["//visibility:public"],
+    srcs = ["io_test.cc"],
+    copts = [
+        "-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE",
+        "-I/usr/include/hdf5/serial",
+    ],
+    deps = [
+        "//lib:vtensor",
+        "@cnpy",
+        "@xtensor",
+        "@thread_pool",
+        "@highfive",
+        "@kvikio", 
+    ],
+    linkopts = ["-L/usr/lib/x86_64-linux-gnu/hdf5/serial"],
 )

@@ -15,7 +15,12 @@ namespace vt {
 template <typename T, size_t N>
 std::vector<T> asvector(const Tensor<T, N>& tensor) {
     std::vector<T> vector(tensor.size());
-    thrust::copy(tensor.begin(), tensor.end(), vector.begin());
+    if (tensor.contiguous()){
+        auto s = tensor.size() * sizeof(T);
+        cudaMemcpy(vector.data(), tensor.raw_ptr(), s, cudaMemcpyDeviceToHost);
+    } else {
+        thrust::copy(tensor.begin(), tensor.end(), vector.begin());
+    }
     return vector;
 }
 
