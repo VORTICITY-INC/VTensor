@@ -1,5 +1,63 @@
+module(
+    name = "vtensor",
+    version = "1.0",
+    compatibility_level = 1
+)
+
 bazel_dep(name = "fmt", version = "11.0.2")
 bazel_dep(name = "google_benchmark", version = "1.8.5")
 bazel_dep(name = "googletest", version = "1.15.2")
 bazel_dep(name = "rules_cuda", version = "0.2.3")
 bazel_dep(name = "spdlog", version = "1.14.1")
+
+cuda = use_extension("@rules_cuda//cuda:extensions.bzl", "toolchain")
+cuda.local_toolchain(
+    name = "local_cuda",
+    toolkit_path = "",
+)
+use_repo(cuda, "local_cuda")
+
+http_archive = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:http.bzl",
+    "http_archive",
+)
+
+http_archive(
+    name = "rmm",
+    sha256 = "00e74a0445042c489b8174b6eaa759d41655561c317e9a04ab4a73cddde619c0",
+    strip_prefix = "rmm-24.08.00",
+    urls = ["https://github.com/rapidsai/rmm/archive/refs/tags/v24.08.00.zip"],
+    build_file = "//third_party:rmm.bazel",
+)
+
+http_archive(
+    name = "cnpy",
+    sha256 = "dd58304295ce30e2299fafe8a72cb1acac508139df740c8976bcaab5c17591dc",
+    strip_prefix = "cnpy-master",
+    urls = ["https://github.com/rogersce/cnpy/archive/refs/heads/master.zip"],
+    build_file = "//third_party:cnpy.bazel",
+)
+
+http_archive(
+    name = "nvtx",
+    sha256 = "dbf307ce0e5b0f6ceacf37d65ca7a70e9a545d4162f824e8c0ac7b86f5640aa4",
+    strip_prefix = "NVTX-3.1.0",
+    urls = ["https://github.com/NVIDIA/NVTX/archive/refs/tags/v3.1.0.zip"],
+    build_file = "//third_party:nvtx.bazel",
+)
+
+http_archive(
+    name = "xtl",
+    sha256 = "ce4ec05202e8211ec84ae16c19ed5a3bba1344db65e3495f0d83569babb1c21f",
+    strip_prefix = "xtl-master",
+    urls = ["https://github.com/xtensor-stack/xtl/archive/refs/heads/master.zip"],
+    build_file = "//third_party:xtl.bazel",
+)
+
+http_archive(
+    name = "xtensor",
+    sha256 = "627705b29d2d9395d36cc233f88a2fcb32b544460a53b5deddc886a6346d80dd",
+    strip_prefix = "xtensor-master",
+    urls = ["https://github.com/xtensor-stack/xtensor/archive/refs/heads/master.zip"],
+    build_file = "//third_party:xtensor.bazel",
+)
