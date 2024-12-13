@@ -31,14 +31,6 @@ http_archive(
 )
 
 http_archive(
-    name = "cnpy",
-    sha256 = "dd58304295ce30e2299fafe8a72cb1acac508139df740c8976bcaab5c17591dc",
-    strip_prefix = "cnpy-master",
-    urls = ["https://github.com/rogersce/cnpy/archive/refs/heads/master.zip"],
-    build_file = "//third_party:cnpy.bazel",
-)
-
-http_archive(
     name = "nvtx",
     sha256 = "dbf307ce0e5b0f6ceacf37d65ca7a70e9a545d4162f824e8c0ac7b86f5640aa4",
     strip_prefix = "NVTX-3.1.0",
