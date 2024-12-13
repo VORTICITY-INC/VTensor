@@ -58,4 +58,12 @@ Tensor<T, 1> astensor(const T* ptr, const size_t size) {
     return tensor;
 }
 
+template <typename T, size_t N>
+Tensor<T, N> astensor(const T* ptr, const Shape<N> shape) {
+    auto tensor = zeros<T, N>(shape);
+    auto s = tensor.size() * sizeof(T);
+    cudaMemcpy(tensor.raw_ptr(), ptr, s, cudaMemcpyHostToDevice);
+    return tensor;
+}
+
 }  // namespace vt
