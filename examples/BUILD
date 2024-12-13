@@ -21,6 +21,22 @@ cuda_binary(
 )
 
 cuda_binary(
+    name = "pinned_memory",
+    visibility = ["//visibility:public"],
+    srcs = ["pinned_memory.cc"],
+    copts = [
+        "-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE",
+    ],
+    deps = [
+        "//lib:vtensor",
+        "@cnpy",
+        "@xtensor",
+        "@thread_pool",
+    ],
+)
+
+
+cuda_binary(
     name = "checkpoint",
     visibility = ["//visibility:public"],
     srcs = ["checkpoint.cc"],

@@ -18,8 +18,8 @@
 
 using array_type = xt::xarray<float>;
 using array_map_type = std::unordered_map<std::string, std::shared_ptr<array_type>>;
-int numfiles = 2;
-double filesize_gb = 1;
+int numfiles = 10;
+double filesize_gb = 0.1;
 size_t num_elems = filesize_gb * 1e9 / sizeof(float);
 double total_size = numfiles * filesize_gb;
 
@@ -54,7 +54,7 @@ class CPUTimer {
 array_map_type create_date() {
     array_map_type arrays;
     for (size_t i = 0; i < numfiles; i++) {
-        std::string filename = "/home/stsui/Documents/checkpoints/" + std::to_string(i);
+        std::string filename = "/mammoth/checkpoints/" + std::to_string(i);
         auto arr = std::make_shared<array_type>(xt::arange<float>({float(num_elems)}));
         arrays[filename] = arr;
     }
@@ -78,51 +78,70 @@ void xarray_save(array_map_type& arrays) {
     std::cout << "Saving (xtensor) Duration: " << total_size * 1e3 / duration << " GB/s" << std::endl;
 }
 
-void cnpy_save(array_map_type& arrays) {
+void xarray_load(array_map_type& arrays) {
+    BS::thread_pool pool(numfiles);
+    auto timer = CPUTimer();
+    for (const auto& pair : arrays) {
+        const auto& filepath = pair.first;
+        auto f = pool.submit_task([&arrays, filepath]() {
+            auto fpath = filepath + ".npy";
+            arrays[filepath] = std::make_shared<array_type>(xt::load_npy<float>(fpath));
+        });
+    }
+    timer.start();
+    pool.wait();
+    auto duration = timer.stop();
+    std::cout << "Loading (xtensor) Duration: " << total_size * 1e3 / duration << " GB/s" << std::endl;
+}
+
+void cnpy_load(array_map_type& arrays) {
+    BS::thread_pool pool(numfiles);
+    auto timer = CPUTimer();
+    for (const auto& pair : arrays) {
+        const auto& filepath = pair.first;
+        auto f = pool.submit_task([&arrays, filepath]() {
+            auto fpath = filepath + ".npy";
+            // arrays[filepath] = std::make_shared<array_type>(xt::load_npy<float>(fpath));
+            std::cout << *arrays[filepath] << std::endl;
+        });
+    }
+    timer.start();
+    pool.wait();
+    auto duration = timer.stop();
+    std::cout << "Loading (xtensor) Duration: " << total_size * 1e3 / duration << " GB/s" << std::endl;
+}
+
+void highfive_save(array_map_type& arrays){
     BS::thread_pool pool(numfiles);
     auto timer = CPUTimer();
     for (const auto& pair : arrays) {
         const auto& filepath = pair.first;
         const auto& array = pair.second;
         auto f = pool.submit_task([filepath, array]() {
-            std::vector<size_t> shape = {num_elems};
-            auto fpath = filepath + ".npy";
-            cnpy::npy_save(fpath, (*array).data(), shape, "w");
+            auto fpath = filepath + ".h5";
+            H5Easy::File file(fpath, H5Easy::File::Overwrite);
+            H5Easy::dump(file, "/A", *array);
         });
     }
     timer.start();
     pool.wait();
-    auto duration = timer.stop();
-    std::cout << "Saving (cnpy) Duration: " << total_size * 1e3 / duration << " GB/s" << std::endl;
-}
-
-void highfive_save(array_map_type& arrays){
-    BS::thread_pool pool(numfiles);
-    auto timer = CPUTimer();
-
-    auto fpath = "/home/stsui/Documents/checkpoints/out.h5";
-    H5Easy::File file(fpath, H5Easy::File::Overwrite);
-    timer.start();
-    for (const auto& pair : arrays) {
-        const auto& filepath = pair.first;
-        const auto& array = pair.second;
-        H5Easy::dump(file, filepath, *array);
-    //     auto f = pool.submit_task([filepath, array]() {
-    //         auto fpath = filepath + ".h5";
-    //         
-            // H5Easy::dump(file, "/A", *array);
-        // });
-    }
-    // pool.wait();
     auto duration = timer.stop();
     std::cout << "Saving (HighFive) Duration: " << total_size * 1e3 / duration << " GB/s" << std::endl;
 }
 
 int main() {    
     auto arrays = create_date();
+    array_map_type arrays_load;
+    for (const auto& pair : arrays) {
+        arrays_load[pair.first] = nullptr;
+    }
+    xarray_save(arrays);
+    xarray_load(arrays_load);
+
+    std::cout << *arrays_load["/mammoth/checkpoints/0.npy"] << std::endl;
     // xarray_save(arrays);
     // cnpy_save(arrays);
-    highfive_save(arrays);
+    // highfive_save(arrays);
 
     // // size_t size = 1000000000 * sizeof(float);
     // auto timer = CPUTimer();
