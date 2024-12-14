@@ -19,8 +19,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 void save(const std::string& filename, const Tensor<T, N>& tensor) {
-    auto arr = asxarray(tensor);
-    xt::dump_npy(filename, arr);
+    xt::dump_npy(filename, asxarray(tensor));
 }
 
 /**
@@ -32,8 +31,7 @@ void save(const std::string& filename, const Tensor<T, N>& tensor) {
  */
 template <typename T, size_t N>
 Tensor<T, N> load(const std::string& filename) {
-    auto arr = xt::load_npy<T>(filename);
-    return astensor<T, N>(arr);
+    return astensor<T, N>(xt::load_npy<T>(filename));
 }
 
 }  // namespace vt

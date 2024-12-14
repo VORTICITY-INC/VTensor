@@ -8,6 +8,7 @@ cuda_binary(
     deps = [
         "//lib:vtensor",
         "@xtensor",
+        "@thread_pool",
     ],
 )
 
