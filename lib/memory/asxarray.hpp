@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cuda_runtime.h>
+
 #include "lib/core/tensor.hpp"
 #include "xtensor/xarray.hpp"
 
@@ -18,7 +20,16 @@ xt::xarray<T> asxarray(const Tensor<T, N>& tensor) {
     auto s = tensor.shape();
     std::vector<size_t> shape(s.begin(), s.end());
     xt::xarray<T> arr(shape);
-    thrust::copy(tensor.begin(), tensor.end(), arr.begin());
+    if constexpr (std::is_same_v<T, bool>) {
+        thrust::copy(tensor.begin(), tensor.end(), arr.begin());
+    } else {
+        if (tensor.contiguous()) {
+            auto s = tensor.size() * sizeof(T);
+            cudaMemcpy(arr.data(), tensor.raw_ptr(), s, cudaMemcpyDeviceToHost);
+        } else {
+            thrust::copy(tensor.begin(), tensor.end(), arr.begin());
+        }
+    }
     return arr;
 }
 
