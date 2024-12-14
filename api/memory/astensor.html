@@ -616,7 +616,10 @@
 <dd><p>Copy xarray to the tensor. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>T</strong> – Data type of the tensor. </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Data type of the tensor. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>arr</strong> – The xarray object. </p>
@@ -639,6 +642,29 @@
 <dd class="field-even"><ul class="simple">
 <li><p><strong>ptr</strong> – The raw pointer. </p></li>
 <li><p><strong>size</strong> – The size of the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/tensor.html#classvt_1_1Tensor"><span class="std std-ref">Tensor</span></a>: The tensor from the raw pointer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE">
+<span id="_CPPv3I0_6size_tEN2vt8astensorEPK1TK5ShapeI1NE"></span><span id="_CPPv2I0_6size_tEN2vt8astensorEPK1TK5ShapeI1NE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacevt_1a083d4ce029050c371f952285b51548c2"></span><a class="reference internal" href="../core/tensor.html#_CPPv4I0_6size_tEN2vt6TensorE" title="vt::Tensor"><span class="n"><span class="pre">Tensor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE" title="vt::astensor::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE" title="vt::astensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">astensor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE" title="vt::astensor::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ptr</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../core/tensor.html#_CPPv4I_6size_tEN2vt5ShapeE" title="vt::Shape"><span class="n"><span class="pre">Shape</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE" title="vt::astensor::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">shape</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Copy the raw pointer to the tensor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Data type of the tensor. </p></li>
+<li><p><strong>N</strong> – Number of dimensions of the tensor. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ptr</strong> – The raw pointer. </p></li>
+<li><p><strong>shape</strong> – The shape of the tensor. </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -699,6 +725,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt8astensorE6TensorI1TXL1EEERKNSt6vectorI1TEE"><code class="docutils literal notranslate"><span class="pre">astensor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NERKN2xt6xarrayI1TEE"><code class="docutils literal notranslate"><span class="pre">astensor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN2vt8astensorE6TensorI1TXL1EEEPK1TK6size_t"><code class="docutils literal notranslate"><span class="pre">astensor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt8astensorE6TensorI1T1NEPK1TK5ShapeI1NE"><code class="docutils literal notranslate"><span class="pre">astensor()</span></code></a></li>
 </ul>
   </nav></div>
 
