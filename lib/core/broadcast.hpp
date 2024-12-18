@@ -64,7 +64,7 @@ Tensor<T, N> broadcast_to(const Tensor<T, N>& tensor, const Shape<N>& broadcast_
             broadcast_strides[i] = strides[i];
         }
     }
-    return Tensor<T, N>(tensor.data(), broadcast_shape, broadcast_strides, tensor.start(), false);
+    return Tensor<T, N>(tensor.data(), broadcast_shape, broadcast_strides, tensor.start(), tensor.order(), false);
 }
 
 }  // namespace vt

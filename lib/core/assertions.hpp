@@ -1,7 +1,11 @@
 
 #pragma once
 
+#include <cassert>
+
 namespace vt {
+
+enum class Order : char; 
 
 /**
  * @brief Assert that the tensor is at least 1D.
@@ -31,6 +35,11 @@ constexpr void assert_at_least_2d_tensor() {
 template <size_t N>
 constexpr void assert_at_least_3d_tensor() {
     static_assert(N > 2, "The tensor must be at least 3D.");
+}
+
+
+void assert_same_order_between_two_tensors(const Order order1, const Order order2) {
+    assert(order1 == order2);
 }
 
 }  // namespace vt

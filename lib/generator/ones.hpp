@@ -12,10 +12,10 @@ namespace vt {
  * @return Tensor: The new tensor object.
  */
 template <typename T = float, size_t N>
-Tensor<T, N> ones(Shape<N> shape) {
+Tensor<T, N> ones(Shape<N> shape, const Order order = Order::C) {
     using vector_type = typename Tensor<T, N>::vector_type;
     vector_type data(get_size(shape), T{1});
-    return Tensor<T, N>(std::make_shared<vector_type>(data), shape);
+    return Tensor<T, N>(std::make_shared<vector_type>(data), shape, order);
 }
 
 /**
@@ -26,8 +26,8 @@ Tensor<T, N> ones(Shape<N> shape) {
  * @return Tensor<T, 1>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 1> ones(size_t m) {
-    return ones(Shape<1>{m});
+Tensor<T, 1> ones(size_t m, const Order order = Order::C) {
+    return ones(Shape<1>{m}, order);
 }
 
 /**
@@ -39,8 +39,8 @@ Tensor<T, 1> ones(size_t m) {
  * @return Tensor<T, 2>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 2> ones(size_t m, size_t n) {
-    return ones<T, 2>(Shape<2>{m, n});
+Tensor<T, 2> ones(size_t m, size_t n, const Order order = Order::C) {
+    return ones<T, 2>(Shape<2>{m, n}, order);
 }
 
 }  // namespace vt

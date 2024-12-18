@@ -13,8 +13,8 @@ namespace vt {
  * @return Tensor: The new tensor object.
  */
 template <typename T = float, size_t N>
-Tensor<T, N> zeros(Shape<N> shape) {
-    return Tensor<T, N>(shape);
+Tensor<T, N> zeros(Shape<N> shape, const Order order = Order::C) {
+    return Tensor<T, N>(shape, order);
 }
 
 /**
@@ -25,8 +25,8 @@ Tensor<T, N> zeros(Shape<N> shape) {
  * @return Tensor<T, 1>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 1> zeros(size_t m) {
-    return zeros<T, 1>(Shape<1>{m});
+Tensor<T, 1> zeros(size_t m, const Order order = Order::C) {
+    return zeros<T, 1>(Shape<1>{m}, order);
 }
 
 /**
@@ -38,8 +38,8 @@ Tensor<T, 1> zeros(size_t m) {
  * @return Tensor<T, 2>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 2> zeros(size_t m, size_t n) {
-    return zeros<T, 2>(Shape<2>{m, n});
+Tensor<T, 2> zeros(size_t m, size_t n, const Order order = Order::C) {
+    return zeros<T, 2>(Shape<2>{m, n}, order);
 }
 
 }  // namespace vt

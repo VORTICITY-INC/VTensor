@@ -15,7 +15,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, N> copy(const Tensor<T, N>& tensor) {
-    auto tensor_cp = zeros<T>(tensor.shape());
+    auto tensor_cp = zeros<T>(tensor.shape(), tensor.order());
     thrust::copy(tensor.begin(), tensor.end(), tensor_cp.begin());
     return tensor_cp;
 }
