@@ -21,9 +21,6 @@ namespace vt {
 template <size_t N>
 using Shape = std::array<size_t, N>;
 
-
-enum class Order : char { C, F };
-
 /**
  * @brief Helper function to calculate the size of a tensor.
  *
@@ -393,7 +390,7 @@ class Tensor {
      * @return TensorIterator: The iterator points to the 1st index of the tensor.
      */
     TensorIterator<typename vector_type::iterator, N> begin() const {
-        return TensorIterator<typename vector_type::iterator, N>(_data->begin(), _shape.data(), _strides.data(), _start, _contiguous);
+        return TensorIterator<typename vector_type::iterator, N>(_data->begin(), _shape.data(), _strides.data(), _start, _order, _contiguous);
     }
 
     /**
@@ -402,7 +399,7 @@ class Tensor {
      * @return TensorIterator: The iterator points to the last index of the tensor.
      */
     TensorIterator<typename vector_type::iterator, N> end() const {
-        return TensorIterator<typename vector_type::iterator, N>(_data->begin() + _size, _shape.data(), _strides.data(), _start, _contiguous);
+        return TensorIterator<typename vector_type::iterator, N>(_data->begin() + _size, _shape.data(), _strides.data(), _start, _order, _contiguous);
     }
 
     /**

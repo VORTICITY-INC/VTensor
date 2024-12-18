@@ -297,6 +297,7 @@ TEST(TensorSliceOperation, BasicAssertions) {
     std::array<vt::Slice, 3> slices = {vt::Slice(0, 2, 1), vt::Slice(0, 2, 1), vt::Slice(0, 2, 1)};
     tensor4(slices);
 
+    // Test for F order
     auto tensor5 = vt::zeros(vt::Shape<3>{2, 2, 2}, vt::Order::F);
     tensor5(slices);
 }
@@ -310,84 +311,123 @@ TEST(TensorEllipsisSlices, BasicAssertions){
     tensor1 = tensor1(vt::ellipsis, {0, 2});
     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 1}));
 
+    // Test for F order
     auto tensor2 = vt::arange(12, vt::Order::F).reshape(2, 2, 3);
     tensor2 = tensor2(vt::ellipsis, {0, 2});
-
-    vt::print(tensor2);
-    EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{0, 4, 2, 6, 1, 5, 3, 7}));
+    EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{0, 1, 2, 3, 4, 5, 6, 7}));
 }
 
-// TEST(TensorSliceAlongTheAxisOperation, BasicAssertions) {
-//     auto tensor = vt::arange(12).reshape(2, 2, 3);
-//     EXPECT_EQ(vt::asvector(tensor[0]), (std::vector<float>{0, 1, 2, 3, 4, 5}));
-//     EXPECT_EQ(vt::asvector(tensor[1]), (std::vector<float>{6, 7, 8, 9, 10, 11}));
+TEST(TensorSliceAlongTheAxisOperation, BasicAssertions) {
+    auto tensor = vt::arange(12).reshape(2, 2, 3);
+    EXPECT_EQ(vt::asvector(tensor[0]), (std::vector<float>{0, 1, 2, 3, 4, 5}));
+    EXPECT_EQ(vt::asvector(tensor[1]), (std::vector<float>{6, 7, 8, 9, 10, 11}));
 
-//     auto tensor1 = vt::arange(12);
-//     EXPECT_EQ(vt::asvector(tensor1[5]), (std::vector<float>{5}));
-// }
+    auto tensor1 = vt::arange(12);
+    EXPECT_EQ(vt::asvector(tensor1[5]), (std::vector<float>{5}));
 
-// TEST(TensorApplySlices, BasicAssertions) {
-//     auto tensor1 = vt::arange(12);
-//     std::array<vt::Slice, 1> slices = {vt::Slice(0, 12, 2)};
-//     auto tensor2 = tensor1.apply_slices(slices);
-//     EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{0, 2, 4, 6, 8, 10}));
-//     EXPECT_EQ(tensor2.size(), 6);
-//     EXPECT_EQ(tensor2.shape(), (vt::Shape<1>{6}));
-//     EXPECT_EQ(tensor2.strides(), (vt::Shape<1>{2}));
-//     EXPECT_EQ(tensor2.start(), 0);
-//     EXPECT_EQ(tensor2.contiguous(), false);
-// }
+    // Test for F tensor.
+    auto tensor2 = vt::arange(12, vt::Order::F).reshape(2, 2, 3);
+    EXPECT_EQ(vt::asvector(tensor2[0]), (std::vector<float>{0, 2, 4, 6, 8, 10}));
+    EXPECT_EQ(vt::asvector(tensor2[1]), (std::vector<float>{1, 3, 5, 7, 9, 11}));
+}
 
-// TEST(TensorNewAxisAtFirstAxis, BasicAssertions){
-//     auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
-//     auto tensor1 = tensor(vt::newaxis, vt::ellipsis);
-//     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
-//     EXPECT_EQ(tensor1.size(), 12);
-//     EXPECT_EQ(tensor1.shape(), (vt::Shape<3>{1, 3, 4}));
-//     EXPECT_EQ(tensor1.strides(), (vt::Shape<3>{0, 4, 1}));
-//     EXPECT_EQ(tensor1.start(), 0);
-//     EXPECT_EQ(tensor1.contiguous(), false);
+TEST(TensorApplySlices, BasicAssertions) {
+    auto tensor1 = vt::arange(12);
+    std::array<vt::Slice, 1> slices = {vt::Slice(0, 12, 2)};
+    auto tensor2 = tensor1.apply_slices(slices);
+    EXPECT_EQ(vt::asvector(tensor2), (std::vector<float>{0, 2, 4, 6, 8, 10}));
+    EXPECT_EQ(tensor2.size(), 6);
+    EXPECT_EQ(tensor2.shape(), (vt::Shape<1>{6}));
+    EXPECT_EQ(tensor2.strides(), (vt::Shape<1>{2}));
+    EXPECT_EQ(tensor2.start(), 0);
+    EXPECT_EQ(tensor2.contiguous(), false);
+}
 
-//     // Test for 0D tensor.
-//     auto tensor2 = vt::Tensor<float, 0>(vt::Shape<0>{});
-//     auto tensor3 = tensor2(vt::newaxis, vt::ellipsis);
-//     EXPECT_EQ(vt::asvector(tensor3), (std::vector<float>{0}));
-//     EXPECT_EQ(tensor3.size(), 1);
-//     EXPECT_EQ(tensor3.shape(), (vt::Shape<1>{1}));
-//     EXPECT_EQ(tensor3.strides(), (vt::Shape<1>{0}));
-//     EXPECT_EQ(tensor3.start(), 0);
-//     EXPECT_EQ(tensor3.contiguous(), false);
-// }
+TEST(TensorNewAxisAtFirstAxis, BasicAssertions){
+    auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
+    auto tensor1 = tensor(vt::newaxis, vt::ellipsis);
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
+    EXPECT_EQ(tensor1.size(), 12);
+    EXPECT_EQ(tensor1.shape(), (vt::Shape<3>{1, 3, 4}));
+    EXPECT_EQ(tensor1.strides(), (vt::Shape<3>{0, 4, 1}));
+    EXPECT_EQ(tensor1.start(), 0);
+    EXPECT_EQ(tensor1.order(), vt::Order::C);
+    EXPECT_EQ(tensor1.contiguous(), false);
 
-// TEST(TensorNewAxisAtLastAxis, BasicAssertions){
-//     auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
-//     auto tensor1 = tensor(vt::ellipsis, vt::newaxis);
-//     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
-//     EXPECT_EQ(tensor1.size(), 12);
-//     EXPECT_EQ(tensor1.shape(), (vt::Shape<3>{3, 4, 1}));
-//     EXPECT_EQ(tensor1.strides(), (vt::Shape<3>{4, 1, 0}));
-//     EXPECT_EQ(tensor1.start(), 0);
-//     EXPECT_EQ(tensor1.contiguous(), false);
+    // Test for 0D tensor.
+    auto tensor2 = vt::Tensor<float, 0>(vt::Shape<0>{}, vt::Order::C);
+    auto tensor3 = tensor2(vt::newaxis, vt::ellipsis);
+    EXPECT_EQ(vt::asvector(tensor3), (std::vector<float>{0}));
+    EXPECT_EQ(tensor3.size(), 1);
+    EXPECT_EQ(tensor3.shape(), (vt::Shape<1>{1}));
+    EXPECT_EQ(tensor3.strides(), (vt::Shape<1>{0}));
+    EXPECT_EQ(tensor3.start(), 0);
+    EXPECT_EQ(tensor3.order(), vt::Order::C);
+    EXPECT_EQ(tensor3.contiguous(), false);
 
-//     // Test for 0D tensor.
-//     auto tensor2 = vt::Tensor<float, 0>(vt::Shape<0>{});
-//     auto tensor3 = tensor2(vt::ellipsis, vt::newaxis);
-//     EXPECT_EQ(vt::asvector(tensor3), (std::vector<float>{0}));
-//     EXPECT_EQ(tensor3.size(), 1);
-//     EXPECT_EQ(tensor3.shape(), (vt::Shape<1>{1}));
-//     EXPECT_EQ(tensor3.strides(), (vt::Shape<1>{0}));
-//     EXPECT_EQ(tensor3.start(), 0);
-//     EXPECT_EQ(tensor3.contiguous(), false);
-// }
+    // Test for F order
+    auto tensor4 = vt::arange(24, vt::Order::F)({0, 24, 2}).reshape(3, 4);
+    auto tensor5 = tensor4(vt::newaxis, vt::ellipsis);
+    EXPECT_EQ(vt::asvector(tensor5), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
+    EXPECT_EQ(tensor5.size(), 12);
+    EXPECT_EQ(tensor5.shape(), (vt::Shape<3>{1, 3, 4}));
+    EXPECT_EQ(tensor5.strides(), (vt::Shape<3>{0, 1, 3}));
+    EXPECT_EQ(tensor5.start(), 0);
+    EXPECT_EQ(tensor5.order(), vt::Order::F);
+    EXPECT_EQ(tensor5.contiguous(), false);
+}
 
-// TEST(TensorIndexWithCond, BasicAssertions){
-//     auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
-//     tensor[tensor > 12.0f] = 1.0f;
-//     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 1, 1, 1, 1, 1}));
-// }
+TEST(TensorNewAxisAtLastAxis, BasicAssertions){
+    auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
+    auto tensor1 = tensor(vt::ellipsis, vt::newaxis);
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
+    EXPECT_EQ(tensor1.size(), 12);
+    EXPECT_EQ(tensor1.shape(), (vt::Shape<3>{3, 4, 1}));
+    EXPECT_EQ(tensor1.strides(), (vt::Shape<3>{4, 1, 0}));
+    EXPECT_EQ(tensor1.start(), 0);
+    EXPECT_EQ(tensor1.order(), vt::Order::C);
+    EXPECT_EQ(tensor1.contiguous(), false);
 
-// TEST(TensorAstype, BasicAssertions){
-//     auto tensor = vt::arange<int>(3);
-//     auto tensor1 = tensor.astype<float>();
-//     EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 1, 2}));
-// }
+    // Test for 0D tensor.
+    auto tensor2 = vt::Tensor<float, 0>(vt::Shape<0>{}, vt::Order::C);
+    auto tensor3 = tensor2(vt::ellipsis, vt::newaxis);
+    EXPECT_EQ(vt::asvector(tensor3), (std::vector<float>{0}));
+    EXPECT_EQ(tensor3.size(), 1);
+    EXPECT_EQ(tensor3.shape(), (vt::Shape<1>{1}));
+    EXPECT_EQ(tensor3.strides(), (vt::Shape<1>{0}));
+    EXPECT_EQ(tensor3.start(), 0);
+    EXPECT_EQ(tensor3.order(), vt::Order::C);
+    EXPECT_EQ(tensor3.contiguous(), false);
+
+    // Test for F order
+    auto tensor4 = vt::arange(24, vt::Order::F)({0, 24, 2}).reshape(3, 4);
+    auto tensor5 = tensor4(vt::ellipsis, vt::newaxis);
+    EXPECT_EQ(vt::asvector(tensor5), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
+    EXPECT_EQ(tensor5.size(), 12);
+    EXPECT_EQ(tensor5.shape(), (vt::Shape<3>{3, 4, 1}));
+    EXPECT_EQ(tensor5.strides(), (vt::Shape<3>{1, 3, 0}));
+    EXPECT_EQ(tensor5.start(), 0);
+    EXPECT_EQ(tensor5.order(), vt::Order::F);
+    EXPECT_EQ(tensor5.contiguous(), false);
+}
+
+TEST(TensorIndexWithCond, BasicAssertions){
+    auto tensor = vt::arange(24)({0, 24, 2}).reshape(3, 4);
+    tensor[tensor > 12.0f] = 1.0f;
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 1, 1, 1, 1, 1}));
+
+    // Test for F order
+    auto tensor1 = vt::arange(24, vt::Order::F)({0, 24, 2}).reshape(3, 4);
+    tensor1[tensor1 > 12.0f] = 1.0f;
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 1, 1, 1, 1, 1}));
+}
+
+TEST(TensorAstype, BasicAssertions){
+    auto tensor = vt::arange<int>(3);
+    auto tensor1 = tensor.astype<float>();
+    EXPECT_EQ(vt::asvector(tensor1), (std::vector<float>{0, 1, 2}));
+
+    auto tensor2 = vt::arange<int>(3, vt::Order::F);
+    auto tensor3 = tensor2.astype<float>();
+    EXPECT_EQ(vt::asvector(tensor3), (std::vector<float>{0, 1, 2}));
+}
