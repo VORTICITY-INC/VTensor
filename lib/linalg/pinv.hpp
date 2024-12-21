@@ -20,6 +20,7 @@ namespace linalg {
  */
 template <typename T, size_t N>
 Tensor<T, N> pinv(Tensor<T, N>& tensor, T rcond = 1e-15) {
+    assert(tensor.order() == vt::Order::C);
     auto [u, s, vt] = svd(tensor, false);
     auto cutoff = rcond * max(s, -1);
 

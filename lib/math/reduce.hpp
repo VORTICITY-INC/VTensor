@@ -27,7 +27,7 @@ Tensor<T, N - 1> reduce_along_axis(const Tensor<U, N>& tensor, int axis, KernelF
     Shape<N - 1> new_shape;
     auto shape = _tensor.shape();
     std::copy(shape.begin(), shape.end() - 1, new_shape.begin());
-    auto result = zeros<T>(new_shape);
+    auto result = zeros<T>(new_shape, tensor.order());
     auto nblocks = (result.size() + NUM_THREADS_X - 1) / NUM_THREADS_X;
     kernel_func<<<nblocks, NUM_THREADS_X>>>(_tensor, result);
     return result;

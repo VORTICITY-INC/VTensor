@@ -19,7 +19,8 @@ namespace vt {
 template <typename T, size_t N>
 Tensor<T, N> maximum(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
     assert(lhs.shape() == rhs.shape());
-    auto result = zeros<T>(lhs.shape());
+    assert_same_order_between_two_tensors(lhs.order(), rhs.order());
+    auto result = zeros<T>(lhs.shape(), lhs.order());
     thrust::transform(lhs.begin(), lhs.end(), rhs.begin(), result.begin(), thrust::maximum<T>());
     return result;
 }
@@ -35,7 +36,7 @@ Tensor<T, N> maximum(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<T, N> maximum(const Tensor<T, N>& lhs, const T value) {
-    auto result = zeros<T>(lhs.shape());
+    auto result = zeros<T>(lhs.shape(), lhs.order());
     thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(), thrust::maximum<T>());
     return result;
 }

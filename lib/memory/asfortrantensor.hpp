@@ -22,7 +22,7 @@ Tensor<T, 2> asfortrantensor(Tensor<T, 2>& tensor) {
     auto shape = ctensor.shape();
     int m = shape[0];
     int n = shape[1];
-    auto result = zeros<T>(shape);
+    auto result = zeros<T>(shape, Order::F);
     auto handle = cuda::cublas.get_handle();
     auto alpha = T{1.0};
     auto beta = T{0.0};

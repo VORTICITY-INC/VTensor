@@ -36,7 +36,7 @@ __global__ void gen_diag_kernel(CuTensor<T, 1> tensor, int k, CuTensor<T, 2> res
 template <typename T>
 Tensor<T, 2> diag(Tensor<T, 1> tensor, int k = 0) {
     auto m = tensor.size() + std::abs(k);
-    auto result = zeros<T>(m, m);
+    auto result = zeros<T>(m, m, tensor.order());
     auto nblocks = (m + NUM_THREADS_X - 1) / NUM_THREADS_X;
     gen_diag_kernel<T><<<nblocks, NUM_THREADS_X>>>(tensor, k, result);
     return result;
@@ -73,7 +73,7 @@ template <typename T>
 Tensor<T, 1> diag(Tensor<T, 2> tensor, int k = 0) {
     auto [m, n] = tensor.shape();
     size_t ndiag = (k >= 0) ? std::min(m, n - k) : std::min(m + k, n);
-    auto result = zeros<T>(ndiag);
+    auto result = zeros<T>(ndiag, tensor.order());
     auto nblocks = (ndiag + NUM_THREADS_X - 1) / NUM_THREADS_X;
     get_diag_kernel<T><<<nblocks, NUM_THREADS_X>>>(tensor, k, result);
     return result;

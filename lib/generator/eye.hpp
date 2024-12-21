@@ -27,11 +27,12 @@ __global__ void eye_kernel(CuTensor<T, 2> tensor, size_t ndiag) {
  * @tparam T: Data type of the tensor.
  * @param m: The number of rows.
  * @param n: The number of columns.
+ * @param order: The order of the tensor.
  * @return Tensor<T, 2>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 2> eye(size_t m, size_t n) {
-    auto tensor = zeros<T>(m, n);
+Tensor<T, 2> eye(size_t m, size_t n, const Order order = Order::C) {
+    auto tensor = zeros<T>(m, n, order);
     size_t ndiag = std::min(m, n);
     auto nblocks = (ndiag + NUM_THREADS_X - 1) / NUM_THREADS_X;
     eye_kernel<T><<<nblocks, NUM_THREADS_X>>>(tensor, ndiag);
@@ -43,11 +44,12 @@ Tensor<T, 2> eye(size_t m, size_t n) {
  *
  * @tparam T: Data type of the tensor.
  * @param m: The number of rows and columns.
+ * @param order: The order of the tensor.
  * @return Tensor<T, 2>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 2> eye(size_t m) {
-    return eye<T>(m, m);
+Tensor<T, 2> eye(size_t m, const Order order = Order::C) {
+    return eye<T>(m, m, order);
 }
 
 }  // namespace vt

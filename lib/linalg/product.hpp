@@ -17,6 +17,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 T dot(Tensor<T, N> tensor1, Tensor<T, N> tensor2) {
+    assert_same_order_between_two_tensors(tensor1.order(), tensor2.order());
     assert(tensor1.shape() == tensor2.shape());
     auto re = thrust::inner_product(tensor1.begin(), tensor1.end(), tensor2.begin(), T{0.0});
     return re;

@@ -19,7 +19,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, 0> min(const Tensor<T, N>& tensor) {
-    auto result = Tensor<T, 0>(Shape<0>{});
+    auto result = Tensor<T, 0>(Shape<0>{}, tensor.order());
     (*result.data())[0] = *thrust::min_element(tensor.begin(), tensor.end());
     return result;
 }
@@ -37,7 +37,7 @@ template <typename T, size_t N>
 __global__ void min_along_axis_kernel(CuTensor<T, N> tensor, CuTensor<T, N - 1> result) {
     size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= result.size) return;
-    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start);
+    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start, tensor.order);
     auto value = tensor.data[start];
     for (auto i = 0; i < tensor.shape[N - 1]; ++i) value = std::min(value, tensor.data[start + i * tensor.strides[N - 1]]);
     result[idx] = value;

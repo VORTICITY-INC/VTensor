@@ -17,8 +17,9 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, N> power(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
+    assert_same_order_between_two_tensors(lhs.order(), rhs.order());
     auto [_lhs, _rhs] = broadcast(lhs, rhs);
-    auto result = vt::zeros<T>(_lhs.shape());
+    auto result = vt::zeros<T>(_lhs.shape(), lhs.order());
     thrust::transform(_lhs.begin(), _lhs.end(), _rhs.begin(), result.begin(), [] __device__(const T& x, const T& y) {
         if constexpr (std::is_same<T, float>::value)
             return powf(x, y);
@@ -39,7 +40,7 @@ Tensor<T, N> power(const Tensor<T, N>& lhs, const Tensor<T, N>& rhs) {
  */
 template <typename T, size_t N>
 Tensor<T, N> power(const Tensor<T, N>& lhs, const T value) {
-    auto result = vt::zeros<T>(lhs.shape());
+    auto result = vt::zeros<T>(lhs.shape(), lhs.order());
     thrust::transform(lhs.begin(), lhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) {
         if constexpr (std::is_same<T, float>::value)
             return powf(x, y);
@@ -60,7 +61,7 @@ Tensor<T, N> power(const Tensor<T, N>& lhs, const T value) {
  */
 template <typename T, size_t N>
 Tensor<T, N> power(const T value, const Tensor<T, N>& rhs) {
-    auto result = vt::zeros<T>(rhs.shape());
+    auto result = vt::zeros<T>(rhs.shape(), rhs.order());
     thrust::transform(rhs.begin(), rhs.end(), thrust::make_constant_iterator(value), result.begin(), [] __device__(const T& x, const T& y) {
         if constexpr (std::is_same<T, float>::value)
             return powf(y, x);

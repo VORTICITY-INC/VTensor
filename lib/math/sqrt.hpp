@@ -15,7 +15,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, N> sqrt(const Tensor<T, N>& tensor) {
-    auto result = vt::zeros<T>(tensor.shape());
+    auto result = vt::zeros<T>(tensor.shape(), tensor.order());
     thrust::transform(tensor.begin(), tensor.end(), result.begin(), [] __device__(const T& x) {
         if constexpr (std::is_same<T, float>::value)
             return sqrtf(x);

@@ -19,7 +19,7 @@ namespace vt {
  */
 template <typename T, size_t N>
 Tensor<T, 0> sum(const Tensor<T, N>& tensor) {
-    auto result = Tensor<T, 0>(Shape<0>{});
+    auto result = Tensor<T, 0>(Shape<0>{}, tensor.order());
     (*result.data())[0] = thrust::reduce(tensor.begin(), tensor.end(), (T)0, thrust::plus<T>());
     return result;
 }
@@ -33,7 +33,7 @@ Tensor<T, 0> sum(const Tensor<T, N>& tensor) {
  */
 template <size_t N>
 Tensor<int, 0> sum(const Tensor<bool, N>& tensor) {
-    auto result = Tensor<int, 0>(Shape<0>{});
+    auto result = Tensor<int, 0>(Shape<0>{}, tensor.order());
     (*result.data())[0] = thrust::reduce(tensor.begin(), tensor.end(), 0, thrust::plus<int>());
     return result;
 }
@@ -52,7 +52,7 @@ template <typename T, typename U, size_t N>
 __global__ void sum_along_axis_kernel(CuTensor<U, N> tensor, CuTensor<T, N - 1> result) {
     size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= result.size) return;
-    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start);
+    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start, tensor.order);
     auto sum = T{0};
     for (auto i = 0; i < tensor.shape[N - 1]; ++i) sum += tensor.data[start + i * tensor.strides[N - 1]];
     result[idx] = sum;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "lib/core/assertions.hpp"
 #include "lib/core/tensor.hpp"
 
 namespace vt {
@@ -97,6 +98,7 @@ class TensorSliceProxy : public Tensor<T, N> {
      * @return TensorSliceProxy: The tensor slice proxy object.
      */
     TensorSliceProxy& operator=(const Tensor<T, N>& other) {
+        assert_same_order_between_two_tensors(this->order(), other.order());
         assert(this->shape() == other.shape());
         thrust::copy(other.begin(), other.end(), this->begin());
         return *this;
@@ -162,7 +164,9 @@ class TensorCondProxy : public Tensor<T, N> {
      * @param tensor: The tensor.
      * @param cond: The condition tensor.
      */
-    TensorCondProxy(const Tensor<T, N>& tensor, const Tensor<bool, N>& cond) : Tensor<T, N>(tensor), cond(cond) {}
+    TensorCondProxy(const Tensor<T, N>& tensor, const Tensor<bool, N>& cond) : Tensor<T, N>(tensor), cond(cond) {
+        assert_same_order_between_two_tensors(this->order(), cond.order());
+    }
 
     /**
      * @brief Copy assignment operator for the TensorCondProxy from a constant.

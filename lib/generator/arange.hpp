@@ -12,12 +12,13 @@ namespace vt {
  *
  * @tparam T: Data type of the tensor.
  * @param step: The size of the tensor.
+ * @param order: The order of the tensor.
  * @return Tensor: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 1> arange(int step) {
+Tensor<T, 1> arange(int step, const Order order = Order::C) {
     assert(step > 0);
-    auto tensor = zeros<T>(step);
+    auto tensor = zeros<T>(step, order);
     thrust::sequence(tensor.begin(), tensor.end());
     return tensor;
 }
@@ -29,13 +30,14 @@ Tensor<T, 1> arange(int step) {
  * @param start: The starting value of the sequence.
  * @param end: The end value of the sequence.
  * @param step: The step size of the sequence.
+ * @param order: The order of the tensor.
  * @return Tensor<T, 1>: The new tensor object.
  */
 template <typename T = float>
-Tensor<T, 1> arange(T start, T end, T step) {
+Tensor<T, 1> arange(T start, T end, T step, const Order order = Order::C) {
     int n = static_cast<int>(std::ceil(double(end - start) / step));
     assert(n > 0);
-    auto tensor = zeros<T>(n);
+    auto tensor = zeros<T>(n, order);
     thrust::transform(thrust::counting_iterator<int>(0), thrust::counting_iterator<int>(n), tensor.begin(),
                       [start, step] __device__(int i) -> T { return start + i * step; });
     return tensor;
@@ -48,13 +50,14 @@ Tensor<T, 1> arange(T start, T end, T step) {
  * @param start: The starting value of the sequence.
  * @param end: The end value of the sequence.
  * @param step: The step size of the sequence.
+ * @param order: The order of the tensor.
  * @return Tensor<T*, 1>: The new tensor object.
  */
 template <typename T>
-Tensor<T*, 1> arange(T* start, T* end, int step) {
+Tensor<T*, 1> arange(T* start, T* end, int step, const Order order = Order::C) {
     int n = static_cast<int>(std::ceil(double(end - start) / step));
     assert(n > 0);
-    auto tensor = zeros<T*>(n);
+    auto tensor = zeros<T*>(n, order);
     thrust::transform(thrust::counting_iterator<int>(0), thrust::counting_iterator<int>(n), tensor.begin(),
                       [start, step] __device__(int i) -> T* { return start + i * step; });
     return tensor;
