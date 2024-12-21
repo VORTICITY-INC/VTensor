@@ -20,6 +20,7 @@ namespace linalg {
  */
 template <typename T>
 Tensor<T, 2> cholesky(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+    assert(tensor.order() == vt::Order::C);
     auto [n, m] = tensor.shape();
     assert(n == m);
     auto x = copy(tensor);
@@ -52,6 +53,7 @@ Tensor<T, 2> cholesky(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cu
  */
 template <typename T, size_t N>
 Tensor<T, N> cholesky(Tensor<T, N>& tensor, cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+    assert(tensor.order() == vt::Order::C);
     assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();
     assert(shape[N - 1] == shape[N - 2]);

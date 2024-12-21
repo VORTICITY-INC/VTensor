@@ -39,19 +39,27 @@ size_t get_size(const Shape<N>& shape) {
  * @brief Helper function to calculate the strides of a tensor.
  *
  * @param shape: Shape of the tensor.
+ * @param order: Order of the tensor.
  * @tparam N: Number of dimensions of the tensor.
  * @return strides: Strides of the tensor.
  */
 template <size_t N>
-Shape<N> get_strides(const Shape<N>& shape) {
+Shape<N> get_strides(const Shape<N>& shape, const Order order) {
     Shape<N> strides{};
     if constexpr (N == 0) {
         return strides;
     } else {
         size_t stride = 1;
-        for (int i = N - 1; i >= 0; --i) {
-            strides[i] = stride;
-            stride *= shape[i];
+        if (order == Order::C) {
+            for (int i = N - 1; i >= 0; --i) {
+                strides[i] = stride;
+                stride *= shape[i];
+            }
+        } else {
+            for (int i = 0; i < N; ++i) {
+                strides[i] = stride;
+                stride *= shape[i];
+            }
         }
         return strides;
     }
@@ -99,8 +107,10 @@ class Tensor {
      * @brief Construct a new tensor object from a shape.
      *
      * @param shape Shape of the tensor.
+     * @param order Order of the tensor.
      */
-    Tensor(const Shape<N>& shape) : _shape(shape), _size(get_size(shape)), _strides(get_strides(shape)), _start(0), _contiguous(true) {
+    Tensor(const Shape<N>& shape, const Order order)
+        : _shape(shape), _size(get_size(shape)), _strides(get_strides(shape, order)), _start(0), _contiguous(true), _order(order) {
         _data = std::make_shared<vector_type>(_size);
     }
 
@@ -109,9 +119,10 @@ class Tensor {
      *
      * @param data A shared vector
      * @param shape Shape of the tensor.
+     * @param order Order of the tensor.
      */
-    Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape)
-        : _data(data), _shape(shape), _size(get_size(shape)), _strides(get_strides(shape)), _start(0), _contiguous(true) {}
+    Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape, const Order order)
+        : _data(data), _shape(shape), _size(get_size(shape)), _strides(get_strides(shape, order)), _start(0), _contiguous(true), _order(order) {}
 
     /**
      * @brief Construct a new tensor object from a shared vector and a shape, strides, start index.
@@ -120,10 +131,11 @@ class Tensor {
      * @param shape Shape of the tensor.
      * @param strides Strides of the tensor.
      * @param start Start index of the tensor.
+     * @param order Order of the tensor.
      * @param contiguous contiguous flag of the tensor.
      */
-    Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape, const Shape<N>& strides, size_t start, bool contiguous = true)
-        : _data(data), _shape(shape), _size(get_size(shape)), _strides(strides), _start(start), _contiguous(contiguous) {}
+    Tensor(const std::shared_ptr<vector_type>& data, const Shape<N>& shape, const Shape<N>& strides, size_t start, const Order order, bool contiguous = true)
+        : _data(data), _shape(shape), _size(get_size(shape)), _strides(strides), _start(start), _order(order), _contiguous(contiguous) {}
 
     /**
      * @brief Reshape the array to a new shape.
@@ -139,7 +151,7 @@ class Tensor {
         std::array<size_t, dim> shape = {static_cast<size_t>(args)...};
         assert(_size == get_size(shape));
         auto tensor = ascontiguoustensor(*this);
-        return Tensor<T, dim>(tensor.data(), shape);
+        return Tensor<T, dim>(tensor.data(), shape, _order);
     }
 
     /**
@@ -156,7 +168,7 @@ class Tensor {
         std::copy(_shape.begin() + 1, _shape.end(), new_shape.begin());
         std::copy(_strides.begin() + 1, _strides.end(), new_strides.begin());
         auto new_start = _start + index * _strides[0];
-        return Tensor<T, N - 1>(_data, new_shape, new_strides, new_start, false);
+        return Tensor<T, N - 1>(_data, new_shape, new_strides, new_start, _order, false);
     }
 
     /**
@@ -260,7 +272,7 @@ class Tensor {
         std::copy(_strides.begin(), _strides.end(), strides.begin());
         shape[N] = 1;
         strides[N] = 0;
-        return Tensor<T, N + 1>(_data, shape, strides, _start, false);
+        return Tensor<T, N + 1>(_data, shape, strides, _start, _order, false);
     }
 
     /**
@@ -277,7 +289,7 @@ class Tensor {
         std::copy(_strides.begin(), _strides.end(), strides.begin() + 1);
         shape[0] = 1;
         strides[0] = 0;
-        return Tensor<T, N + 1>(_data, shape, strides, _start, false);
+        return Tensor<T, N + 1>(_data, shape, strides, _start, _order, false);
     }
 
     /**
@@ -331,6 +343,7 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator+=(const Tensor& other) const {
+        assert_same_order_between_two_tensors(_order, other.order());
         auto _other = broadcast_to(other, _shape);
         thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::plus<T>());
         return *this;
@@ -343,6 +356,7 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator-=(const Tensor& other) const {
+        assert_same_order_between_two_tensors(_order, other.order());
         auto _other = broadcast_to(other, _shape);
         thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::minus<T>());
         return *this;
@@ -355,6 +369,7 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator*=(const Tensor& other) const {
+        assert_same_order_between_two_tensors(_order, other.order());
         auto _other = broadcast_to(other, _shape);
         thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::multiplies<T>());
         return *this;
@@ -367,6 +382,7 @@ class Tensor {
      * @return Tensor: The left-hand side tensor object.
      */
     Tensor operator/=(const Tensor& other) const {
+        assert_same_order_between_two_tensors(_order, other.order());
         auto _other = broadcast_to(other, _shape);
         thrust::transform(this->begin(), this->end(), _other.begin(), this->begin(), thrust::divides<T>());
         return *this;
@@ -378,7 +394,7 @@ class Tensor {
      * @return TensorIterator: The iterator points to the 1st index of the tensor.
      */
     TensorIterator<typename vector_type::iterator, N> begin() const {
-        return TensorIterator<typename vector_type::iterator, N>(_data->begin(), _shape.data(), _strides.data(), _start, _contiguous);
+        return TensorIterator<typename vector_type::iterator, N>(_data->begin(), _shape.data(), _strides.data(), _start, _order, _contiguous);
     }
 
     /**
@@ -387,7 +403,7 @@ class Tensor {
      * @return TensorIterator: The iterator points to the last index of the tensor.
      */
     TensorIterator<typename vector_type::iterator, N> end() const {
-        return TensorIterator<typename vector_type::iterator, N>(_data->begin() + _size, _shape.data(), _strides.data(), _start, _contiguous);
+        return TensorIterator<typename vector_type::iterator, N>(_data->begin() + _size, _shape.data(), _strides.data(), _start, _order, _contiguous);
     }
 
     /**
@@ -408,7 +424,7 @@ class Tensor {
             offset += slices[i].start * _strides[i];
         }
         size_t new_start = _start + offset;
-        return Tensor<T, N>(_data, new_shape, new_strides, new_start, false);
+        return Tensor<T, N>(_data, new_shape, new_strides, new_start, _order, false);
     }
 
     /**
@@ -435,6 +451,13 @@ class Tensor {
      * @return bool: The contiguous flag of the tensor.
      */
     bool contiguous() const { return _contiguous; }
+
+    /**
+     * @brief Return the order of the tensor.
+     *
+     * @return Order: The order of the tensor.
+     */
+    Order order() const { return _order; }
 
     /**
      * @brief Return the size of the tensor.
@@ -484,6 +507,7 @@ class Tensor {
     Shape<N> _shape;
     Shape<N> _strides;
     bool _contiguous = true;
+    Order _order = Order::C;
     std::shared_ptr<vector_type> _data = nullptr;
 };
 

@@ -40,7 +40,7 @@ template <typename T, size_t N>
 __global__ void all_along_axis_kernel(CuTensor<T, N> tensor, CuTensor<bool, N - 1> result) {
     size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= result.size) return;
-    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start);
+    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start, tensor.order);
     for (auto i = 0; i < tensor.shape[N - 1]; ++i) {
         if (!tensor.data[start + i * tensor.strides[N - 1]]) {
             result[idx] = false;

@@ -15,12 +15,13 @@ namespace random {
  * @param shape: Shape of the tensor.
  * @param mean: Mean of the normal distribution.
  * @param stddev: Standard deviation of the normal distribution.
+ * @param order: Order of the tensor.
  * @param gen: The CuRand generator. The default is the global CuRand generator.
  * @return Tensor<T, N>: The tensor of random numbers.
  */
 template <typename T = float, size_t N>
-Tensor<T, N> normal(Shape<N> shape, T mean = T{0.0}, T stddev = T{1.0}, curandGenerator_t gen = cuda::curand.get_handle()) {
-    auto tensor = Tensor<T, N>(shape);
+Tensor<T, N> normal(Shape<N> shape, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C, curandGenerator_t gen = cuda::curand.get_handle()) {
+    auto tensor = Tensor<T, N>(shape, order);
     curandStatus_t status;
     if constexpr (std::is_same<T, float>::value) {
         status = curandGenerateNormal(gen, tensor.raw_ptr(), tensor.size(), mean, stddev);
@@ -38,13 +39,14 @@ Tensor<T, N> normal(Shape<N> shape, T mean = T{0.0}, T stddev = T{1.0}, curandGe
  * @param m: Size of the tensor.
  * @param mean: Mean of the normal distribution.
  * @param stddev: Standard deviation of the normal distribution.
+ * @param order: Order of the tensor.
  * @param gen: The CuRand generator. The default is the global CuRand generator.
  * @return Tensor<T, 1>: The tensor of random numbers.
  */
 template <typename T = float>
-Tensor<T, 1> normal(size_t m, T mean = T{0.0}, T stddev = T{1.0}, curandGenerator_t gen = cuda::curand.get_handle()) {
+Tensor<T, 1> normal(size_t m, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C, curandGenerator_t gen = cuda::curand.get_handle()) {
     auto shape = Shape<1>{m};
-    return normal<T, 1>(shape, mean, stddev, gen);
+    return normal<T, 1>(shape, mean, stddev, order, gen);
 }
 
 /**
@@ -55,13 +57,14 @@ Tensor<T, 1> normal(size_t m, T mean = T{0.0}, T stddev = T{1.0}, curandGenerato
  * @param n: Number of columns of the tensor.
  * @param mean: Mean of the normal distribution.
  * @param stddev: Standard deviation of the normal distribution.
+ * @param order: Order of the tensor.
  * @param gen: The CuRand generator. The default is the global CuRand generator.
  * @return Tensor<T, 2>: The tensor of random numbers.
  */
 template <typename T = float>
-Tensor<T, 2> normal(size_t m, size_t n, T mean = T{0.0}, T stddev = T{1.0}, curandGenerator_t gen = cuda::curand.get_handle()) {
+Tensor<T, 2> normal(size_t m, size_t n, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C, curandGenerator_t gen = cuda::curand.get_handle()) {
     auto shape = Shape<2>{m, n};
-    return normal<T, 2>(shape, mean, stddev, gen);
+    return normal<T, 2>(shape, mean, stddev, order, gen);
 }
 
 }  // namespace random

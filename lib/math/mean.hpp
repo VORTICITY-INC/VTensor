@@ -20,7 +20,7 @@ namespace vt {
  */
 template <typename T = float, size_t N>
 Tensor<T, 0> mean(const Tensor<bool, N>& tensor) {
-    auto result = Tensor<T, 0>(Shape<0>{});
+    auto result = Tensor<T, 0>(Shape<0>{}, tensor.order());
     T s = thrust::reduce(tensor.begin(), tensor.end(), 0, thrust::plus<int>());
     (*result.data())[0] = s / tensor.size();
     return result;
@@ -36,7 +36,7 @@ Tensor<T, 0> mean(const Tensor<bool, N>& tensor) {
  */
 template <typename T, size_t N>
 Tensor<T, 0> mean(const Tensor<T, N>& tensor) {
-    auto result = Tensor<T, 0>(Shape<0>{});
+    auto result = Tensor<T, 0>(Shape<0>{}, tensor.order());
     T s = thrust::reduce(tensor.begin(), tensor.end(), (T)0, thrust::plus<T>());
     (*result.data())[0] = s / tensor.size();
     return result;
@@ -56,7 +56,7 @@ template <typename T, typename U, size_t N>
 __global__ void mean_along_axis_kernel(CuTensor<U, N> tensor, CuTensor<T, N - 1> result) {
     size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= result.size) return;
-    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start);
+    auto start = get_iterator_index<N - 1>(idx, tensor.shape, tensor.strides, tensor.start, tensor.order);
     auto sum = T{0};
     for (auto i = 0; i < tensor.shape[N - 1]; ++i) sum += tensor.data[start + i * tensor.strides[N - 1]];
     result[idx] = sum / tensor.shape[N - 1];

@@ -23,7 +23,7 @@ Tensor<T, N> transpose(const Tensor<T, N>& tensor) {
         new_shape[i] = shape[N - i - 1];
         new_strides[i] = strides[N - i - 1];
     }
-    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), false);
+    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), tensor.order(), false);
 }
 
 /**
@@ -46,7 +46,7 @@ Tensor<T, N> transpose(const Tensor<T, N>& tensor, const Shape<N>& axes) {
         new_shape[i] = shape[axes[i]];
         new_strides[i] = strides[axes[i]];
     }
-    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), false);
+    return Tensor(tensor.data(), new_shape, new_strides, tensor.start(), tensor.order(), false);
 }
 
 /**
