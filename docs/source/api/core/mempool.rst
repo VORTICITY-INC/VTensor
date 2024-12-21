@@ -13,4 +13,5 @@ vt::Mempool
 .. doxygenclass:: vt::GlobalMempool
    :members:
 
-.. doxygenvariable:: vt::instance
+.. doxygenclass:: vt::GlobalMempoolInitializer
+   :members:

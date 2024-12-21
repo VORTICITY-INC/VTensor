@@ -22,6 +22,6 @@ sphinx-build -b html docs/source docs/build/html
 ```
 
 ### Future updates
-- Support GPUDirect
+- The current tensor supports both "C" and "F" memory layouts. However, mixed order operations are not prohibited, and the "F" order does not fully support linear algebra functions.
 - Support more matrix operations
 - Support Sparse martix with CuSparse
