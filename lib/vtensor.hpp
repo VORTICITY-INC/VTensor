@@ -4,7 +4,6 @@
 #include "lib/core/operator.hpp"
 #include "lib/core/print.hpp"
 #include "lib/core/slice.hpp"
-#include "lib/core/stream.hpp"
 #include "lib/core/tensor.hpp"
 #include "lib/generator/arange.hpp"
 #include "lib/generator/diag.hpp"
