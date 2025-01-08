@@ -30,7 +30,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
@@ -600,7 +600,7 @@
 </div>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE">
-<span id="_CPPv3N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE"></span><span id="_CPPv2N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE"></span><span id="vt::check_cuda_errors__cudaError_t.ssCR"></span><span class="target" id="namespacevt_1a1e2c634802fc535138318a408bc8d450"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">check_cuda_errors</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cudaError_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">err</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE"></span><span id="_CPPv2N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE"></span><span id="vt::check_cuda_errors__cudaError_t.ssCR"></span><span class="target" id="namespacevt_1a1e2c634802fc535138318a408bc8d450"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">check_cuda_errors</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cudaError_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">err</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Check the CUDA errors. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -614,7 +614,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt18get_number_of_gpusEv">
-<span id="_CPPv3N2vt18get_number_of_gpusEv"></span><span id="_CPPv2N2vt18get_number_of_gpusEv"></span><span id="vt::get_number_of_gpus"></span><span class="target" id="namespacevt_1a3799a1d6a307286d92750f71bc60fbd1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">get_number_of_gpus</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt18get_number_of_gpusEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2vt18get_number_of_gpusEv"></span><span id="_CPPv2N2vt18get_number_of_gpusEv"></span><span id="vt::get_number_of_gpus"></span><span class="target" id="namespacevt_1a3799a1d6a307286d92750f71bc60fbd1"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">vt</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">get_number_of_gpus</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt18get_number_of_gpusEv" title="Link to this definition">#</a><br /></dt>
 <dd><p>Get the number of GPUs. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -626,17 +626,39 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt7MempoolE">
 <span id="_CPPv3N2vt7MempoolE"></span><span id="_CPPv2N2vt7MempoolE"></span><span id="vt::Mempool"></span><span class="target" id="classvt_1_1Mempool"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mempool</span></span></span><a class="headerlink" href="#_CPPv4N2vt7MempoolE" title="Link to this definition">#</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>A class that manages a memory pool for the current GPU. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool7MempoolE6size_tRKNSt6stringE">
-<span id="_CPPv3N2vt7Mempool7MempoolE6size_tRKNSt6stringE"></span><span id="_CPPv2N2vt7Mempool7MempoolE6size_tRKNSt6stringE"></span><span id="vt::Mempool::Mempool__s.ssCR"></span><span class="target" id="classvt_1_1Mempool_1a6d9482175c331c5733fe8cd477173d86"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mempool</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pool_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_filepath</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;/tmp/vtensor/memory.log&quot;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt7Mempool7MempoolE6size_tRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool7MempoolEmRKNSt6stringE">
+<span id="_CPPv3N2vt7Mempool7MempoolEmRKNSt6stringE"></span><span id="_CPPv2N2vt7Mempool7MempoolEmRKNSt6stringE"></span><span id="vt::Mempool::Mempool__unsigned-l.ssCR"></span><span class="target" id="classvt_1_1Mempool_1a73eaed561a06bbc1821263b9ea2a2aed"></span><span class="sig-name descname"><span class="n"><span class="pre">Mempool</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pool_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_filepath</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt7Mempool7MempoolEmRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Construct a <a class="reference internal" href="#classvt_1_1Mempool"><span class="std std-ref">Mempool</span></a> object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pool_size</strong> – The size of the memory pool. </p></li>
-<li><p><strong>log_filepath</strong> – The log file path. </p></li>
+<li><p><strong>log_filepath</strong> – The log file path for memory usage logging. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool11MempoolImplE">
+<span id="_CPPv3N2vt7Mempool11MempoolImplE"></span><span id="_CPPv2N2vt7Mempool11MempoolImplE"></span><span id="vt::Mempool::MempoolImpl"></span><span class="target" id="classvt_1_1Mempool_1_1MempoolImpl"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MempoolImpl</span></span></span><a class="headerlink" href="#_CPPv4N2vt7Mempool11MempoolImplE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Private implementation pointer. This could reduce compilation time for RMM headers. The implementation is defined in rmm_utils.cc. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool11MempoolImpl11MempoolImplE6size_tRKNSt6stringE">
+<span id="_CPPv3N2vt7Mempool11MempoolImpl11MempoolImplE6size_tRKNSt6stringE"></span><span id="_CPPv2N2vt7Mempool11MempoolImpl11MempoolImplE6size_tRKNSt6stringE"></span><span id="vt::Mempool::MempoolImpl::MempoolImpl__s.ssCR"></span><span class="target" id="classvt_1_1Mempool_1_1MempoolImpl_1a627bf5828ca4959f208b507efd7754f3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MempoolImpl</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pool_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_filepath</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt7Mempool11MempoolImpl11MempoolImplE6size_tRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1Mempool"><span class="std std-ref">Mempool</span></a> Impl object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pool_size</strong> – The size of the memory pool. </p></li>
+<li><p><strong>log_filepath</strong> – The log file path for memory usage logging. </p></li>
 </ul>
 </dd>
 </dl>
@@ -645,18 +667,24 @@
 </div>
 </dd></dl>
 
+</dd></dl>
+
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt13GlobalMempoolE">
 <span id="_CPPv3N2vt13GlobalMempoolE"></span><span id="_CPPv2N2vt13GlobalMempoolE"></span><span id="vt::GlobalMempool"></span><span class="target" id="classvt_1_1GlobalMempool"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GlobalMempool</span></span></span><a class="headerlink" href="#_CPPv4N2vt13GlobalMempoolE" title="Link to this definition">#</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>Singleton class for global memory pool management. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N2vt13GlobalMempool12get_instanceEv">
-<span id="_CPPv3N2vt13GlobalMempool12get_instanceEv"></span><span id="_CPPv2N2vt13GlobalMempool12get_instanceEv"></span><span id="vt::GlobalMempool::get_instance"></span><span class="target" id="classvt_1_1GlobalMempool_1a5400818561afff0af17340ad98167953"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2vt13GlobalMempoolE" title="vt::GlobalMempool"><span class="n"><span class="pre">GlobalMempool</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_instance</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13GlobalMempool12get_instanceEv" title="Link to this definition">#</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13GlobalMempool12get_instanceE6size_t">
+<span id="_CPPv3N2vt13GlobalMempool12get_instanceE6size_t"></span><span id="_CPPv2N2vt13GlobalMempool12get_instanceE6size_t"></span><span id="vt::GlobalMempool::get_instance__s"></span><span class="target" id="classvt_1_1GlobalMempool_1af99c2446082ead66268fde492f5240b2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2vt13GlobalMempoolE" title="vt::GlobalMempool"><span class="n"><span class="pre">GlobalMempool</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_instance</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pool_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13GlobalMempool12get_instanceE6size_t" title="Link to this definition">#</a><br /></dt>
 <dd><p>Get the Instance object. It returns the singleton instance of the global memory pool. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#classvt_1_1GlobalMempool"><span class="std std-ref">GlobalMempool</span></a>&amp;: The global memory pool instance. </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pool_size</strong> – The size of the memory pool. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classvt_1_1GlobalMempool"><span class="std std-ref">GlobalMempool</span></a>&amp;: The global memory pool instance. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -667,7 +695,8 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt24GlobalMempoolInitializerE">
 <span id="_CPPv3N2vt24GlobalMempoolInitializerE"></span><span id="_CPPv2N2vt24GlobalMempoolInitializerE"></span><span id="vt::GlobalMempoolInitializer"></span><span class="target" id="classvt_1_1GlobalMempoolInitializer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GlobalMempoolInitializer</span></span></span><a class="headerlink" href="#_CPPv4N2vt24GlobalMempoolInitializerE" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Global memory pool initializer for VTensor. </p>
+</dd></dl>
 
 </section>
 
@@ -721,11 +750,15 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">check_cuda_errors()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt18get_number_of_gpusEv"><code class="docutils literal notranslate"><span class="pre">get_number_of_gpus()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7MempoolE"><code class="docutils literal notranslate"><span class="pre">Mempool</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool7MempoolE6size_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mempool::Mempool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool7MempoolEmRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mempool::Mempool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool11MempoolImplE"><code class="docutils literal notranslate"><span class="pre">Mempool::MempoolImpl</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool11MempoolImpl11MempoolImplE6size_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mempool::MempoolImpl::MempoolImpl()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13GlobalMempoolE"><code class="docutils literal notranslate"><span class="pre">GlobalMempool</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13GlobalMempool12get_instanceEv"><code class="docutils literal notranslate"><span class="pre">GlobalMempool::get_instance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13GlobalMempool12get_instanceE6size_t"><code class="docutils literal notranslate"><span class="pre">GlobalMempool::get_instance()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt24GlobalMempoolInitializerE"><code class="docutils literal notranslate"><span class="pre">GlobalMempoolInitializer</span></code></a></li>
