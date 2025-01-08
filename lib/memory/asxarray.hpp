@@ -17,7 +17,7 @@ namespace vt {
  * @return xt::xarray<T>: Host array.
  */
 template <typename T, size_t N, xt::layout_type L>
-xt::xarray<T> asxarray(const Tensor<T, N>& tensor) {
+xt::xarray<T, L> asxarray(const Tensor<T, N>& tensor) {
     auto order = tensor.order();
     if ((order == Order::C && L == xt::layout_type::row_major) || (order == Order::F && L == xt::layout_type::column_major)) {
         auto s = tensor.shape();
