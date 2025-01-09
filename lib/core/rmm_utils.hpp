@@ -35,11 +35,58 @@ class Mempool {
      * @param pool_size: The size of the memory pool.
      * @param log_filepath: The log file path for memory usage logging.
      */
-    Mempool(unsigned long pool_size, const std::string& log_filepath);
+    Mempool(size_t pool_size, const std::string& log_filepath);
+
+    /**
+     * @brief Destroy the Mempool object
+     *
+     */
+    ~Mempool();
 
    private:
     class MempoolImpl;
     std::unique_ptr<MempoolImpl> pimpl;
+};
+
+/**
+ * @brief A class that manages a pinned memory pool.
+ *
+ */
+class PinnedMempool {
+   public:
+    /**
+     * @brief Construct a PinnedMempool object.
+     *
+     * @param initial_pinned_pool_size: The initial size of the pinned memory pool.
+     * @param pinned_pool_size: The size of the pinned memory pool.
+     */
+    PinnedMempool(size_t initial_pinned_pool_size, size_t pinned_pool_size);
+
+    /**
+     * @brief Destroy the PinnedMempool object
+     *
+     */
+    ~PinnedMempool();
+
+    /**
+     * @brief Deallocate the memory for the given pointer and size.
+     *
+     * @param ptr: The pointer to the memory.
+     * @param size: The size of the memory.
+     */
+    void deallocate(void* ptr, size_t size);
+
+    /**
+     * @brief Allocate the memory for the given size.
+     *
+     * @param size: The size of the memory.
+     * @return void*: The pointer to the allocated memory.
+     */
+    void* allocate(size_t size);
+
+   private:
+    class PinnedMempoolImpl;
+    std::unique_ptr<PinnedMempoolImpl> pimpl;
 };
 
 /**
