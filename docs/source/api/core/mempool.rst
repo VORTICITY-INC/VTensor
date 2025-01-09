@@ -10,6 +10,9 @@ vt::Mempool
 .. doxygenclass:: vt::Mempool
    :members:
 
+.. doxygenclass:: vt::PinnedMempool
+   :members:
+
 .. doxygenclass:: vt::GlobalMempool
    :members:
 
