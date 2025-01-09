@@ -630,8 +630,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool7MempoolEmRKNSt6stringE">
-<span id="_CPPv3N2vt7Mempool7MempoolEmRKNSt6stringE"></span><span id="_CPPv2N2vt7Mempool7MempoolEmRKNSt6stringE"></span><span id="vt::Mempool::Mempool__unsigned-l.ssCR"></span><span class="target" id="classvt_1_1Mempool_1a73eaed561a06bbc1821263b9ea2a2aed"></span><span class="sig-name descname"><span class="n"><span class="pre">Mempool</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pool_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_filepath</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt7Mempool7MempoolEmRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool7MempoolE6size_tRKNSt6stringE">
+<span id="_CPPv3N2vt7Mempool7MempoolE6size_tRKNSt6stringE"></span><span id="_CPPv2N2vt7Mempool7MempoolE6size_tRKNSt6stringE"></span><span id="vt::Mempool::Mempool__s.ssCR"></span><span class="target" id="classvt_1_1Mempool_1a8258e94e209b03fc18e86fb05d5864ce"></span><span class="sig-name descname"><span class="n"><span class="pre">Mempool</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pool_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_filepath</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt7Mempool7MempoolE6size_tRKNSt6stringE" title="Link to this definition">#</a><br /></dt>
 <dd><p>Construct a <a class="reference internal" href="#classvt_1_1Mempool"><span class="std std-ref">Mempool</span></a> object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -643,11 +643,17 @@
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt7MempoolD0Ev">
+<span id="_CPPv3N2vt7MempoolD0Ev"></span><span id="_CPPv2N2vt7MempoolD0Ev"></span><span id="vt::Mempool::~Mempool"></span><span class="target" id="classvt_1_1Mempool_1ac475441e562602d4b5af2f1a83b26cf6"></span><span class="sig-name descname"><span class="n"><span class="pre">~Mempool</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt7MempoolD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destroy the <a class="reference internal" href="#classvt_1_1Mempool"><span class="std std-ref">Mempool</span></a> object. </p>
+</dd></dl>
+
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt7Mempool11MempoolImplE">
 <span id="_CPPv3N2vt7Mempool11MempoolImplE"></span><span id="_CPPv2N2vt7Mempool11MempoolImplE"></span><span id="vt::Mempool::MempoolImpl"></span><span class="target" id="classvt_1_1Mempool_1_1MempoolImpl"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MempoolImpl</span></span></span><a class="headerlink" href="#_CPPv4N2vt7Mempool11MempoolImplE" title="Link to this definition">#</a><br /></dt>
-<dd><p>Private implementation pointer. This could reduce compilation time for RMM headers. The implementation is defined in rmm_utils.cc. </p>
+<dd><p>Private implementation pointer. This could reduce compilation time for RMM headers. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -659,6 +665,86 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pool_size</strong> – The size of the memory pool. </p></li>
 <li><p><strong>log_filepath</strong> – The log file path for memory usage logging. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempoolE">
+<span id="_CPPv3N2vt13PinnedMempoolE"></span><span id="_CPPv2N2vt13PinnedMempoolE"></span><span id="vt::PinnedMempool"></span><span class="target" id="classvt_1_1PinnedMempool"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PinnedMempool</span></span></span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempoolE" title="Link to this definition">#</a><br /></dt>
+<dd><p>A class that manages a pinned memory pool. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempool13PinnedMempoolE6size_t6size_t">
+<span id="_CPPv3N2vt13PinnedMempool13PinnedMempoolE6size_t6size_t"></span><span id="_CPPv2N2vt13PinnedMempool13PinnedMempoolE6size_t6size_t"></span><span id="vt::PinnedMempool::PinnedMempool__s.s"></span><span class="target" id="classvt_1_1PinnedMempool_1a34f617c031cf72156930fd6b8def547f"></span><span class="sig-name descname"><span class="n"><span class="pre">PinnedMempool</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">initial_pinned_pool_size</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinned_pool_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempool13PinnedMempoolE6size_t6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a <a class="reference internal" href="#classvt_1_1PinnedMempool"><span class="std std-ref">PinnedMempool</span></a> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_pinned_pool_size</strong> – The initial size of the pinned memory pool. </p></li>
+<li><p><strong>pinned_pool_size</strong> – The size of the pinned memory pool. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempoolD0Ev">
+<span id="_CPPv3N2vt13PinnedMempoolD0Ev"></span><span id="_CPPv2N2vt13PinnedMempoolD0Ev"></span><span id="vt::PinnedMempool::~PinnedMempool"></span><span class="target" id="classvt_1_1PinnedMempool_1a0f8caff484f5988b30d2ad8fcf7ad064"></span><span class="sig-name descname"><span class="n"><span class="pre">~PinnedMempool</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempoolD0Ev" title="Link to this definition">#</a><br /></dt>
+<dd><p>Destroy the <a class="reference internal" href="#classvt_1_1PinnedMempool"><span class="std std-ref">PinnedMempool</span></a> object. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempool10deallocateEPv6size_t">
+<span id="_CPPv3N2vt13PinnedMempool10deallocateEPv6size_t"></span><span id="_CPPv2N2vt13PinnedMempool10deallocateEPv6size_t"></span><span id="vt::PinnedMempool::deallocate__voidP.s"></span><span class="target" id="classvt_1_1PinnedMempool_1a21b067a01592b803a24578b469ebc8a8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deallocate</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ptr</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempool10deallocateEPv6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Deallocate the memory for the given pointer and size. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptr</strong> – The pointer to the memory. </p></li>
+<li><p><strong>size</strong> – The size of the memory. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempool8allocateE6size_t">
+<span id="_CPPv3N2vt13PinnedMempool8allocateE6size_t"></span><span id="_CPPv2N2vt13PinnedMempool8allocateE6size_t"></span><span id="vt::PinnedMempool::allocate__s"></span><span class="target" id="classvt_1_1PinnedMempool_1ae381a54ea8f1718c9f4dcc35144f553b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">allocate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempool8allocateE6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Allocate the memory for the given size. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> – The size of the memory. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>void*: The pointer to the allocated memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempool17PinnedMempoolImplE">
+<span id="_CPPv3N2vt13PinnedMempool17PinnedMempoolImplE"></span><span id="_CPPv2N2vt13PinnedMempool17PinnedMempoolImplE"></span><span id="vt::PinnedMempool::PinnedMempoolImpl"></span><span class="target" id="classvt_1_1PinnedMempool_1_1PinnedMempoolImpl"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PinnedMempoolImpl</span></span></span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempool17PinnedMempoolImplE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Private implementation pointer for <a class="reference internal" href="#classvt_1_1PinnedMempool"><span class="std std-ref">PinnedMempool</span></a>. This could reduce compilation time for RMM headers. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt13PinnedMempool17PinnedMempoolImpl17PinnedMempoolImplE6size_t6size_t">
+<span id="_CPPv3N2vt13PinnedMempool17PinnedMempoolImpl17PinnedMempoolImplE6size_t6size_t"></span><span id="_CPPv2N2vt13PinnedMempool17PinnedMempoolImpl17PinnedMempoolImplE6size_t6size_t"></span><span id="vt::PinnedMempool::PinnedMempoolImpl::PinnedMempoolImpl__s.s"></span><span class="target" id="classvt_1_1PinnedMempool_1_1PinnedMempoolImpl_1a7b05850ae56afee5792a969f90dba1ac"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PinnedMempoolImpl</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">initial_pinned_pool_size</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinned_pool_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt13PinnedMempool17PinnedMempoolImpl17PinnedMempoolImplE6size_t6size_t" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new Pinned <a class="reference internal" href="#classvt_1_1Mempool"><span class="std std-ref">Mempool</span></a> Impl object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_pinned_pool_size</strong> – The initial size of the pinned memory pool. </p></li>
+<li><p><strong>pinned_pool_size</strong> – The size of the pinned memory pool. </p></li>
 </ul>
 </dd>
 </dl>
@@ -750,9 +836,21 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt17check_cuda_errorsE11cudaError_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">check_cuda_errors()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt18get_number_of_gpusEv"><code class="docutils literal notranslate"><span class="pre">get_number_of_gpus()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7MempoolE"><code class="docutils literal notranslate"><span class="pre">Mempool</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool7MempoolEmRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mempool::Mempool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool7MempoolE6size_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mempool::Mempool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7MempoolD0Ev"><code class="docutils literal notranslate"><span class="pre">Mempool::~Mempool()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool11MempoolImplE"><code class="docutils literal notranslate"><span class="pre">Mempool::MempoolImpl</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt7Mempool11MempoolImpl11MempoolImplE6size_tRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mempool::MempoolImpl::MempoolImpl()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempoolE"><code class="docutils literal notranslate"><span class="pre">PinnedMempool</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempool13PinnedMempoolE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">PinnedMempool::PinnedMempool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempoolD0Ev"><code class="docutils literal notranslate"><span class="pre">PinnedMempool::~PinnedMempool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempool10deallocateEPv6size_t"><code class="docutils literal notranslate"><span class="pre">PinnedMempool::deallocate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempool8allocateE6size_t"><code class="docutils literal notranslate"><span class="pre">PinnedMempool::allocate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempool17PinnedMempoolImplE"><code class="docutils literal notranslate"><span class="pre">PinnedMempool::PinnedMempoolImpl</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt13PinnedMempool17PinnedMempoolImpl17PinnedMempoolImplE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">PinnedMempool::PinnedMempoolImpl::PinnedMempoolImpl()</span></code></a></li>
 </ul>
 </li>
 </ul>
