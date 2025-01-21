@@ -18,6 +18,7 @@ cuda_library(
     deps = [
         "//lib/core:rmm_libs",
         "@local_cuda//:thrust",
+        "@rmm",
     ],
 )
 
