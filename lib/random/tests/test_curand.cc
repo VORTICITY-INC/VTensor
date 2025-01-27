@@ -3,13 +3,13 @@
 #include <lib/vtensor.hpp>
 
 TEST(GetGlobalCuRandHandle, BasicAssertions) {
-    auto handle1 = vt::cuda::curand.get_handle();
-    auto handle2 = vt::cuda::curand.get_handle();
+    auto handle1 = vt::cuda::CuRand::get_instance().get_handle();
+    auto handle2 = vt::cuda::CuRand::get_instance().get_handle();
     EXPECT_EQ(handle1, handle2);
 }
 
 TEST(CreateNewCuRandHandle, BasicAssertions) {
-    auto handle1 = vt::cuda::curand.get_handle();
+    auto handle1 = vt::cuda::CuRand::get_instance().get_handle();
     auto handle2 = vt::cuda::create_curand_handle();
     EXPECT_NE(handle1, *handle2.get());
 }

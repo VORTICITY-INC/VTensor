@@ -14,8 +14,6 @@ vt::cuda::CuSolver
 .. doxygenclass:: vt::cuda::CuSolver
    :members:
    
-.. doxygenvariable:: vt::cuda::cusolver
-
 .. doxygenstruct:: vt::cuda::CuSolverFuncType
    :members:
 

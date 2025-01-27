@@ -158,16 +158,13 @@ class CuRand {
     CuRandHandleT handle;
 };
 
-// This is global CuRand instance
-static CuRand& curand = CuRand::get_instance();
-
 /**
  * @brief Set the seed for the pseudo random number generator.
  *
  * @param seed: The seed for the pseudo random number generator.
  * @param gen: The CuRand handle. The default is the global CuRand handle.
  */
-inline void set_seed(size_t seed, curandGenerator_t gen = curand.get_handle()) {
+inline void set_seed(size_t seed, curandGenerator_t gen = CuRand::get_instance().get_handle()) {
     check_curand_status(curandSetPseudoRandomGeneratorSeed(gen, seed), "Failed to set pseudo-random generator seed");
 }
 
@@ -177,7 +174,7 @@ inline void set_seed(size_t seed, curandGenerator_t gen = curand.get_handle()) {
  * @param offset: The offset for the pseudo/quasi random number generator.
  * @param gen: The CuRand handle. The default is the global CuRand handle.
  */
-inline void set_offset(size_t offset, curandGenerator_t gen = curand.get_handle()) {
+inline void set_offset(size_t offset, curandGenerator_t gen = CuRand::get_instance().get_handle()) {
     check_curand_status(curandSetGeneratorOffset(gen, offset), "Failed to set generator offset");
 }
 

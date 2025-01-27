@@ -1,6 +1,5 @@
 #include "lib/core/broadcast.hpp"
 #include "lib/core/cutensor.hpp"
-#include "lib/core/mempool.hpp"
 #include "lib/core/operator.hpp"
 #include "lib/core/print.hpp"
 #include "lib/core/slice.hpp"

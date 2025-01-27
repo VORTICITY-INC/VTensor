@@ -18,7 +18,7 @@ namespace vt {
  * @return Tensor: The result tensor.
  */
 template <typename T>
-Tensor<T, 1> matmul(Tensor<T, 1>& tensor1, Tensor<T, 1>& tensor2, cublasHandle_t handle = cuda::cublas.get_handle()) {
+Tensor<T, 1> matmul(Tensor<T, 1>& tensor1, Tensor<T, 1>& tensor2, cublasHandle_t handle = cuda::CuBLAS::get_instance().get_handle()) {
     assert(tensor1.order() == vt::Order::C);
     assert(tensor2.order() == vt::Order::C);
     assert(tensor1.size() == tensor2.size());
@@ -40,7 +40,7 @@ Tensor<T, 1> matmul(Tensor<T, 1>& tensor1, Tensor<T, 1>& tensor2, cublasHandle_t
  * @return Tensor: The result tensor.
  */
 template <typename T>
-Tensor<T, 2> matmul(Tensor<T, 2>& tensor1, Tensor<T, 2>& tensor2, cublasHandle_t handle = cuda::cublas.get_handle()) {
+Tensor<T, 2> matmul(Tensor<T, 2>& tensor1, Tensor<T, 2>& tensor2, cublasHandle_t handle = cuda::CuBLAS::get_instance().get_handle()) {
     assert(tensor1.order() == vt::Order::C);
     assert(tensor2.order() == vt::Order::C);
     auto shape1 = tensor1.shape();
@@ -75,7 +75,7 @@ Tensor<T, 2> matmul(Tensor<T, 2>& tensor1, Tensor<T, 2>& tensor2, cublasHandle_t
  * @return Tensor: The result tensor.
  */
 template <typename T, size_t N>
-Tensor<T, N> matmul(Tensor<T, N>& tensor1, Tensor<T, N>& tensor2, cublasHandle_t handle = cuda::cublas.get_handle()) {
+Tensor<T, N> matmul(Tensor<T, N>& tensor1, Tensor<T, N>& tensor2, cublasHandle_t handle = cuda::CuBLAS::get_instance().get_handle()) {
     assert(tensor1.order() == vt::Order::C);
     assert(tensor2.order() == vt::Order::C);
     assert_at_least_3d_tensor<N>();

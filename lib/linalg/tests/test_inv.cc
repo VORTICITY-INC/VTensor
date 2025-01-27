@@ -5,8 +5,7 @@
 
 TEST(Inv, BasicAssertions) {
     auto tensor = vt::arange(4).reshape(2, 2);
-
-    auto handle = vt::cuda::cusolver.get_handle();
+    auto handle = vt::cuda::CuSolver::get_instance().get_handle();
     auto re = vt::linalg::inv(tensor, handle);
     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 1, 2, 3}));
     EXPECT_EQ(vt::asvector(re), (std::vector<float>{-1.5, 0.5, 1, 0}));

@@ -20,7 +20,8 @@ namespace random {
  * @return Tensor<T, N>: The tensor of random numbers.
  */
 template <typename T = float, size_t N>
-Tensor<T, N> normal(Shape<N> shape, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C, curandGenerator_t gen = cuda::curand.get_handle()) {
+Tensor<T, N> normal(Shape<N> shape, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C,
+                    curandGenerator_t gen = cuda::CuRand::get_instance().get_handle()) {
     auto tensor = Tensor<T, N>(shape, order);
     curandStatus_t status;
     if constexpr (std::is_same<T, float>::value) {
@@ -44,7 +45,8 @@ Tensor<T, N> normal(Shape<N> shape, T mean = T{0.0}, T stddev = T{1.0}, const Or
  * @return Tensor<T, 1>: The tensor of random numbers.
  */
 template <typename T = float>
-Tensor<T, 1> normal(size_t m, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C, curandGenerator_t gen = cuda::curand.get_handle()) {
+Tensor<T, 1> normal(size_t m, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C,
+                    curandGenerator_t gen = cuda::CuRand::get_instance().get_handle()) {
     auto shape = Shape<1>{m};
     return normal<T, 1>(shape, mean, stddev, order, gen);
 }
@@ -62,7 +64,8 @@ Tensor<T, 1> normal(size_t m, T mean = T{0.0}, T stddev = T{1.0}, const Order or
  * @return Tensor<T, 2>: The tensor of random numbers.
  */
 template <typename T = float>
-Tensor<T, 2> normal(size_t m, size_t n, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C, curandGenerator_t gen = cuda::curand.get_handle()) {
+Tensor<T, 2> normal(size_t m, size_t n, T mean = T{0.0}, T stddev = T{1.0}, const Order order = Order::C,
+                    curandGenerator_t gen = cuda::CuRand::get_instance().get_handle()) {
     auto shape = Shape<2>{m, n};
     return normal<T, 2>(shape, mean, stddev, order, gen);
 }

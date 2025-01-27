@@ -9,17 +9,26 @@ cuda_library(
         "broadcast.hpp",
         "cutensor.hpp",
         "iterator.hpp",
-        "mempool.hpp",
         "operator.hpp",
         "print.hpp",
         "slice.hpp",
         "tensor.hpp",
     ],
     deps = [
-        "//lib/core:rmm_libs",
         "@local_cuda//:thrust",
         "@rmm",
     ],
+)
+
+cuda_library(
+    name = "mempool",
+    visibility = ["//visibility:public"],
+    hdrs = ["mempool.hpp"],
+    deps = [
+        ":rmm_libs",
+        "@rmm",
+    ],
+
 )
 
 cc_library(
@@ -43,4 +52,9 @@ cuda_library(
     visibility = ["//visibility:public"],
     hdrs = ["rmm_utils.hpp"],
     deps = ["@rmm"],
+)
+
+exports_files(
+    ["rmm_utils.hpp", "rmm_utils.cc"],
+    visibility = ["//visibility:public"],
 )

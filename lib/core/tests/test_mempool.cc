@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include <lib/vtensor.hpp>
+#include "lib/core/mempool.hpp"
 
 TEST(GlobalMempoolTest, BasicAssertions) {
     vt::GlobalMempool& instance1 = vt::GlobalMempool::get_instance(1);

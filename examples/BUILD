@@ -7,6 +7,7 @@ cuda_binary(
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],
     deps = [
         "//lib:vtensor",
+        "//lib/core:mempool",
     ]
 )
 
@@ -17,5 +18,6 @@ cuda_binary(
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],
     deps = [
         "//lib:vtensor",
+        "//lib/core:mempool",
     ],
 )
