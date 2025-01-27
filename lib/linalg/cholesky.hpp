@@ -19,7 +19,7 @@ namespace linalg {
  * @return Tensor: The lower triangle of the Cholesky decomposition.
  */
 template <typename T>
-Tensor<T, 2> cholesky(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+Tensor<T, 2> cholesky(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::CuSolver::get_instance().get_handle()) {
     assert(tensor.order() == vt::Order::C);
     auto [n, m] = tensor.shape();
     assert(n == m);
@@ -52,7 +52,7 @@ Tensor<T, 2> cholesky(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cu
  * @return Tensor: The lower triangle of the Cholesky decomposition.
  */
 template <typename T, size_t N>
-Tensor<T, N> cholesky(Tensor<T, N>& tensor, cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+Tensor<T, N> cholesky(Tensor<T, N>& tensor, cusolverDnHandle_t handle = cuda::CuSolver::get_instance().get_handle()) {
     assert(tensor.order() == vt::Order::C);
     assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();

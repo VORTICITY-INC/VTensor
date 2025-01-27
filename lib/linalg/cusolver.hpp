@@ -78,9 +78,6 @@ class CuSolver {
     CuSolverHandleT handle;
 };
 
-// This is global CuSolver instance
-static CuSolver& cusolver = CuSolver::get_instance();
-
 /**
  * @brief The type of the CuSolver functions.
  *

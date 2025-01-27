@@ -26,7 +26,7 @@ namespace linalg {
  */
 template <typename T>
 std::tuple<Tensor<T, 2>, Tensor<T, 1>, Tensor<T, 2>> svd(Tensor<T, 2>& tensor, bool full_matrices = true, bool compute_uv = true,
-                                                         cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+                                                         cusolverDnHandle_t handle = cuda::CuSolver::get_instance().get_handle()) {
     assert(tensor.order() == vt::Order::C);
     auto [n, m] = tensor.shape();
     Tensor<T, 2> x;
@@ -109,7 +109,7 @@ std::tuple<Tensor<T, 2>, Tensor<T, 1>, Tensor<T, 2>> svd(Tensor<T, 2>& tensor, b
  */
 template <typename T, size_t N>
 std::tuple<Tensor<T, N>, Tensor<T, N - 1>, Tensor<T, N>> svd(Tensor<T, N>& tensor, bool full_matrices = true, bool compute_uv = true,
-                                                             cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+                                                             cusolverDnHandle_t handle = cuda::CuSolver::get_instance().get_handle()) {
     assert(tensor.order() == vt::Order::C);
     assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();

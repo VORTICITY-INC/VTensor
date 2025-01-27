@@ -77,9 +77,6 @@ class CuBLAS {
     CuBLASHandleT handle;
 };
 
-// This is global CuBLAS instance
-static CuBLAS& cublas = CuBLAS::get_instance();
-
 /**
  * @brief The type of the CuBLAS functions.
  *

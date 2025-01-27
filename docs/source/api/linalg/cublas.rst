@@ -14,8 +14,6 @@ vt::cuda::CuBLAS
 .. doxygenclass:: vt::cuda::CuBLAS
    :members:
 
-.. doxygenvariable:: vt::cuda::cublas
-
 .. doxygenstruct:: vt::cuda::CuBLASFuncType
    :members:
 

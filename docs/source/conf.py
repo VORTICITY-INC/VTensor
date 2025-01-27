@@ -7,11 +7,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import pathlib
 import sys
-import warnings
-from sphinx.deprecation import RemovedInSphinx90Warning
 
 sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
-warnings.filterwarnings("ignore", category=RemovedInSphinx90Warning)
+
 project = 'VTensor'
 copyright = '2024, Vorticity Inc'
 author = 'Sheng-Yang Tsui'

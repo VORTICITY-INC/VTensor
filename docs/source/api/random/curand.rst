@@ -47,7 +47,5 @@ vt::cuda:CuRand
 .. doxygenclass:: vt::cuda::CuRand
    :members:
 
-.. doxygenvariable:: vt::cuda::curand
-
 .. doxygenfunction:: vt::cuda::set_seed(size_t seed, curandGenerator_t gen = curand.get_handle())
 .. doxygenfunction:: vt::cuda::set_offset(size_t offset, curandGenerator_t gen = curand.get_handle())

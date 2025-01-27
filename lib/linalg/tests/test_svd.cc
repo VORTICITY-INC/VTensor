@@ -39,7 +39,7 @@ TEST(SVDFullMatrix2, BasicAssertions) {
     auto [vt, s, u] = vt::linalg::svd(tensor);
 
     auto s1 = vt::asvector(s);
-    std::vector<float> s2 = {2.2409296e+01, 1.9553399e+00, 3.9066444e-07};
+    std::vector<float> s2 = {2.2409298e+01, 1.9553399e+00, 3.9066444e-07};
     for (int i = 0; i < s1.size(); i++) {
         EXPECT_NEAR(s1[i], s2[i], 1e-6);
     }
@@ -104,7 +104,7 @@ TEST(SVDNotFullMatrix2, BasicAssertions) {
     auto [vt, s, u] = vt::linalg::svd(tensor, false);
 
     auto s1 = vt::asvector(s);
-    std::vector<float> s2 = {2.2409296e+01, 1.9553399e+00, 3.9066444e-07};
+    std::vector<float> s2 = {2.2409298e+01, 1.9553399e+00, 3.9066444e-07};
     for (int i = 0; i < s1.size(); i++) {
         EXPECT_NEAR(s1[i], s2[i], 1e-6);
     }

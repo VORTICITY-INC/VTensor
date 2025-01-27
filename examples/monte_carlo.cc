@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <lib/core/mempool.hpp>
 #include <lib/vtensor.hpp>
 
 int main() {

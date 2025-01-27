@@ -4,8 +4,8 @@
 
 TEST(RandC, BasicAssertions) {
     // Set the seed and offset to the original state
-    vt::cuda::set_seed(0, vt::cuda::curand.get_handle());
-    vt::cuda::set_offset(0, vt::cuda::curand.get_handle());
+    vt::cuda::set_seed(0, vt::cuda::CuRand::get_instance().get_handle());
+    vt::cuda::set_offset(0, vt::cuda::CuRand::get_instance().get_handle());
 
     auto shape = vt::Shape<1>{10};
     auto tensor = vt::random::rand(shape);
@@ -27,8 +27,8 @@ TEST(RandC, BasicAssertions) {
 
 TEST(RandF, BasicAssertions) {
     // Set the seed and offset to the original state
-    vt::cuda::set_seed(0, vt::cuda::curand.get_handle());
-    vt::cuda::set_offset(0, vt::cuda::curand.get_handle());
+    vt::cuda::set_seed(0, vt::cuda::CuRand::get_instance().get_handle());
+    vt::cuda::set_offset(0, vt::cuda::CuRand::get_instance().get_handle());
 
     auto shape = vt::Shape<1>{10};
     auto tensor = vt::random::rand(shape, vt::Order::F);
@@ -90,8 +90,8 @@ TEST(QusiRandF, BasicAssertions) {
 
 TEST(Rand1DC, BasicAssertions) {
     // Set the seed and offset to the original state
-    vt::cuda::set_seed(0, vt::cuda::curand.get_handle());
-    vt::cuda::set_offset(0, vt::cuda::curand.get_handle());
+    vt::cuda::set_seed(0, vt::cuda::CuRand::get_instance().get_handle());
+    vt::cuda::set_offset(0, vt::cuda::CuRand::get_instance().get_handle());
 
     // Generate from global
     auto shape = vt::Shape<1>{10};
@@ -105,8 +105,8 @@ TEST(Rand1DC, BasicAssertions) {
 
 TEST(Rand1DF, BasicAssertions) {
     // Set the seed and offset to the original state
-    vt::cuda::set_seed(0, vt::cuda::curand.get_handle());
-    vt::cuda::set_offset(0, vt::cuda::curand.get_handle());
+    vt::cuda::set_seed(0, vt::cuda::CuRand::get_instance().get_handle());
+    vt::cuda::set_offset(0, vt::cuda::CuRand::get_instance().get_handle());
 
     // Generate from global
     auto shape = vt::Shape<1>{10};
@@ -120,8 +120,8 @@ TEST(Rand1DF, BasicAssertions) {
 
 TEST(Rand2DC, BasicAssertions) {
     // Set the seed and offset to the original state
-    vt::cuda::set_seed(0, vt::cuda::curand.get_handle());
-    vt::cuda::set_offset(0, vt::cuda::curand.get_handle());
+    vt::cuda::set_seed(0, vt::cuda::CuRand::get_instance().get_handle());
+    vt::cuda::set_offset(0, vt::cuda::CuRand::get_instance().get_handle());
 
     // Generate from global
     auto shape = vt::Shape<1>{10};
@@ -135,8 +135,8 @@ TEST(Rand2DC, BasicAssertions) {
 
 TEST(Rand2DF, BasicAssertions) {
     // Set the seed and offset to the original state
-    vt::cuda::set_seed(0, vt::cuda::curand.get_handle());
-    vt::cuda::set_offset(0, vt::cuda::curand.get_handle());
+    vt::cuda::set_seed(0, vt::cuda::CuRand::get_instance().get_handle());
+    vt::cuda::set_offset(0, vt::cuda::CuRand::get_instance().get_handle());
 
     // Generate from global
     auto shape = vt::Shape<1>{10};

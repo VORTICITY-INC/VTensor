@@ -22,7 +22,7 @@ namespace linalg {
  * @return Tensor: The inverse tensor object.
  */
 template <typename T>
-Tensor<T, 2> inv(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cusolver.get_handle()) {
+Tensor<T, 2> inv(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::CuSolver::get_instance().get_handle()) {
     assert(tensor.order() == vt::Order::C);
     auto shape = tensor.shape();
     assert(shape[0] == shape[1]);
@@ -65,7 +65,7 @@ Tensor<T, 2> inv(Tensor<T, 2>& tensor, cusolverDnHandle_t handle = cuda::cusolve
  * @return Tensor<T, N>: The inverse tensor object.
  */
 template <typename T, size_t N>
-Tensor<T, N> inv(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::cublas.get_handle()) {
+Tensor<T, N> inv(Tensor<T, N>& tensor, cublasHandle_t handle = cuda::CuBLAS::get_instance().get_handle()) {
     assert(tensor.order() == vt::Order::C);
     assert_at_least_3d_tensor<N>();
     auto shape = tensor.shape();

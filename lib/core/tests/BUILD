@@ -15,6 +15,7 @@ cuda_test(
     copts = ["-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE"],
     deps = [
         "//lib:vtensor",
+        "//lib/core:mempool",
         "@googletest//:gtest_main",
     ],
 )

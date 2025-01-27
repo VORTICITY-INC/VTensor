@@ -1,4 +1,5 @@
 #include <iostream>
+#include <lib/core/mempool.hpp>
 #include <lib/vtensor.hpp>
 
 __global__ void kernel1(vt::CuTensor<float, 2> tensor) {
