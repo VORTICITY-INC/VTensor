@@ -396,7 +396,7 @@
                   
   <section id="memory-management">
 <h1>Memory Management<a class="headerlink" href="#memory-management" title="Link to this heading">#</a></h1>
-<p>VTensor leverages the <a class="reference external" href="https://github.com/rapidsai/rmm">RMM device memory pool</a> for memory allocation by default, offering two strategies for GPU memory management:</p>
+<p>User could leverage the <a class="reference external" href="https://github.com/rapidsai/rmm">RMM device memory pool</a> for memory allocation. Here are some ways to manage memory allocation in your program:</p>
 <ol class="arabic simple">
 <li><p><strong>Global Memory Pool</strong>: This approach involves configuring the compiler options to set <cite>-DPOOL_SIZE</cite> to a specific percentage of the total GPU memory. An example configuration in a Bazel BUILD file demonstrates this method. Unless altered, this setting reserves 50% of each GPU device’s total memory for the global memory pool. Memory allocation logs are saved to <cite>/tmp/vtensor/memory.log</cite>.</p></li>
 </ol>
@@ -404,8 +404,19 @@
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_program&quot;</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my_program.cc&quot;</span><span class="p">],</span>
     <span class="n">copts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-DPOOL_SIZE=90&quot;</span><span class="p">,</span> <span class="s2">&quot;-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE&quot;</span><span class="p">],</span>
-    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;@vtensor&quot;</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+     <span class="s2">&quot;//lib:vtensor&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;//lib/core:mempool&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib/core/mempool.hpp&quot;</span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib/vtensor.hpp&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">   </span><span class="c1">// Make sure you include mempool.hpp in your program. A global memory pool is initialized for every GPU device.</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -414,22 +425,25 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cc_binary</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_program&quot;</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my_program.cc&quot;</span><span class="p">],</span>
-    <span class="n">copts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-DPOOL_SIZE=90&quot;</span><span class="p">,</span> <span class="s2">&quot;-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE&quot;</span><span class="p">,</span> <span class="s2">&quot;-DDISABLE_GLOBAL_MEMPOOL=true&quot;</span><span class="p">],</span>
-    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;@vtensor&quot;</span><span class="p">],</span>
+    <span class="n">copts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE&quot;</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+     <span class="s2">&quot;//lib:vtensor&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;//lib/core:rmm_utils&quot;</span><span class="p">,</span>
+ <span class="p">],</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;lib/vtensor.hpp&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib/core/rmm_utils.hpp&quot;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">Mempool</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/vtensor/memory.log&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Current GPU device&#39;s memory pool</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;lib/vtensor.hpp&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib/core/rmm_utils.hpp&quot;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">GlobalMempool</span><span class="o">::</span><span class="n">get_instance</span><span class="p">();</span><span class="w"> </span><span class="c1">// Initialize global memory pool for every GPU device</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vt</span><span class="o">::</span><span class="n">GlobalMempool</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w"> </span><span class="c1">// Initialize global memory pool for every GPU device</span>
 <span class="p">}</span>
 </pre></div>
 </div>
