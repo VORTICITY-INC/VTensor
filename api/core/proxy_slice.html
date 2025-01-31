@@ -615,7 +615,7 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N2vt5SliceE">
 <span id="_CPPv3N2vt5SliceE"></span><span id="_CPPv2N2vt5SliceE"></span><span id="vt::Slice"></span><span class="target" id="classvt_1_1Slice"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Slice</span></span></span><a class="headerlink" href="#_CPPv4N2vt5SliceE" title="Link to this definition">#</a><br /></dt>
-<dd><p><a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> class to represent a slice of a tensor. Usage: Slice(0) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 1 with step 1 Slice(0, 10) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 10 with step 1 Slice(0, 10, 2) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 10 with step 2. </p>
+<dd><p><a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> class to represent a slice of a tensor. Usage: Slice(0) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 1 with step 1 Slice(0, 10) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 10 with step 1 Slice(0, 10, 2) -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> from 0 to 10 with step 2 <a class="reference internal" href="#classvt_1_1Slice_1a2c6b58e1a2548bac4a6cf90ddeb438fa"><span class="std std-ref">Slice::all()</span></a> -&gt; <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> to represent the full range. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -654,6 +654,31 @@
 <li><p><strong>end</strong> – The end index of the slice. </p></li>
 <li><p><strong>step</strong> – The step of the slice. </p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt5Slice5SliceE9SliceType">
+<span id="_CPPv3N2vt5Slice5SliceE9SliceType"></span><span id="_CPPv2N2vt5Slice5SliceE9SliceType"></span><span id="vt::Slice::Slice__SliceType"></span><span class="target" id="classvt_1_1Slice_1aba448a6312eb4d7a7c964ea14e9570d0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Slice</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SliceType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt5Slice5SliceE9SliceType" title="Link to this definition">#</a><br /></dt>
+<dd><p>Construct a new <a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type</strong> – The type of the slice. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2vt5Slice3allEv">
+<span id="_CPPv3N2vt5Slice3allEv"></span><span id="_CPPv2N2vt5Slice3allEv"></span><span id="vt::Slice::all"></span><span class="target" id="classvt_1_1Slice_1a2c6b58e1a2548bac4a6cf90ddeb438fa"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2vt5SliceE" title="vt::Slice"><span class="n"><span class="pre">Slice</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">all</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2vt5Slice3allEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return a slice object to represent the full range. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classvt_1_1Slice"><span class="std std-ref">Slice</span></a>: The slice object. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -787,6 +812,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE6size_t"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE6size_t6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice5SliceE9SliceType"><code class="docutils literal notranslate"><span class="pre">Slice::Slice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N2vt5Slice3allEv"><code class="docutils literal notranslate"><span class="pre">Slice::all()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_6size_tEN2vt16TensorSliceProxyE"><code class="docutils literal notranslate"><span class="pre">TensorSliceProxy</span></code></a><ul class="nav section-nav flex-column">
