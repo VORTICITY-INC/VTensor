@@ -136,3 +136,17 @@ TEST(TensorCondProxyFromConstantF, BasicAssertions) {
     tensor[tensor > 12.0f] = 1.0f;
     EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{0, 2, 4, 6, 8, 10, 12, 1, 1, 1, 1, 1}));
 }
+
+TEST(BroadcastSliceAssignmentC, BasicAssertions) {
+    auto tensor = vt::arange(12).reshape(4, 3);
+    tensor(vt::Slice::all(), vt::Slice(0, 2, 1)) = tensor(vt::Slice::all(), vt::Slice(2, 3, 1));
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{2, 2, 2, 5, 5, 5, 8, 8, 8, 11, 11, 11}));
+    EXPECT_EQ(tensor.contiguous(), true);
+}
+
+TEST(BroadcastSliceAssignmentF, BasicAssertions) {
+    auto tensor = vt::arange(12, vt::Order::F).reshape(4, 3);
+    tensor(vt::Slice::all(), vt::Slice(0, 2, 1)) = tensor(vt::Slice::all(), vt::Slice(2, 3, 1));
+    EXPECT_EQ(vt::asvector(tensor), (std::vector<float>{8, 9, 10, 11, 8, 9, 10, 11, 8, 9, 10, 11}));
+    EXPECT_EQ(tensor.contiguous(), true);
+}

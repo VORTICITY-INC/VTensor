@@ -10,6 +10,9 @@ vt::TensorSliceProxy
 .. doxygenstruct:: vt::NewAxisT
    :members:
 
+.. doxygenenum:: vt::SliceType
+   :members:
+
 .. doxygenclass:: vt::Slice
    :members:
 
