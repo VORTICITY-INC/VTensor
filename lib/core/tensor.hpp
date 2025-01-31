@@ -417,11 +417,16 @@ class Tensor {
         Shape<N> new_shape{};
         size_t offset = 0;
         for (size_t i = 0; i < N; i++) {
-            assert(slices[i].end <= _shape[i]);       // Check if the end of the slice is within the tensor dimension.
-            assert(slices[i].start < slices[i].end);  // Check if the start of the slice is less than the end.
-            new_strides[i] = slices[i].step * _strides[i];
-            new_shape[i] = (slices[i].end - slices[i].start + slices[i].step - 1) / slices[i].step;
-            offset += slices[i].start * _strides[i];
+            if (slices[i].type == SliceType::All) {
+                new_strides[i] = _strides[i];
+                new_shape[i] = _shape[i];
+            } else {
+                assert(slices[i].end <= _shape[i]);       // Check if the end of the slice is within the tensor dimension.
+                assert(slices[i].start < slices[i].end);  // Check if the start of the slice is less than the end.
+                new_strides[i] = slices[i].step * _strides[i];
+                new_shape[i] = (slices[i].end - slices[i].start + slices[i].step - 1) / slices[i].step;
+                offset += slices[i].start * _strides[i];
+            }
         }
         size_t new_start = _start + offset;
         return Tensor<T, N>(_data, new_shape, new_strides, new_start, _order, false);
@@ -443,7 +448,13 @@ class Tensor {
      *
      * @return T*: The raw pointer of the tensor.
      */
-    T* raw_ptr() const { return thrust::raw_pointer_cast(_data->data()); }
+    T* raw_ptr() const {
+        if (_data == nullptr) {
+            return nullptr;
+        } else {
+            return thrust::raw_pointer_cast(_data->data());
+        }
+    }
 
     /**
      * @brief Return the contiguous flag of the tensor.

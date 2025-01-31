@@ -1,9 +1,15 @@
 #pragma once
 
 #include "lib/core/assertions.hpp"
+#include "lib/core/broadcast.hpp"
 #include "lib/core/tensor.hpp"
 
 namespace vt {
+
+/**
+ * @brief Slice type.
+ */
+enum class SliceType { Normal, All };
 
 /**
  * @brief Slice class to represent a slice of a tensor.
@@ -11,12 +17,14 @@ namespace vt {
  * Slice(0) -> Slice from 0 to 1 with step 1
  * Slice(0, 10) -> Slice from 0 to 10 with step 1
  * Slice(0, 10, 2) -> Slice from 0 to 10 with step 2
+ * Slice::all() -> Slice to represent the full range
  */
 class Slice {
    public:
     size_t start;
     size_t end;
     size_t step;
+    SliceType type = SliceType::Normal;
 
     // Default constructor
     Slice() = default;
@@ -44,6 +52,20 @@ class Slice {
      * @param step: The step of the slice.
      */
     Slice(size_t start, size_t end, size_t step) : start(start), end(end), step(step) {}
+
+    /**
+     * @brief Construct a new Slice object
+     *
+     * @param type: The type of the slice.
+     */
+    Slice(SliceType type) : type(type) {}
+
+    /**
+     * @brief Return a slice object to represent the full range.
+     *
+     * @return Slice: The slice object.
+     */
+    static Slice all() { return Slice(SliceType::All); }
 };
 
 /**
@@ -99,8 +121,8 @@ class TensorSliceProxy : public Tensor<T, N> {
      */
     TensorSliceProxy& operator=(const Tensor<T, N>& other) {
         assert_same_order_between_two_tensors(this->order(), other.order());
-        assert(this->shape() == other.shape());
-        thrust::copy(other.begin(), other.end(), this->begin());
+        auto [lhs, rhs] = broadcast(*this, other);
+        thrust::copy(rhs.begin(), rhs.end(), lhs.begin());
         return *this;
     }
 

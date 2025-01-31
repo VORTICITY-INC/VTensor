@@ -55,6 +55,8 @@ Comparison between NumPy and VTensor
      - vt::expand_dims_lhs<T, N, 2>(tensor)
    * - arr[..., None, None]
      - vt::expand_dims_rhs<T, N, 2>(tensor)
+   * - arr[:, :]
+     - tensor(vt::Slice::all(), vt::Slice::all())
 
 .. list-table:: Broadcasting
    :header-rows: 1
