@@ -37,16 +37,16 @@ Tensor<T, 1> astensor(const std::vector<T>& vector, const Order order = Order::C
  * @param arr: The xarray object.
  * @return Tensor: The tensor from the xarray.
  */
-template <typename T, size_t N, xt::layout_type L>
-Tensor<T, N> astensor(const xt::xarray<T, L>& arr) {
+template <typename T, size_t N, typename C>
+Tensor<T, N> astensor(const C& arr) {
     Order order;
-    if constexpr (L == xt::layout_type::row_major) {
+    const auto L = arr.layout();
+    if (L == xt::layout_type::row_major) {
         order = Order::C;
-    } else if constexpr (L == xt::layout_type::column_major) {
+    } else if (L == xt::layout_type::column_major) {
         order = Order::F;
-    } else {
-        static_assert(L == xt::layout_type::row_major || L == xt::layout_type::column_major, "Unsupported layout type.");
-    }
+    } 
+
     auto sh = arr.shape();
     vt::Shape<N> shape;
     assert(sh.size() == N);
