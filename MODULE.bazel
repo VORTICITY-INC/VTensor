@@ -56,7 +56,6 @@ http_archive(
 
 http_archive(
     name = "xtensor",
-    sha256 = "a7d31716ee0d0d82f33c70976e0ec52a78bbbc3e337a51d58da76d8af224ebf9",
     strip_prefix = "xtensor-0.25.0",
     urls = ["https://github.com/xtensor-stack/xtensor/archive/refs/tags/0.25.0.zip"],
     build_file = "//third_party:xtensor.bazel",
