@@ -48,7 +48,7 @@ http_archive(
 
 http_archive(
     name = "xtl",
-    strip_prefix = "xtl-master",
+    strip_prefix = "xtl-0.7.7",
     urls = ["https://github.com/xtensor-stack/xtl/archive/refs/tags/0.7.7.zip"],
     build_file = "//third_party:xtl.bazel",
 )
